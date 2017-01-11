@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>“画”说我爱你，献给妈妈的礼物</title>
+    <link rel="stylesheet" href="/static/style/m20160506/index.css">
+    <link rel="stylesheet" href="/static/style/iconfont.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+    <div id="loadpage"></div>
+    <article id="unStart" class="viewport hide"></article>
+    <article id="picList" class="viewport hide"></article>
+    <div id="shareMask" class="share-mask"><img src="/static/images/m20160506/share-mask.png" alt=""/></div>
+    <script id="unStartTpl" type="text/x-handlebars-template">
+        <header>
+            <div class="logo"><img src="/static/images/m20160506/logo.png" alt="钱庄网络"/></div>
+            <a class="btn btn-top" href="javascript:;">画礼物手册</a>
+        </header>
+        <div class="content">
+            <div class="countdown">00:00:00</div>
+            <div class="show-list"><img src="/static/images/m20160506/show-list.png" alt="画作展示"/></div>
+        </div>
+    </script>
+    <script id="startTpl" type="text/x-handlebars-template">
+        <header>
+            <div class="top-bar">
+                <div class="logo"><img src="/static/images/m20160506/logo.png" alt="钱庄网络"/></div>
+                <div class="list-num">已有<span>{{total}}</span>人画礼物</div>
+                <a class="btn btn-top" href="javascript:;">画礼物手册</a>
+            </div>
+        </header>
+        <div class="content">
+            <div class="list-tab">
+                <div class="tab-ctrl">
+                    <a class="on" href="javascript:;">最新画榜</a>
+                    <a href="javascript:;">好评画榜</a>
+                    <a href="javascript:;">大奖得主</a>
+                </div>
+                <div class="tab-container">
+                    <div id="newList" class="tab-item no-data">
+                        <ul class="paint-list"></ul>
+                    </div>
+                    <div id="topList" class="tab-item no-data">
+                        <ul class="paint-list"></ul>
+                    </div>
+                    <div id="tabRule" class="tab-item tab3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </script>
+    <script id="tabRuleTpl" type="text/x-handlebars-template">
+        <div class="top-list">
+            <div class="top-item">
+                <div class="pic"><img src="/static/images/m20160506/top-pic1.png" alt="奖品"/></div>
+                <h3 class="tit">总赞值NO.1</h3>
+
+                <p class="name"><span>小熊红陶内胆紫砂锅</span></p>
+
+                <p class="winner">获奖者：<span>5月17日</span>揭晓</p>
+            </div>
+            <div class="top-item">
+                <div class="pic"><img src="/static/images/m20160506/top-pic2.png" alt="奖品"/></div>
+                <h3 class="tit">成功邀请好友数NO.1</h3>
+
+                <p class="name"><span>小熊双层蒸煮电热饭盒</span></p>
+
+                <p class="winner">获奖者：<span>5月17日</span>揭晓</p>
+            </div>
+            <div class="top-item">
+                <div class="pic"><img src="/static/images/m20160506/top-pic3.png" alt="奖品"/></div>
+                <h3 class="tit">活动期间累计投资额NO.1</h3>
+
+                <p class="name"><span>小熊全自动家用酸奶机</span></p>
+
+                <p class="winner">获奖者：<span>5月17日</span>揭晓</p>
+            </div>
+        </div>
+        <table class="table-info">
+            <thead>
+            <tr>
+                <th>总赞值</th>
+                <th>红包奖励</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>总赞值≥700</td>
+                <td><img src="/static/images/m20160506/red-packet.png" alt="红包"/><span>188元</span></td>
+            </tr>
+            <tr>
+                <td>400≤总赞值<700</td>
+                <td><img src="/static/images/m20160506/red-packet.png" alt="红包"/><span>88元</span></td>
+            </tr>
+            <tr>
+                <td>200≤总赞值<400</td>
+                <td><img src="/static/images/m20160506/red-packet.png" alt="红包"/><span>48元</span></td>
+            </tr>
+            <tr>
+                <td>100≤总赞值<200</td>
+                <td><img src="/static/images/m20160506/red-packet.png" alt="红包"/><span>18元</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="2">5月17日将在<a class="highlight bbs" href="javascript:;">活动帖</a>公布获奖名单</th>
+            </tr>
+            </tfoot>
+        </table>
+        <p class="info-meta">实物奖品将在活动结束后的7个工作日内寄出，红包将在活动结束后的1个工作日内发放。</p>
+    </script>
+    <script id="picListTpl" type="text/x-handlebars-template">
+        {{#each picList}}
+        <li data-id="{{id}}">
+            <h3 class="tit">编号：{{id}}</h3>
+            <div class="box">
+                <div class="pic"><img src="http://file.qian360.com/{{picUrl}}@1wh.jpg?t={{updateTime}}" alt=""/></div>
+                <div class="meta">
+                    <span class="fl">赞：{{integral}}</span>
+                    <span class="fr">排名：{{addOne @index}}</span>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+    <script id="showPaintTpl" type="text/x-handlebars-template">
+        <div class="mask-paint hide">
+            <a href="javascript:;" class="close-btn iconfont icon-close"></a>
+            <div class="show-paint">
+                <div class="top-bar">
+                    <h3 class="tit">编号：{{id}}</h3>
+                </div>
+                <div class="container">
+                    <img class="pic" src="http://file.qian360.com/{{picUrl}}@1wh.jpg?t={{updateTime}}" alt=""/>
+                    <a href="javascript:;" class="praise-btn{{#if likeStatus}} praised{{/if}}{{endHide}}" title="赞成"></a>
+                </div>
+                <div class="meta">
+                    <span>赞：{{integral}}</span>
+                    <span>排名：{{rankId}}</span>
+                    <a href="javascript:;" class="btn">分享画作</a>
+                </div>
+                <a href="javascript:;" class="btn-back">返回画榜</a>
+            </div>
+        </div>
+    </script>
+
+    <script id="dialogTpl" type="text/x-handlebars-template">
+        <div class="dialog-mask">
+            <div class="dialog-box">
+                <div class="dialog-content">一天只能给TA赞一次哦~</div>
+                <div class="dialog-footer"><a href="javascript:;" class="btn">好的</a></div>
+            </div>
+        </div>
+    </script>
+    <input id="sharePic" type="hidden" value="/static/images/m20160506/share-pic.jpg"/>
+    <script src="/static/script/modules/sea.js"></script>
+    <script src="/static/script/modules/seajs-config.js"></script>
+    <script>
+        seajs.use('/static/script/m20160506/index.js');
+    </script>
+</body>
+</html>

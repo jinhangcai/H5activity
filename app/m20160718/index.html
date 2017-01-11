@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>骰子夺金</title>
+    <link rel="stylesheet" href="/static/style/m20160718/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="dice-bg">
+        <div class="top-bar">
+            <a class="chance-box" href="javascript:;" @click="showUserPanel">
+                <span class="chance-inner">可摇{{chanceNum}}次</span>
+                <span class="chance-plus">
+                    <i class="chance-plus-inner"></i>
+                </span>
+            </a>
+            <a class="top-link" href="javascript:;" @click="linkRecord">我的记录</a>
+            <a class="top-link" href="javascript:;" @click="linkGameRule">玩法</a>
+        </div>
+        <div class="dice-wrap">
+            <div class="dice-header">
+                <div class="shake-text" v-show="isNotSnake" @click="shake">摇一摇</div>
+                <div class="dice-result" v-show="isShowResult">
+                    <div class="result-cont">
+                        <p>总点数：{{pointTotal}}点</p>
+                        <p>{{resultText}}</p>
+                    </div>
+                    <a href="javascript:;" class="btn" @click="goonSnake">继续摇</a>
+                </div>
+            </div>
+            <div class="dice-box">
+                <template v-for="list in pointList">
+                    <div class="dice point{{list.num}}"></div>
+                </template>
+            </div>
+            <div class="dice-cup" :class="classObject" v-show="isSnake"></div>
+            <div class="other-list">
+                <ul>
+                    <li v-for="item in lotteryShowData">
+                        {{item.phone}}&nbsp;摇到&nbsp;{{item.point}}点
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="tab-ctrl">
+        <div class="ctrl-box">
+            <a :class="tabNum == 1 ? 'active' : ''" href="javascript:;" @click="tab(1)">摇红包</a>
+            <a :class="tabNum == 2 ? 'active' : ''" href="javascript:;" @click="tab(2)">7.18摇实物</a>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-item" v-if="tabNum === 1">
+            <div class="meta-tip">摇中相应点数即可获得下面红包</div>
+            <ul>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic">
+                            <div class="red-packet">
+                                <span class="num">12</span>
+                                <span class="unit">元</span>
+                            </div>
+                        </div>
+                        <div class="name">12元红包</div>
+                        <div class="rule">20≤点数<23</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic">
+                            <div class="red-packet">
+                                <span class="num">40</span>
+                                <span class="unit">元</span>
+                            </div>
+                        </div>
+                        <div class="name">40元红包</div>
+                        <div class="rule">24≤点数<27</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic">
+                            <div class="red-packet">
+                                <span class="num">90</span>
+                                <span class="unit">元</span>
+                            </div>
+                        </div>
+                        <div class="name">90元红包</div>
+                        <div class="rule">点数≥28</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic">
+                            <div class="red-packet">
+                                <span class="num">160</span>
+                                <span class="unit">元</span>
+                            </div>
+                        </div>
+                        <div class="name">160元红包</div>
+                        <div class="rule">5个1点</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-item" v-else>
+            <div class="meta-tip">7月18日所有点数总和还可兑下面礼品</div>
+            <ul>
+                <li class="first-pic">
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic1.png" alt="飞利浦意式咖啡机"></div>
+                        <div class="name">飞利浦意式咖啡机</div>
+                        <div class="rule">总点数≥4589</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic2.png" alt="3D高清投影仪"></div>
+                        <div class="name">3D高清投影仪</div>
+                        <div class="rule">2889≤总点数≤4588</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic3.png" alt="京东E卡500元"></div>
+                        <div class="name">京东E卡500元</div>
+                        <div class="rule">1889≤总点数≤2888</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic4.png" alt="蒸汽电动拖把"></div>
+                        <div class="name">蒸汽电动拖把</div>
+                        <div class="rule">1089≤总点数≤1888</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic5.png" alt="冰丝凉席三件套"></div>
+                        <div class="name">冰丝凉席三件套</div>
+                        <div class="rule">689≤总点数≤1088</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic6.png" alt="全自动酸奶机"></div>
+                        <div class="name">全自动酸奶机</div>
+                        <div class="rule">289≤总点数≤688</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-inner">
+                        <div class="pic"><img src="/static/images/m20160718/pic7.png" alt="迷你风扇"></div>
+                        <div class="name">迷你风扇</div>
+                        <div class="rule">160≤总点数≤288</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>
+<section id="loadPage" v-show="pageLoading"></section>
+<div id="alertPop" class="dialog-mask" v-show="alertState">
+    <div class="main">
+        <div class="body">
+            <div class="content">
+                {{{alertText}}}
+            </div>
+        </div>
+        <div class="footer"><a href="javascript:;" class="btn" @click="closeAlertPop">好的</a></div>
+    </div>
+</div>
+<div id="userPop" style="display:none" class="dialog-mask" v-show="showUserState">
+    <div class="main">
+        <a href="javascript:;" class="close" @click="closeUserPop"><i class="iconfont icon-close"></i></a>
+        <div class="title">没有机会？以下方式可以获得</div>
+        <div class="content">
+            <div class="chance-item">
+                <h2 class="tit">方式一、邀请好友({{shareNum}}/3)</h2>
+                <p>将活动分享给好友，好友只要通过您分享的链接摇骰子</p>
+                <p>奖励：1次</p>
+            </div>
+            <div class="chance-item">
+                <h2 class="tit">方式二、投资({{investNum}}/{{investMax}})</h2>
+                <p>投资28天及以上产品每满5000元或投资28天以下产品每满10000元</p>
+                <p>奖励：1次</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="javascript:;" class="btn" @click="goInvest">去投资</a><a href="javascript:;" class="btn" @click="goShare">分享给好友</a>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="sharePic" value="/static/images/m20160718/share.jpg">
+<section id="shareMask" style="display: none;" v-show="shareMask" @click="hideShareMask"></section>
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script src="/static/script/modules/buzz.min.js"></script>
+<script>
+    window.globalMusic = ['/static/script/m20160718/shake.mp3',
+        '/static/script/m20160718/result.mp3'];
+    seajs.use('/static/script/m20160718/index.js');
+</script>
+</body>
+</html>

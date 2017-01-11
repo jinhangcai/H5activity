@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>要要要发钱</title>
+    <link rel="stylesheet" href="/static/style/m20161118/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="whole">
+            <div class="banner"><img src="/static/images/m20161118/banner2.png"></div>
+            <div class="main">
+                <div class="center">
+                    <p class="line"></p>
+                    <div class="login"><img src="/static/images/m20161118/loginred.jpg"></div>
+                    <p class="Time">11月18日-20日，每人可领1个红包和1张加息券，金额随机，红包和加息券有效期为3天。</p>
+                    <div class="main-shop">
+                        <div class="shop">
+                            <div class="red"><div class="img"><p class="cen"><span>{{redboms}}</span><span>元</span></p></div></div>
+                            <a class="buttom" @click="redbom" v-if="draw">立即领取</a>
+                            <a class="buttom outbottom"  v-else><span>已领取</span></a>
+                            <p class="title">红包金额最高1118元</p>
+                        </div>
+                        <div class="shop shopright">
+                            <div class="red"><div class="img"><p class="cen"><span>{{quick}}</span><span>%</span></p></div></div>
+                            <a class="buttom" @click="shareget" v-if="noShared">分享后领取</a>
+                            <a class="buttom" @click="shareget1" v-if="noReceived">立即领取</a>
+                            <a class="buttom" @click="shareget2" v-if="isShow">分享后领取</a>
+                            <a class="buttom outbottom" v-if="hasReceived"><span>已领取</span></a>
+                            <p class="title titles">分享链接需被他人点击即可领取加息券</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="blackline"></div>
+                <div class="center">
+                    <p class="line"></p>
+                    <div class="login"><img src="/static/images/m20161118/polite.jpg"></div>
+                    <p class="Time">11月18日-20日的回款本金满5000元，且期间未提现直接投资满5000元的用户，可享受5-50元的续投奖励。</p>
+                    <div class="main-shop cen-shop">
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><p class="cen"><img src="/static/images/m20161118/red5.png"></p></div>
+                                <p class="title titles">单笔投资2000元</p>
+                                <p class="title titles">期限≥60天使用</p>
+                            </div>
+                             <div class="price">5千≤续投金额<2万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><p class="cen"><img src="/static/images/m20161118/red10.png"></p></div>
+                                <p class="title titles">单笔投资4000元</p>
+                                <p class="title titles">期限≥60天使用</p>
+                            </div>
+                            <div class="price">2万≤续投金额<5万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><p class="cen"><img src="/static/images/m20161118/red30.png"></p></div>
+                                <p class="title titles">单笔投资10000元</p>
+                                <p class="title titles">期限≥60天使用</p>
+                            </div>
+                            <div class="price">5万≤续投金额<8万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><p class="cen"><img src="/static/images/m20161118/red50.png"></p></div>
+                                <p class="title titles">单笔投资15000元</p>
+                                <p class="title titles">期限≥60天使用</p>
+                            </div>
+                            <div class="price">续投金额≥8万</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="blackline"></div>
+                <p class="line"></p>
+                <div class="login"><img src="/static/images/m20161118/Marriott.jpg"></div>
+                <div class="center">
+                    <p class="Time">11月18日，疯狂加息，赶快来抢！</p>
+                    <p class="Time Times">11月18日当天投资28天及以上理财产品的累计投资金额满足下列条件，获得相应的好礼。</p>
+                    <template v-if="start">
+                        <div class="Login" v-if="isLogin">11月18日您累计投资：<span class="money">{{money}}元</span>  <span class="investIn" @click="invest">立即投资</span></div>
+                        <div class="Login" v-else>登录可查看您的累计投资额  <span @click="gotoLogin">立即登录</span></div>
+                    </template>
+                    <div class="main-shop cen-shop invest-shop">
+                        <div class="shop shoppiad">
+                            <div class="red">
+                                <div class="img"><img src="/static/images/m20161118/piad.png"></div>
+                                <p class="title">ipad Air2  128G</p>
+                            </div>
+                            <div class="price">累计投资额≥180万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><img src="/static/images/m20161118/tv.png"></div>
+                                <p class="title">乐视X43超级电视</p>
+                            </div>
+                            <div class="price">140万≤累计投资额<180万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><img src="/static/images/m20161118/jd.png"></div>
+                                <p class="title titles">1700元京东卡</p>
+                            </div>
+                            <div class="price">110万≤累计投资额<140万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                 <div class="img"><img src="/static/images/m20161118/quilt.png"></div>
+                                <p class="title titles">罗莱白鸭绒被芯</p>
+                            </div>
+                            <div class="price">85万≤累计投资额<110万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                 <div class="img"><img src="/static/images/m20161118/catcher.png"></div>
+                                <p class="title titles">小狗无线吸尘器</p>
+                            </div>
+                            <div class="price">50万≤累计投资额<85万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                 <div class="img"><img src="/static/images/m20161118/quilt1.png"></div>
+                                <p class="title">荣事达电热毯</p>
+                            </div>
+                            <div class="price">20万≤累计投资额<50万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                <div class="img"><img src="/static/images/m20161118/warmer.png"></div>
+                                <p class="title titles">格力家用取暖器</p>
+                            </div>
+                            <div class="price">12万≤累计投资额<20万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                 <div class="img"><img src="/static/images/m20161118/pillow.png"></div>
+                                <p class="title titles">十二星座卡通抱枕被</p>
+                            </div>
+                            <div class="price">5万≤累计投资额<12万</div>
+                        </div>
+                        <div class="shop">
+                            <div class="red">
+                                 <div class="img"><img src="/static/images/m20161118/red2.png"></div>
+                                <p class="title titles">30元现金红包</p>
+                            </div>
+                            <div class="price">2万≤累计投资额<5万</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="cen">
+                        <div class="img"><img src="/static/images/m20161118/state.png"></div>
+                        <ol>
+                            <li>1、获得实物礼品的用户请主动去“我”-“个人中心”完善收货地址，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                            <li>2、实物礼品将统一在活动结束后的7个工作日内寄出，环节2和环节3的红包将在活动结束后的3个工作日内发放；实物礼品也可兑换成相应折扣的现金红包，请在11月21日16：00前主动联系客服做好备注；</li>
+                            <li>3、本次部分活动限定28天及以上理财产品，活动所获得红包的使用规则详见“我的券包使用说明”；</li>
+                            <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。本活动由钱庄网提供，与设备生产商Apple lnc 无关。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section v-show="showAlertMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="alert-pic">
+            <img src="/static/images/m20161118/qianmoney.png" alt="迷之微笑">
+        </div>
+        <div class="alert-content">{{title}}</div>
+        <a @click="hideAlert" href="javascript:;" class="alert-btn">好的呢</a>
+        <a @click="hideAlert" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<div class="poker" v-if="poker" @click="nopoker">
+    <img src="/static/images/m20161118/goshare.png">
+</div>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161118/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161118/index.js');
+</script>
+</body>
+</html>

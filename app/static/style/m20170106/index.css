@@ -1,0 +1,281 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+#loadPage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-size: 0.78rem auto;
+  background-color: #fff;
+}
+body {
+  background-color: #360861;
+}
+.viewport {
+  background-color: #360861;
+}
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+.awary {
+  width: 1.91rem;
+  height: 0.6rem;
+  margin-top: 0.49rem;
+}
+.awary img {
+  width: 100%;
+}
+.content {
+  margin: 0.49rem auto 0;
+  width: 5.5rem;
+  overflow: hidden;
+}
+.content div {
+  float: left;
+}
+.content div:nth-child(1) {
+  width: 1.74rem;
+  height: 1.76rem;
+  margin-right: 0.3rem;
+  background: url("../../images/m20170106/money.png") no-repeat;
+  background-size: 100%;
+}
+.content .title {
+  width: 3.38rem;
+  padding-top: 0.1rem;
+}
+.content .title p:nth-child(1) {
+  font-size: 0.26rem;
+  color: #ece1f7;
+  line-height: 0.35rem;
+}
+.content .title p:nth-child(2) {
+  color: #ffe84a;
+  font-size: 0.28rem;
+  text-align: right;
+}
+.content .round {
+  width: 100%;
+  height: 0.96rem;
+  position: relative;
+}
+.content .round span {
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: -webkit-linear-gradient(#4a1977, #380a63);
+  background: linear-gradient(#4a1977, #380a63);
+  position: absolute;
+}
+.content .round span:nth-child(1) {
+  left: 1.9rem;
+  top: 0.1rem;
+}
+.content .round span:nth-child(2) {
+  left: 2.52rem;
+  top: 0.73rem;
+}
+.content .round span:nth-child(3) {
+  left: 3.6rem;
+  top: 0.6rem;
+}
+.content div:nth-child(4) {
+  margin-right: 0.3rem;
+  width: 3.3rem;
+}
+.content div:nth-child(5) {
+  width: 1.74rem;
+  height: 1.76rem;
+  background: url("../../images/m20170106/money1.png") no-repeat;
+  background-size: 100%;
+}
+.content .invitation {
+  overflow: hidden;
+  width: 100%;
+  background: #4c207d;
+  border-radius: 0.2rem;
+}
+.content .invitation li {
+  color: #ece1f7;
+  font-size: 0.26rem;
+  padding: 0 0.4rem 0.23rem 0.4rem;
+  overflow: hidden;
+}
+.content .invitation li p {
+  display: inline-block;
+  text-align: left;
+  float: left;
+}
+.content .invitation li p:nth-child(1) {
+  width: 3.3rem;
+}
+.content .invitation li:nth-child(1) {
+  padding: 0.35rem 0 0.3rem 0.4rem;
+}
+.content .invitation li:nth-child(1) p {
+  color: #ffe84a;
+}
+.content .btn {
+  color: #360861;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.8rem;
+  border-radius: 0.1rem;
+  width: 2.77rem;
+  height: 0.8rem;
+  box-shadow: inset -0.07rem -0.07rem #dcc41f;
+  font-weight: bold;
+  background: #f7e040;
+  display: block;
+  margin: 0.4rem auto 0;
+}
+.instructions {
+  margin: 0.8rem auto 0.6rem;
+  width: 5.8rem;
+}
+.instructions li {
+  color: #c89af3;
+  font-size: 0.26rem;
+  line-height: 0.4rem;
+}
+.instructions li:nth-child(1) {
+  padding-bottom: 0.25rem;
+}
+.poker {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+.poker img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3.55rem;
+  height: 2.76rem;
+}

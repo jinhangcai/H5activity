@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>助力奥运会</title>
+    <link rel="stylesheet" href="/static/style/m20160805/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>助力奥运会</h2>
+                <small>8月5日-8月22日</small>
+            </div>
+        </div>
+        <div class="main">
+            <template v-if="!isEnd">
+                <template v-if="isOpened">
+                    <div class="gift-box opened">
+                        <div class="participate"><b>{{num}}</b>人为奥运成功助力！</div>
+                        <div class="red-packets">
+                            <div class="tit">助力奥运红包</div>
+                            <div class="cont">
+                                <div class="amount">
+                                    <span>{{amount}}<small>元</small></span>
+                                </div>
+                                <div class="describe">
+                                    <p>红包已到账：{{phone}}</p>
+                                    <p>快去使用，不要过期哦~</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="operation">
+                            <a href="javascript:;" @click="linkInvest">去使用</a>
+                            <a class="on" href="javascript:;" @click="showShareMask">邀好友助力</a>
+                        </div>
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="gift-box receive">
+                        <div class="participate"><b>{{num}}</b>人为奥运成功助力！</div>
+                        <div class="input">
+                            <input type="tel" maxlength="11" v-model="phone" placeholder="输入手机号为中国助力">
+                        </div>
+                        <div class="operation">
+                            <a class="btn no-text" href="javascript:;" v-if="phone.length==11" @click="receive">我要助力</a>
+                            <a class="btn disabled no-text" href="javascript:;" v-else>我要助力</a>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template v-else>
+                <div class="gift-box end">
+                    <div class="participate"><b>{{num}}</b>人为奥运成功助力！</div>
+                    <div class="cont">活动已结束</div>
+                    <div class="operation">
+                        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.qz.qian&ckey=CK1304356609522">下载钱庄理财APP</a>
+                    </div>
+                </div>
+            </template>
+            <div class="rule-box">
+                <div class="tit">活动规则</div>
+                <div class="cont">
+                    <ol>
+                        <li>1、活动期间每人限领1次红包；</li>
+                        <li>2、领取红包的手机号码为钱庄网注册手机号，新用户领取时默认同意注册；</li>
+                        <li>3、本次活动最终解释权归杭州乾庄互联网金融服务有限公司。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section class="ui-pop-wait" style="display: none;" v-show="popTips">
+    <div class="ui-pop-main">
+        {{popTips}}
+    </div>
+</section>
+<section id="loadPage" v-show="isPageLoading"></section>
+<section id="shareMask" style="display: none;" v-show="isShareMask" @click="hideShareMask"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160805/share.png">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160805/index.js');
+</script>
+</body>
+</html>

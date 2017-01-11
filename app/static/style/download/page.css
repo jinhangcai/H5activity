@@ -1,0 +1,202 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+#loadPage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-size: 0.78rem auto;
+  background-color: #fff;
+}
+body {
+  background-color: #fff;
+}
+.header {
+  position: relative;
+  background: url("../../images/download/bg.png") no-repeat 0 0;
+  background-size: 100%;
+  padding: 0.64rem 0 1.1rem;
+  margin-bottom: 1.28rem;
+}
+.header .logo {
+  width: 1.64rem;
+  height: 1.63rem;
+  margin: 0 auto 0.62rem;
+}
+.header .logo img {
+  width: 100%;
+}
+.header .title {
+  font-size: 0.4rem;
+  text-align: center;
+  font-weight: normal;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.32rem;
+}
+.header .title .big {
+  font-size: 0.48rem;
+}
+.header .sub-title {
+  font-size: 0.24rem;
+  text-align: center;
+  color: #fff;
+}
+.header .sub-title span + span {
+  margin-left: 0.58rem;
+}
+.header .sub-title .iconfont {
+  font-size: 0.26rem;
+  margin-right: 0.1rem;
+}
+.header .red-pic {
+  position: absolute;
+  width: 1.65rem;
+  height: 1.65rem;
+  bottom: -0.825rem;
+  left: 50%;
+  margin-left: -0.825rem;
+}
+.header .red-pic img {
+  width: 100%;
+}
+.info {
+  font-size: 0.3rem;
+  color: #666;
+  text-align: center;
+  line-height: 1;
+}
+.info + .info {
+  margin-top: 0.18rem;
+}
+.info .red {
+  color: #f25f45;
+}
+.download-btn {
+  display: block;
+  margin: 0.52rem 1.2rem 0.2rem;
+  line-height: 0.9rem;
+  color: #fff;
+  font-size: 0.36rem;
+  text-align: center;
+  background-color: #f25f45;
+  border-radius: 0.45rem;
+}

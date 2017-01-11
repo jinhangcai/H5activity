@@ -1,0 +1,264 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+#loadPage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-size: 0.78rem auto;
+  background-color: #fff;
+}
+@font-face {
+  font-family: iconfont;
+  src: url("iconfont/iconfont.eot");
+  src: url("iconfont/iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff") format('woff'), url("iconfont/iconfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-group:before {
+  content: "\e644";
+}
+.icon-coin:before {
+  content: "\e645";
+}
+.icon-download:before {
+  content: "\e643";
+}
+.icon-close:before {
+  content: "\e604";
+}
+.viewport {
+  background: #f6cc23;
+}
+.viewport .login {
+  width: 5.8rem;
+  height: 0.78rem;
+  font-size: 0.28rem;
+  color: #333;
+  text-align: center;
+  line-height: 0.78rem;
+  background: #fdd845;
+  border-radius: 0.15rem;
+  margin: 0 auto 0;
+}
+.viewport .login span {
+  font-size: 0.28rem;
+  color: #d82f2f;
+}
+.viewport .login .gotologin {
+  text-decoration: underline;
+  color: #d82f2f;
+}
+.viewport .bg {
+  padding-bottom: 0.85rem;
+}
+.viewport .banner,
+.viewport .banners {
+  width: 100%;
+}
+.viewport .banner img,
+.viewport .banners img {
+  width: 100%;
+}
+.viewport .banners {
+  height: 1.47rem;
+}
+.viewport .shop {
+  background: #fdd845;
+  position: relative;
+}
+.viewport .shop .cen {
+  width: 5.6rem;
+  margin: 0 auto;
+}
+.viewport .shop .cen ul {
+  overflow: hidden;
+  width: 5.6rem;
+  margin: 0 auto;
+  padding-top: 0.3rem;
+}
+.viewport .shop .cen ul li {
+  width: 2.6rem;
+  margin-right: 0.4rem;
+  float: left;
+  padding-bottom: 0.4rem;
+}
+.viewport .shop .cen ul li div {
+  background: #fff;
+  border-radius: 0.15rem;
+}
+.viewport .shop .cen ul li div img {
+  width: 100%;
+  border-radius: 0.15rem;
+}
+.viewport .shop .cen ul li p {
+  line-height: 0.2rem;
+  text-align: center;
+  font-size: 0.22rem;
+  color: #333;
+}
+.viewport .shop .cen ul li .firstpps {
+  font-size: 0.22rem;
+  color: #333;
+  text-align: center;
+  padding: 0.14rem 0;
+}
+.viewport .shop .cen ul li p:nth-last-child(1) {
+  font-size: 0.22rem;
+  color: #d82f2f;
+  text-align: center;
+}
+.viewport .shop .cen ul li:nth-child(even) {
+  margin-right: 0;
+}
+.viewport .shop .cen ul .li-top {
+  width: 5.8rem;
+}
+.viewport .shop .cen ul .li-top div {
+  width: 2.6rem;
+  margin: 0 auto;
+}
+.viewport .shop .cen ul .li-left {
+  width: 2.7rem;
+  margin-right: 0.3rem;
+}
+.viewport .shop .cen ul .li-left div {
+  width: 2.6rem;
+  background: #fff;
+}
+.viewport .shop .newdaybg {
+  width: 1.23rem;
+  height: 1.45rem;
+  position: absolute;
+  right: 0;
+  bottom: 0.7rem;
+}

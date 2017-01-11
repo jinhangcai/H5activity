@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>元旦彩蛋 年货放肆兑</title>
+    <link rel="stylesheet" href="/static/style/m20161224/NewDay.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="banner"><img src="/static/images/m20161224/NewDay/banner.jpg"></div>
+        <div class="main">
+            <template v-if="isTime">
+                <div class="login" v-if="isLogin">1月1日您累计投资的收益：<span>{{money}}</span>元</div>
+                <div class="login" v-else>登录后查看您的累计收益  <span class="gotologin" @click="gotologin">立即登录</span></div>
+            </template>
+            <div class="bg">
+                <div class="banners"><img src="/static/images/m20161224/NewDay/girl.png"></div>
+                <div class="shop">
+                    <div class="cen">
+                        <ul>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/jiu.png"></div>
+                                <p class="firstpps">干红葡萄酒</p>
+                                <p>88元≤所得收益<188元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/jg.png"></div>
+                                <p class="firstpps">坚果大礼包</p>
+                                <p>488元≤所得收益<788元</p>
+                            </li>
+                            <li class="li-top">
+                                <div><img src="/static/images/m20161224/NewDay/lr.png"></div>
+                                <p class="firstpps">烟熏腊肉礼盒</p>
+                                <p>788元≤所得收益<1688元</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <img src="/static/images/m20161224/NewDay/bg.png" class="newdaybg">
+                </div>
+                <div class="banners"><img src="/static/images/m20161224/NewDay/housewife.png"></div>
+                <div class="shop">
+                    <div class="cen">
+                        <ul>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/gly.png"></div>
+                                <p class="firstpps">欧丽薇兰橄榄油</p>
+                                <p>788元≤所得收益<1688元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/tie.png"></div>
+                                <p class="firstpps">野生红茶</p>
+                                <p>2088元≤所得收益<3488元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="banners"><img src="/static/images/m20161224/NewDay/boy.jpg"></div>
+                <div class="shop">
+                    <div class="cen">
+                        <ul>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/money30.png"></div>
+                                <p class="firstpps">30元现金红包</p>
+                                <p>188元≤所得收益<388元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/money60.png"></div>
+                                <p class="firstpps">60元现金红包</p>
+                                <p>388元≤所得收益<488元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/money300.png"></div>
+                                <p class="firstpps">300元现金红包</p>
+                                <p>1688元≤所得收益<3488元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/money600.png"></div>
+                                <p class="firstpps">600元现金红包</p>
+                                <p>3488元≤所得收益<5588元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="banners"><img src="/static/images/m20161224/NewDay/tt.jpg"></div>
+                <div class="shop">
+                    <div class="cen">
+                        <ul>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/jt.png"></div>
+                                <p class="firstpps">鸡年贺岁金钞2g</p>
+                                <p>5588元≤所得收益<6888元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/jt1.png"></div>
+                                <p class="firstpps">999财富金条5g</p>
+                                <p>6888元≤所得收益<8888元</p>
+                            </li>
+                            <li class="li-left">
+                                <div><img src="/static/images/m20161224/NewDay/jt2.png"></div>
+                                <p class="firstpps">永结同心金钞5g</p>
+                                <p>8888元≤所得收益<11888元</p>
+                            </li>
+                            <li>
+                                <div><img src="/static/images/m20161224/NewDay/jt3.png"></div>
+                                <p class="firstpps">中国黄金金砖10g</p>
+                                <p>所得收益≥11888元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<div @click="hideShareMask" id="shareMask" v-show="shareMask"></div>
+<input type="hidden" id="sharePic" value="/static/images/m20161224/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161224/NewDay.js');
+</script>
+</body>
+</html>

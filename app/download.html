@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>下载</title>
+    <link rel="stylesheet" href="/static/style/iconfont.css">
+    <link rel="stylesheet" href="/static/style/download/page.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="logo"><img src="/static/images/download/logo.png" alt="钱庄理财"/></div>
+            <h1 class="title">开户即送<span class="big">108</span>元</h1>
+            <div class="sub-title">
+                <span><i class="iconfont icon-group"></i>100万理财人</span>
+                <span><i class="iconfont icon-coin"></i>20亿总交易额</span>
+            </div>
+            <div class="red-pic"><img src="/static/images/download/redpacket.png" alt="钱庄理财红包"/></div>
+        </div>
+        <p class="info">新手专享<span class="red">7天15%收益</span></p>
+        <p class="info">A轮融资 银行存管 稳健运营2周年</p>
+        <a id="downloadBtn" href="http://www.qian360.com/appdownload/qian.apk" class="download-btn"><i class="iconfont icon-download"></i>下载领取</a>
+    </article>
+</section>
+<div style="display: none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000352979'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000352979%26l%3D3' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<script type="text/javascript">
+    function getHrefParam(key){
+        var href = window.location.href;
+        var paramReg = new RegExp(key + '\\=(.*?)(#|&|$)', 'ig');
+        if (paramReg.test(href)) {
+            return RegExp.$1
+        }
+        return '';
+    }
+    var code = getHrefParam('code');
+    if(code){
+        document.getElementById('downloadBtn').setAttribute('href', 'http://www.qian360.com/appdownload/'+code+'.apk')
+    }
+</script>
+</body>
+</html>

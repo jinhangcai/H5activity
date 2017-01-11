@@ -1,0 +1,5 @@
+# 包依赖忽略
+node_modules/
+
+# ide 忽略
+.idea/

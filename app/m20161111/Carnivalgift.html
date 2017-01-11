@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>双11狂欢大奖</title>
+    <link rel="stylesheet" href="/static/style/m20161111/Carnivalgift/Carnivalgift.css">
+    <link rel="stylesheet" href="/static/style/m20161111/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="banner">
+            <img src="/static/images/m20161111/Carnivalgift/banner.jpg" class="banImg">
+            <img src="/static/images/m20161111/Carnivalgift/gotohome.png" class="gotohome" @click="gotohome" v-if="!isApp">
+        </div>
+        <div class="main">
+            <p class="rates">11月11日，疯狂加息，赶快来抢！</p>
+            <p class="time">11月11日当天投资28天及以上理财产品的累计投资金额满足下列条件，即能获得相应的好礼。</p>
+            <template v-if="notime">
+                <div class="Login" v-if="isLogin">11月11日您累计投资：<i>{{money}}元</i>  <span @click="gotoout">立即投资</span></div>
+                <div class="Login" v-else>登录可查看您的累计投资额 <span @click="gotoLogin">立即登录</span></div>
+            </template>
+            <ul>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/iphone.png"></div>
+                    <div>iphone7 32G</div>
+                    <div>累计投资额≥180万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/cycle.png"></div>
+                    <div>折叠电动滑板车</div>
+                    <div>130万≤累计投资额<180万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/telescope.png"></div>
+                    <div>星特朗天文望远镜</div>
+                    <div>110万≤累计投资额<130万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/jd.png"></div>
+                    <div>1000元京东卡</div>
+                    <div>85万≤累计投资额<110万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/bed.png"></div>
+                    <div>博洋家纺四件套</div>
+                    <div>50万≤累计投资额<85万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/cooker.png"></div>
+                    <div>美的挂烫机</div>
+                    <div>20万≤累计投资额<50万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/lavipeditum.png"></div>
+                    <div>全自动足浴盆</div>
+                    <div>12万≤累计投资额<20万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/vacuum.png"></div>
+                    <div>富光保温杯</div>
+                    <div>5万≤累计投资额<12万</div>
+                </li>
+                <li>
+                    <div><img src="/static/images/m20161111/Carnivalgift/red.png"></div>
+                    <div>30元现金红包</div>
+                    <div>2万≤累计投资额<5万</div>
+                </li>
+            </ul>
+            <p class="hint">温馨提示</p>
+            <ol>
+                <li>1、本环节所获得的实物礼品可兑换成相应折扣的现金红包，需要兑换请在11月14日16:00前联系客服备注;</li>
+                <li>2、实物礼品在活动结束后的7个工作日内安排寄出，红包将在活动结束后3个工作日内发放，请注意查收；</li>
+                <li>3、获得实物礼品的用户请及时去“我”-“个人中心”完善收货地址，若有问题欢迎致电400-0455-360或联系客服QQ群236613404。</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。<span v-show="isIOSApp">本活动由钱庄网提供，与设备生产商Apple lnc 无关。</span></li>
+            </ol>
+        </div>
+    </article>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161111/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161111/Carnivalgift/Carnivalgift.js');
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>我的奖品</title>
+    <link rel="stylesheet" href="/static/style/common.css">
+    <link rel="stylesheet" href="/static/style/m1511/prize.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="inner">
+            <div class="floor-item">
+                <div class="title">
+                    <h2>我的奖品</h2>
+                </div>
+                <div class="info">
+                    <ul class="cont"></ul>
+                    <p class="empty">还未获得任何奖品</p>
+                </div>
+                <a id="addressBtn" class="basis-btn disabled-btn">填地址 领奖品</a>
+                <a id="pdListBtn" class="linkcolor underline">马上投资赢奖品</a>
+            </div>
+        </div>
+        <div id="recordWrap" class="record-wrap"></div>
+    </article>
+</section>
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m1511/myprize.js');
+</script>
+</body>
+</html>

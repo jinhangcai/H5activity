@@ -1,0 +1,35 @@
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$positioncenter(){
+  transform translate(-50%, -50%);
+  -webkit-transform translate(-50%, -50%)
+}
+
+$bg-color = #ac8aed;
+$border-color = #640d0d;
+$title-bg-color = #ac8aed;
+$link-color = #cc4047;
+
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+  line-height: 1.2;
+}
+.highcolor{
+  color #f9f776
+}
+.strong{
+  font-weight bold;
+}
+.linkcolor{
+  color $link-color;
+}

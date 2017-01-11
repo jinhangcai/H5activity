@@ -1,0 +1,54 @@
+// 清除内外边距
+body,div,
+dl,dt,dd,ul,ol,li,
+h1,h2,h3,h4,h5,h6,
+pre,code,
+form,fieldset,legend,input,textarea,
+p,blockquote,
+th,td,
+hr,button,
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin:0;
+  padding:0
+}
+// 设置默认字体
+html,body {
+  font-family:Arial, Helvetica, simsun, sans-serif;
+}
+// 表格内填充和边框
+table {
+  border-collapse:collapse;
+  border-spacing:0
+}
+// 标题字体默认大小
+h1,h2,h3,h4,h5,h6 {
+  font-size:100%;
+  font-weight:500
+}
+// 列表初始化
+ol,ul {
+  list-style:none
+}
+// 去除默认边框
+fieldset,img {
+  border:0
+}
+input,select,textarea {
+  font-size:100%
+}
+ins,a {
+  text-decoration:none
+}
+// 默认蓝色边框 以及 tap 阴影
+html * {
+  outline:0;
+  -webkit-text-size-adjust:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
+// 默认表单元素样式
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}

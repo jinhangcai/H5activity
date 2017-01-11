@@ -1,0 +1,314 @@
+@import "../common.styl";
+@import "../iconfont";
+
+@font-face {
+  $font-face(iconfont, '../iconfont/iconfont');
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-close:before{
+  content: "\e604";
+}
+
+html,body{
+}
+
+body{
+  background #ffda44
+}
+
+.viewport{
+  height 100%;
+  overflow auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+.banner{
+  img {
+    display: block;
+    width 100%;
+  }
+}
+.floor{
+  position relative;
+  margin 1.73rem .3rem 0;
+  padding-top .43rem;
+  box-sizing border-box;
+  .title{
+    position absolute;
+    top -1.01rem;
+    left 0;
+    width 100%;
+    height: 1.36rem;
+    background url(../../images/m20160918/sofa.png) no-repeat center;
+    background-size auto 100%;
+    img {
+      display block;
+      height .8rem;
+      margin 0 auto;
+    }
+  }
+  .cont{
+    margin: .42rem .44rem;
+    font-size .26rem;
+    line-height .38rem;
+    color: #493219;
+  }
+  .line{
+    margin 0 auto;
+    width 4.9rem;
+    height 0;
+    line-height 0;
+    border-bottom 1px solid #ffe785
+  }
+  .red-packet-list{
+    box-sizing border-box;
+    padding .52rem 0;
+    li {
+      box-sizing border-box;
+      position relative;
+      width 4.87rem;
+      height 1.63rem;
+      padding-top .20rem;
+      margin 0 auto .4rem;
+      background url(../../images/m20160918/redpacket.png) no-repeat center;
+      background-size 100%;
+      color #fff;
+      .count{
+        width 2.7rem;
+        text-align center;
+        font-size .8rem;
+        font-weight bold;
+      }
+      .sub-meta{
+        width 2.94rem;
+        font-size .2rem;
+        text-align center;
+      }
+      .limit{
+        position absolute;
+        top .34rem;
+        right 0;
+        width 1.93rem;
+        font-size .32rem;
+        line-height .4rem;
+        text-align center;
+        color #8866dd;
+      }
+    }
+  }
+  &.step-1{
+    background url(../../images/m20160918/bg1.png) no-repeat 0 0;
+    background-size 100% 100%
+  }
+  &.step-2{
+    background url(../../images/m20160918/bg2.png) no-repeat 0 0;
+    background-size 100% 100%
+  }
+  &.step-3{
+    background url(../../images/m20160918/bg3.png) no-repeat 0 0;
+    background-size 100% 100%
+  }
+  .user-cont{
+    width 5rem;
+    margin 0 auto .55rem;
+    background: #ffe785;
+    border-radius .35rem;
+    line-height .7rem;
+    font-size .26rem;
+    color #493219;
+    text-align center;
+  }
+  .hignlight{
+    color #f35c3e;
+  }
+  .underline{
+    border-bottom 1px solid;
+  }
+  .goods-list{
+    $clearfix();
+    li {
+      &:first-child{
+        width 100%;
+      }
+      float left;
+      width 50%;
+      height 2.4rem;
+      text-align center;
+      .pic {
+        height 1.11rem;
+        img {
+          display block;
+          height 100%;
+          margin 0 auto;
+        }
+      }
+      .name{
+        margin-top .16rem;
+        min-height .32rem;
+        font-size .2rem;
+        line-height .25rem;
+        color #9d4c1b;
+      }
+      .rule{
+        font-size .2rem;
+        line-height .26rem;
+        color #333;
+      }
+    }
+  }
+  .all{
+    position relative;
+    box-sizing border-box;
+    padding-top .33rem;
+    margin .14rem auto .6rem;
+    width 4.98rem;
+    height 2.5rem;
+    text-align center
+    background #ffe785;
+    border-radius .15rem;
+    color #493219;
+    &::before{
+      content '';
+      position absolute;
+      top -.14rem;
+      left -.29rem;
+      width .93rem;
+      height 2.55rem;
+      background url(../../images/m20160918/stars-l.png) no-repeat 0 0;
+      background-size 100%;
+    }
+    &::after{
+      content '';
+      position absolute;
+      bottom -.19rem;
+      right .03rem;
+      width .43rem;
+      height 2.47rem;
+      background url(../../images/m20160918/stars-r.png) no-repeat 0 0;
+      background-size 100%;
+    }
+    .tit{
+      font-size .26rem;
+      line-height .4rem;
+    }
+    .amount{
+      font-size .6rem;
+      color #f35c3e;
+      line-height 1.22rem;
+    }
+    .sub{
+      font-size .22rem;
+      line-height .3rem;
+    }
+  }
+  .interest-list{
+    padding .48rem 0 .45rem
+    li {
+      width 4.88rem;
+      margin 0 auto .49rem;
+      padding-top .1rem;
+      background url(../../images/m20160918/interest.png) no-repeat center 0;
+      background-size 3.4rem;
+      text-align center;
+      .interest,
+      .name{
+        margin-left 1.4rem;
+        width 2.53rem;
+      }
+      .interest{
+        font-size .4rem;
+        font-weight bold;
+        color #f35c3e;
+        line-height .80rem;
+        span {
+          font-size .6rem;
+        }
+      }
+      .name{
+        font-size .22rem;
+        color #493219;
+        line-height .35rem;
+      }
+      .rule{
+        margin-top .4rem;
+        font-size .24rem;
+        line-height .41rem;
+        color #493219;
+      }
+    }
+  }
+}
+.rule-pop-btn{
+  position relative;
+  display block;
+  margin .76rem auto .44rem;
+  width 2.8rem;
+  height .7rem;
+  font-size .24rem;
+  color #493219;
+  line-height .7rem;
+  border-radius 50%;
+  background-color #f3c407;
+  text-align center;
+  &::before{
+    content '';
+    position absolute;
+    top -.47rem;
+    left .12rem;
+    width .36rem;
+    height .9rem;
+    background url(../../images/m20160918/lamp.png) no-repeat center 0;
+    background-size 100%;
+  }
+}
+.pop-rule{
+  position fixed;
+  top: 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0, 0, 0, .7)
+  .pop-rule-content{
+    box-sizing border-box;
+    {$public-center-completely}
+    padding .4rem;
+    width 5.4rem;
+    border-radius .18rem;
+    background-color #fff;
+    .title{
+      height .41rem;
+      background url(../../images/m20160918/prop-tit.png) no-repeat top center;
+      background-size 1.53rem .41rem;
+      margin-bottom .26rem;
+    }
+    p {
+      font-size .24rem;
+      line-height .4rem;
+      color #493219;
+      margin-bottom .14rem;
+    }
+    .content-wrap{
+      max-height: 50vh;
+      overflow: auto;
+    }
+    .pop-rule-close{
+      {$public-center-horizontally}
+      bottom -.84rem;
+      width .62rem;
+      height .62rem;
+      background url(../../images/m20160918/close-btn.png) no-repeat top center;
+      background-size .62rem;
+    }
+  }
+}

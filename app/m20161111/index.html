@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>双11理财盛宴  多重惊喜嗨不停</title>
+    <link rel="stylesheet" href="/static/style/m20161111/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="bg">
+        <div class="container">
+            <div class="banner"><img src="/static/images/m20161111/banner.png" alt="双11理财盛宴  多重惊喜嗨不停"></div>
+            <div class="floor floor1">
+                <div class="title-wrap"><h2 class="title">限时抢红包</h2></div>
+                <div class="time-shaft">
+                    <div class="time-item">
+                        <div class="date">11月7日</div>
+                        <div class="circle"></div>
+                        <div class="time">11:11</div>
+                    </div>
+                    <div class="time-item">
+                        <div class="date">11月8日</div>
+                        <div class="circle"></div>
+                        <div class="time">11:11</div>
+                    </div>
+                    <div class="time-item">
+                        <div class="date">11月9日</div>
+                        <div class="circle"></div>
+                        <div class="time">11:11</div>
+                    </div>
+                    <div class="time-item">
+                        <div class="date">11月10日</div>
+                        <div class="circle"></div>
+                        <div class="time">11:11</div>
+                    </div>
+                </div>
+                <div @click="goTo('timetorob','限时抢红包')" class="floor-pic"><img src="/static/images/m20161111/pic1.png" alt=""></div>
+                <a @click="goTo('timetorob','限时抢红包')" href="javascript:;" class="btn">立即去抢</a>
+            </div>
+            <div class="floor floor2">
+                <div class="title-wrap"><h2 class="title">天天竞猜<span>（11月7日-11月10日）</span></h2></div>
+                <div @click="goTo('https://mall.qian360.com/guess.html?id=5','天天竞猜')" class="floor-pic"><img src="/static/images/m20161111/pic2.png" alt=""></div>
+                <a @click="goTo('https://mall.qian360.com/guess.html?id=5','天天竞猜')" href="javascript:;" class="btn">立即去猜</a>
+                <div class="deco"></div>
+            </div>
+            <div class="floor floor3">
+                <div class="title-wrap"><h2 class="title">红包争霸战<span>（11月7日-11月11日）</span></h2></div>
+                <div @click="goTo('pk','红包争霸战')" class="floor-pic"><img src="/static/images/m20161111/pic3.png" alt=""></div>
+                <a @click="goTo('pk','红包争霸战')" href="javascript:;" class="btn">立即去战</a>
+            </div>
+            <div class="floor floor4">
+                <div class="title-wrap"><h2 class="title">最嗨的11日</h2></div>
+                <div class="info">11月11日<br>抢加息券、1-111元红包</div>
+                <div @click="goTo('lottery','最嗨的11日')" class="floor-pic"><img src="/static/images/m20161111/pic4.png" alt=""></div>
+                <a @click="goTo('lottery','最嗨的11日')" href="javascript:;" class="btn">立即去嗨</a>
+                <div class="deco"></div>
+            </div>
+            <div class="floor floor5">
+                <div class="title-wrap"><h2 class="title">一元夺宝<span>（11月11日）</span></h2></div>
+                <div @click="goTo('https://mall.qian360.com/grab.html?id=3','一元夺宝')" class="floor-pic"><img src="/static/images/m20161111/pic5.png" alt=""></div>
+                <a @click="goTo('https://mall.qian360.com/grab.html?id=3','一元夺宝')" href="javascript:;" class="btn">立即去夺</a>
+            </div>
+            <div class="floor floor6">
+                <div class="title-wrap"><h2 class="title">双11狂欢大奖<span>（11月11日）</span></h2></div>
+                <div @click="goTo('Carnivalgift','双11狂欢大奖')" class="floor-pic"><img src="/static/images/m20161111/pic6.png" alt=""></div>
+                <a @click="goTo('Carnivalgift','双11狂欢大奖')" href="javascript:;" class="btn">立即去拿</a>
+                <div class="deco"></div>
+            </div>
+            <div class="rule-btn">
+                <a @click="showRule" href="javascript:;">活动说明</a>
+            </div>
+            <div class="footer">
+                <p class="center">本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+                <p v-show="isIOSApp" class="center">本活动由钱庄网提供，与设备生产商Apple lnc 无关。</p>
+            </div>
+        </div>
+    </div>
+</article>
+<section v-show="shareMask" class="pop-rule">
+    <div class="pop-rule-content">
+        <div class="title">活动说明</div>
+        <div class="content-wrap">
+            <p>1、获得实物礼品的用户请及时去“我”-“个人中心”完善收货地址，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</p>
+            <p>2、实物礼品将统一在活动结束后的7个工作日内安排寄出，除双11狂欢大奖的红包将在活动结束后3个工作日内发放外，其余红包、加息券将实时发放，请注意查收；</p>
+            <p>3、双11狂欢大奖所获得的实物礼品可兑换成相应折扣的现金红包，需要兑换请在11月14日16:00前联系客服备注；</p>
+            <p>4、本次部分活动限定28天及以上理财产品，活动所获得红包的使用规则详见“我的券包使用说明”。</p>
+        </div>
+        <a @click="hideRule" class="pop-rule-close"></a>
+    </div>
+</section>
+<section v-show="showAlertMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="alert-pic">
+            <img src="/static/images/m20161111/alertStatus.png" alt="迷之微笑">
+        </div>
+        <div class="alert-content">亲，时间还没到哦~</div>
+        <a @click="hideAlert" href="javascript:;" class="alert-btn">好的呢</a>
+        <a @click="hideAlert" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161111/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161111/index.js');
+</script>
+</body>
+</html>

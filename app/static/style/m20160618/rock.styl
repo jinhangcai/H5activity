@@ -1,0 +1,642 @@
+@import "../common.styl";
+@import "../address_moudle";
+
+//--------------------------------------------------------【工具代码块】
+.viewport{
+  overflow hidden
+}
+//垂直居中
+$public-center-vertical =@block{
+  position: absolute
+  top: 50%
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//水平居中
+$public-center-horizontally =@block{
+  position: absolute
+  left: 50%
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+//水平垂直居中
+$public-center-completely =@block{
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.no-text {
+  text-indent -999999px;
+  font-size: 0;
+  line-height: 0;
+}
+
+#loadPage {
+  position fixed;
+  z-index 100;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background: url(../../images/loading.gif) no-repeat center center;
+  background-size: .39rem auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pop-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%
+  height: 100%;
+  background-color rgba(0, 0, 0, .5);
+  z-index 4
+  .main {
+    {$public-center-completely}
+      box-sizing: border-box;
+      width: 5.55rem;
+      padding: .3rem;
+      background-color: #fff;
+      border-radius: 8px;
+      .tit {
+        color: #000;
+        font-size: .28rem;
+        text-align: center
+      }
+      .tits{
+        margin-top .55rem
+        color #eb4f74
+        font-size .24rem
+        padding-bottom .3rem
+      }
+      .cont {
+        margin-top: .25rem;
+        font-size: .24rem;
+        color: #666;
+      }
+      .btn-close {
+        position: absolute;
+        right: .3rem;
+        top: .2rem;
+        color: #999;
+        font-size: .36rem;
+        line-height: 1;
+        width: .5rem;
+        height: .5rem;
+        background: url(../../images/m20160618/btn-close.png) no-repeat center center;
+        background-size: .2rem auto;
+      }
+  }
+}
+
+body {
+  background: url(../../images/m20160618/rock-day.jpg) repeat 0 0;
+  padding-bottom: .9rem;
+  line-height: 1.5;
+}
+
+.header {
+  position: relative
+  height: 4.03rem;
+  background: url(../../images/m20160618/rock-hd.jpg) no-repeat 0 -1px;
+  background-size: 6.4rem auto;
+  .back-btn {
+    position: absolute
+    top: .3rem;
+    left: .25rem;
+    font-size: .24rem;
+    color: #fff;
+    width: 1.14rem;
+    text-indent: .28rem;
+    line-height: .48rem;
+    background: url(../../images/m20160618/btn-back.png) no-repeat 0 0;
+    background-size: 1.14rem auto;
+  }
+  .rule-btn {
+    position: absolute
+    top: .3rem;
+    right: .25rem;
+    font-size: .24rem;
+    line-height: .48rem;
+    color: #fff
+  }
+}
+.main {
+  margin-top: .3rem;
+  padding: 0 .2rem .3rem;
+  .box {
+    background-color: #da3e63;
+    border-radius: 5px;
+    padding: .3rem .3rem;
+    .welfare{
+      display block
+      padding-bottom .3rem
+    }
+    .tit {
+      {$public-center-horizontally}
+      margin-top: -.6rem;
+      display: inline-block;
+      background-color: #a920d1;
+      color: #fff;
+      font-size: .28rem;
+      line-height: .6rem;
+      padding: 0 .35rem;
+      border-radius: 100px;
+    }
+    .cont {
+      margin-top: .25rem;
+    }
+    & + .box {
+      margin-top: .65rem;
+    }
+  }
+  .box:nth-child(1) {
+    color: #fff;
+    font-size: .24rem;
+    padding-bottom: .4rem;
+    margin-top -0.4rem
+    .cont {
+      padding-left: 2.3rem;
+      background-size: 1.74rem auto;
+      position relative
+      height .8rem
+      p{
+        position absolute
+        font-size .28rem
+
+        span{
+          color #fff10d
+        }
+      }
+      p:nth-child(1){
+        left 0
+      }
+      p:nth-child(2){
+        right 0
+        color #fff10d
+        border-bottom 1px solid
+      }
+      p:nth-child(3){
+        right 0
+        color #fff10d
+        border-bottom 1px solid
+      }
+    }
+    .activity-eggs{
+      position relative;
+      box-sizing border-box;
+      padding .73rem 0 0;
+      #hammer{
+        position absolute;
+        z-index 4;
+        top 0;
+        left 80%;
+        width 1.04rem;
+        height .86rem;
+        transform: rotate(20deg);
+        -webkit-transform: rotate(20deg);
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+        transition: transform .15s cubic-bezier(0.4, 0, 1, 1);
+        -webkit-transition: -webkit-transform .15s cubic-bezier(0.4, 0, 1, 1);
+        pointer-events: none;
+      }
+      .eggs-bg{
+        &:before{
+          content '';
+          display block;
+          height 0;
+          border .5rem solid transparent;
+          border-bottom 1.12rem solid #f76a8b;
+        }
+        border .06rem solid transparent;
+        border-bottom .12rem solid #ec3f68;
+      }
+      .eggs{
+        position absolute;
+        top: .23rem;
+        width 100%;
+      }
+      .easter-egg{
+        position relative;
+        float left;
+        width 33.33%;
+        height 1.42rem;
+        &:before{
+          position absolute;
+          z-index 1;
+          content '';
+          display block;
+          width .88rem;
+          height .14rem;
+          background-color #000;
+          opacity 0.05
+          border-radius 50%;
+          bottom -32%;
+          left 50%;
+          transform translate(-50%, 0);
+          -webkit-transform translate(-50%, 0)
+        }
+        .egg{
+          position relative;
+          z-index 2;
+          //width 1.03rem;
+          //height 1.38rem;
+          width 1.84rem;
+          height 2.11rem;
+          margin 0 auto;
+          background url("../../images/m20160618/rock-egg1.png") no-repeat 0 0;
+          background-size 100% 100%;
+        }
+        .smash-egg{
+          width 1.84rem;
+          height 2.11rem;
+          background: url("../../images/m20160618/rock-smash-egg.png") no-repeat 0 0;
+          background-size: 100% 100%;
+          margin-top: -.08rem;
+        }
+        .gift-smash-egg{
+          width: 1.66rem;
+          height: 1.75rem;
+          background: url("../../images/m20160618/rock-smash-egg.png") no-repeat 0 0;
+          background-size: 100% 100%;
+          margin-top: -.22rem;
+          margin-left: 0;
+        }
+
+      }
+    }
+    .rule{
+      font-size .24rem
+      padding-top .3rem
+    }
+    .share-title{
+      li{
+        font-size .24rem
+        color #fff
+        a{
+          color #fff10d
+          //text-decoration underline
+          border-bottom solid 1px
+        }
+      }
+    }
+  }
+  .row{
+    overflow hidden
+    .redtitlespan{
+      color #fff10d
+    }
+  }
+  .box:nth-child(2) {
+    .row:nth-child(1) {
+      color: #fff;
+      font-size: .24rem;
+      a {
+        color: #ffe42d;
+        text-decoration: underline;
+      }
+    }
+    .row:nth-child(2){
+      color #fff
+      font-size .26rem
+      text-align center
+      line-height .6rem
+      height .6rem
+      border-radius .1rem
+      margin .3rem 0 0 0
+      background #cb3156
+
+      span{
+        color #fff10d
+      }
+    }
+    .row:nth-child(3){
+      margin-top .35rem
+    }
+    li {
+      position: relative;
+      width 2.6rem
+      float left
+      text-align center
+      box-sizing: border-box;
+      margin 0 .2rem .3rem 0
+      &:nth-child(even){
+        margin-right 0
+      }
+      .tits, .conts {
+        margin-left: 2rem;
+      }
+      .tits {
+        margin-top: .2rem;
+        color: #ffe42d;
+        font-size: .24rem;
+      }
+      .conts {
+        margin-top: .15rem;
+        font-size: .2rem;
+        line-height: 1.5;
+        color: #fff;
+      }
+      .pic {
+        height 1.82rem
+        background #f75f83
+        border-radius 0.1rem
+        .pic-img{
+          height 1.55rem
+          img {
+            height 100%
+            width auto
+          }
+        }
+        .pic-title{
+          color #710c24
+          font-size .2rem
+          text-align center
+          line-height 0.2rem
+        }
+      }
+      p{
+        font-size .2rem
+        color #fff
+        padding-top .15rem
+
+      }
+    }
+    .cfp-title{
+      font-size  .28rem
+      color #fff10d
+      text-align center
+      padding-bottom .1rem
+    }
+    .coin{
+      width 5.4rem
+      overflow hidden
+      background #ef577b
+      padding-bottom 0.02rem
+      li{
+        width 2.67rem
+        height .59rem
+        line-height .59rem
+        float left
+        margin 0.02rem 0 0 0.02rem
+        background  #d93e63
+        color #fff
+        font-size .22rem
+        text-align center
+        &:nth-child(1){
+          background #cb3156
+          font-size .24rem
+        }
+        &:nth-child(2){
+          background #cb3156
+          font-size .24rem
+        }
+      }
+    }
+  }
+  .box:nth-child(3) {
+    position relative
+    overflow inherit
+    margin-bottom .5rem
+    .row {
+      color: #fff;
+      font-size: .24rem;
+      padding-top .3rem
+      span {
+        color: #a6b7ff;
+      }
+
+    }
+    .starppss{
+      background #f7f24f
+      width 3.19rem
+      height .54rem
+      border-radius .3rem
+      margin .54rem auto
+      margin-bottom 0.15rem
+      font-size .24rem
+      color #710c24
+      line-height .54rem
+      text-align center
+    }
+    .btn{
+      color #710c24
+      line-height .54rem
+      text-align center
+      font-size .28rem
+    }
+    .starpps{
+      background #c9c9c9
+      width 2.6rem
+      height .54rem
+      border-radius .3rem
+      margin .58rem auto
+      margin-bottom .38rem
+    }
+    .btnin{
+      display block
+      color #710c24
+      font-size .24rem
+      line-height .54rem
+      text-align center
+      opacity 0.5
+    }
+     .anh{
+      font-size .24rem
+      color #fff
+      text-align center
+      margin-top .3rem
+      span{
+        font-size .28rem
+        color #fff10d
+      }
+    }
+    .anhin{
+      color #f7f24f
+      font-size .2rem
+      text-align center
+    }
+  }
+}
+#sales{
+  .tit{
+    padding-top .7rem
+    color #333333
+    font-size .24rem
+  }
+  .cont{
+    margin-top .67rem
+    .btn{
+      display block
+      width 2rem
+      height .54rem
+      line-height .54rem
+      text-align center
+      background #f7f24f
+      font-size .24rem
+      color #582415
+      margin 0 auto
+      border-radius .25rem
+    }
+  }
+}
+#nosals{
+  .main{
+    height 3.05rem
+  }
+  .btn{
+    display block
+    text-align center
+    font-size .24rem
+    color #999
+    margin 0 auto
+    padding .38rem 0 1.13rem 0
+  }
+}
+#datasals{
+  .main{
+    padding 0.3rem 0 0.4rem 0
+    height 4.25rem
+  }
+  ul{
+    background #eb4f74
+    width 4.4rem
+    margin 0 auto
+    padding 0.02rem
+    overflow auto
+    max-height 3rem
+    box-sizing border-box
+  }
+  li{
+    width 2.17rem
+    height .52rem
+    line-height .52rem
+    text-align center
+    margin 0.02rem .02rem 0 0
+    background #fff
+    font-size .24rem
+    color #333
+    float left
+    &:nth-child(even){
+      margin-right 0
+    }
+    &:nth-child(1){
+      background #ffceda
+      margin 0 .02rem 0 0
+    }
+    &:nth-child(2){
+      background #ffceda
+      margin 0 0 0  0
+    }
+  }
+}
+#redsals{
+  .main{
+    height 3.05rem
+    .btn{
+      padding-top .25rem
+    }
+    .btn-remove{
+      margin-top .37rem
+    }
+  }
+  .redbom{
+    width 1.44rem
+    height .77rem
+    background: url('../../images/m20160618/bg-redpacket.png') no-repeat center center;
+    background-size 100%
+    position absolute
+    text-align center
+    p{
+      padding-left .28rem
+      color #fff
+      font-size .15rem
+      text-align left
+      line-height .77rem
+      span{
+        font-size .36rem
+        font-weight bold
+        margin-right 0.08rem
+      }
+    }
+    &:nth-child(1){
+      left 1.62rem
+      top .28rem
+    }
+    &:nth-child(2){
+      left 2.2rem
+      top .49rem
+    }
+
+  }
+  .charge{
+    width 1rem
+    height 1.01rem
+    background: url('../../images/m20160618/charge.jpg') no-repeat center center;
+    background-size 100%
+    margin  0 auto
+    margin-top -.3rem
+  }
+  .btn{
+    text-align center
+    margin 0 auto
+    font-size .24rem
+    color #eb4f74
+    padding-top 1rem
+    display block
+  }
+  .btnin{
+    text-align center
+    margin 0 auto
+    font-size .24rem
+    color #eb4f74
+    display block
+  }
+  .btnon{
+    padding-top .25rem
+  }
+  .btntopin{
+    padding-top .85rem !important
+  }
+  .btn-remove{
+    width 2rem
+    height .54rem
+    margin 0 auto
+    border 2px solid #676767
+    border-radius .3rem
+    text-align center
+    line-height .54rem
+    color #676767
+    font-size .24rem
+    display block
+    margin-top .28rem
+  }
+  .redcenter{
+    margin-top -.2rem
+    .redbom{
+      margin 0 auto
+      position static
+    }
+  }
+}
+#poker{
+  position relative
+  z-index 5
+  background-color: rgba(0,0,0,0.85);
+  .min{
+    width 100%
+    height 100%
+  }
+  img{
+    position absolute
+    top 0
+    right 0
+    width 4.31rem
+    height 2.4rem
+  }
+}

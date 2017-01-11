@@ -1,0 +1,366 @@
+$rem() {
+  val = ''
+  for n in arguments {
+    if n is 'auto' {
+      val = val+ 'auto '
+    } else {
+      val = val+ unit(n / 100, rem) + ' '
+    }
+  }
+  return s(val)
+}
+
+.viewport {
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#pageLoading {
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 9999
+  background rgba(255, 255, 255, 1) url("../../../static/images/annals2015/loading.gif") no-repeat center center
+  background-size $rem(136px auto);
+}
+
+.opacity0 {
+  -webkit-opacity: 0
+  opacity: 0
+}
+
+body {
+  background #301d2c url("../../../static/images/annals2015/bg.png") repeat-x center top
+  background-size $rem(640px auto);
+  color: #fff
+}
+
+.section {
+  text-align: center
+  overflow: hidden
+  width: $rem(640px) !important;
+  img {
+    width: 100%
+  }
+}
+
+.page1 {
+  .cont {
+    margin: $rem(112px 0);
+  }
+  .arrow {
+    position: absolute
+    bottom: $rem(60px);
+    left: 50%
+    z-index: 1
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    text-align: center
+    .icon {
+      display: inline-block
+      width: $rem(36px);
+      height: $rem(36px);
+      border: $rem(6px) solid #aeaeae;
+      border-width $rem(0 6px 6px 0);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-animation: 'down' 1.2s ease 0s infinite;
+      animation: 'down' 1.2s ease 0s infinite;
+    }
+    p {
+      margin-top: $rem(25px);
+      font-size: $rem(24px);
+    }
+  }
+}
+
+@-webkit-keyframes down {
+  0% {
+    -webkit-transform: translate(0, 0px) rotate(45deg);
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translate(0, .1rem) rotate(45deg);
+    transform: translate(0, .1rem) rotate(45deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0px) rotate(45deg);
+    transform: translate(0, 0px) rotate(45deg);
+  }
+}
+
+@keyframes down {
+  0% {
+    -webkit-transform: translate(0, 0px) rotate(45deg);
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translate(0, .1rem) rotate(45deg);
+    transform: translate(0, .1rem) rotate(45deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0px) rotate(45deg);
+    transform: translate(0, 0px) rotate(45deg);
+  }
+}
+
+.page2 {
+  .tit {
+    font-size: $rem(48px);
+  }
+  .row {
+    &:nth-child(1) {
+      .cont {
+        margin-top: $rem(75px);
+      }
+      ul {
+        display: table;
+        width: 100%;
+        height: 100%;
+        table-layout: fixed;
+        li {
+          display: table-cell;
+          text-align: center;
+          .tits, .conts {
+            margin-top: $rem(15px);
+            color: #90dcef
+          }
+          .tits {
+            font-size: $rem(24px);
+          }
+          .conts {
+            font-size: $rem(26px);
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      margin-top: $rem(95px);
+      .cont {
+        margin-top: $rem(90px);
+        height: $rem(320px);
+        background url("../../../static/images/annals2015/page2-chart-coord.png") no-repeat center top;
+        background-size $rem(640px auto);
+      }
+    }
+    &:nth-child(3) {
+      margin-top: $rem(15px);
+      font-size: $rem(24px);
+      p {
+        width: $rem(540px);
+        margin-left: $rem(70px);
+        text-align left
+        span {
+          color: #e3402a
+        }
+      }
+    }
+  }
+}
+
+.page3 {
+  .tit {
+    font-size: $rem(48px);
+  }
+  .cont {
+    margin-top: $rem(60px);
+    .compose-con {
+      margin-top: $rem(20px);
+      ul {
+        width: $rem(505px);
+        margin: 0 auto
+        li {
+          position: relative
+          height: $rem(68px);
+          background-color #5e5790
+          font-size: $rem(22px);
+          border-radius $rem(8px);
+          .tits, .conts {
+            position: absolute
+            top: 50%
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            text-align left
+          }
+          .tits {
+            left: $rem(25px);
+          }
+          .conts {
+            left: $rem(300px);
+            line-height: 1.3
+          }
+          & + li {
+            margin-top: $rem(44px);
+          }
+          &:after {
+            content ' '
+            display: inline-block
+            position: absolute
+            left: $rem(210px);
+            top: 50%
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            width: $rem(80px);
+            height: $rem(80px);
+            border-radius 100%
+          }
+          &:nth-child(1) {
+            &:after {
+              background-color #db5359
+            }
+          }
+          &:nth-child(2) {
+            &:after {
+              background-color #4eb0e2
+            }
+          }
+          &:nth-child(3) {
+            &:after {
+              background-color #ffe972
+            }
+          }
+          &:nth-child(4) {
+            &:after {
+              background-color #bafffd
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.page4 {
+  .tit {
+    font-size: $rem(40px);
+  }
+  .cont {
+    margin-top: $rem(80px);
+  }
+}
+
+.page5 {
+  @extend .page2
+  .row:nth-child(2) {
+    .cont {
+      height: $rem(360px);
+      background-image url("../../../static/images/annals2015/page5-chart-coord.png");
+    }
+  }
+}
+
+.page6 {
+  .row {
+    &:nth-child(1) {
+      font-size: $rem(38px);
+      span {
+        padding: $rem(0 5px);
+        font-size: $rem(60px);
+        color: #fcea56;
+      }
+    }
+    &:nth-child(2) {
+      margin-top: $rem(150px);
+    }
+    &:nth-child(3) {
+      margin-top: $rem(15px);
+      p {
+        font-size: $rem(24px);
+        span {
+          font-size: $rem(30px);
+          color: #e3402a
+        }
+      }
+    }
+  }
+}
+
+.page7 {
+  .tit {
+    font-size: $rem(48px);
+  }
+  .cont {
+    margin-top: $rem(100px);
+    text-align left
+    p {
+      margin-top: $rem(30px);
+      font-size: $rem(24px);
+      span {
+        font-size: $rem(44px);
+        color: #ff3333
+      }
+    }
+  }
+}
+
+.page8 {
+  .tit {
+    font-size: $rem(48px);
+  }
+  .cont {
+    margin-top: $rem(340px);
+    height: $rem(401px);
+    background url("../../../static/images/annals2015/page8-chart.png") no-repeat center top;
+    background-size $rem(613px auto);
+  }
+  .describe {
+    margin-top: $rem(30px);
+    font-size: $rem(28px);
+    span {
+      font-size: $rem(40px);
+      color: #ff3333
+    }
+  }
+}
+
+.page9a {
+  background url("../../../static/images/annals2015/page9a-pic.png") no-repeat center bottom;
+  background-size $rem(640px auto);
+  .tit {
+    position: absolute
+    top: $rem(130px);
+    left: 50%
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  .cont {
+    position: absolute
+    left: 0
+    bottom: $rem(125px);
+    width: 100%
+    .btn {
+      display: inline-block
+      color: #fff;
+      font-size: $rem(48px);
+      text-align: center
+      background-color #ffb739
+      width: $rem(340px);
+      line-height: $rem(85px);
+      border-radius $rem(10px);
+    }
+  }
+}
+
+.page9b {
+  background url("../../../static/images/annals2015/page9b-logo.png") no-repeat center 95%
+  background-size $rem(171px auto);
+  .cont {
+    margin: $rem(60px 0);
+    .qr-code {
+      display: inline-block;
+      width: $rem(336px);
+      height: $rem(336px);
+      img {
+        width: 100%
+      }
+    }
+    p {
+      margin-top: $rem(10px);
+      font-size: $rem(30px);
+    }
+  }
+}
+

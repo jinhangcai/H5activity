@@ -1,0 +1,666 @@
+@import "common";
+@import "../address_moudle";
+html,
+body,
+page{
+  background-color $bg-color;
+}
+.viewport{
+  padding-bottom .9rem;
+}
+.banner{
+  img{
+    width 100%;
+    display block
+  }
+}
+.tab-ctrl{
+  $clearfix();
+  box-sizing border-box;
+  margin 0 auto;
+  border .06rem solid $border-color;
+  border-radius .06rem;
+  background-color #fff;
+  li{
+    box-sizing border-box;
+    float left;
+    width 33.33%;
+    height .6rem;
+    line-height .6rem;
+    text-align center;
+    font-size .28rem;
+    font-weight bold;
+    color #711818;
+    background-color #fff;
+    & ~ li{
+      border-left .06rem solid $border-color;
+    }
+  }
+  .active{
+    position relative;
+    background-color #fff94f;
+    &:after,
+    &:before{
+      content:'';
+      position absolute;
+      bottom 0;
+      left 50%;
+      transform translate(-50%, 100%)
+      -webkit-transform translate(-50%, 100%)
+    }
+    &:after{
+      border .12rem solid transparent;
+      border-top-color #fff94f
+    }
+    &:before{
+      border .17rem solid transparent;
+      border-top-color $border-color
+    }
+  }
+}
+.sub-ctrl-wrap{
+  display none;
+  position absolute;
+  z-index 2;
+  top 0;
+  left 0;
+  box-sizing border-box;
+  width 100%;
+  padding 0 .11rem;
+}
+.ctrl-wrap{
+  width 100%;
+  padding 0 .11rem;
+  box-sizing border-box;
+}
+.tab-ctrl-sub{
+  @extend .tab-ctrl;
+}
+.tab-cont{
+  margin 0 .35rem;
+}
+.luck-prize{
+  $clearfix();
+  margin: 0.2rem -.125rem;
+  li{
+    float left;
+    width: 33.33%;
+    padding: 0 0.125rem;
+    box-sizing: border-box;
+    .prize-item{
+      background-color #f2e5c5;
+      text-align center;
+      padding .24rem 0 .16rem;
+      border-radius .05rem;
+      img{
+        height 1rem;
+      }
+    }
+    .prize-name{
+      font-size .22rem;
+      color #640d0d;
+      font-weight bold;
+      display inline-block;
+    }
+    .prize-rule{
+      font-size .22rem;
+      font-weight bold;
+      color #cc4047;
+      text-align center;
+      line-height .48rem;
+    }
+  }
+}
+.starter-list{
+  li{
+    position relative;
+    background-color #f2e5c5;
+    border-radius .05rem;
+    height 1.65rem;
+    margin-top .15rem;
+    text-align center;
+    .prize-item{
+      width 1.92rem;
+      padding-top .14rem;
+      img{
+        height 1.4rem;
+      }
+    }
+    .prize-cont{
+      position absolute;
+      top 50%;
+      right 0;
+      width 3.2rem;
+      transform translate(0, -50%)
+      -webkit-transform translate(0, -50%)
+    }
+    .prize-name{
+      font-size .24rem;
+      color #640d0d;
+    }
+    .prize-rule{
+      font-size .22rem;
+      color #cc4047;
+    }
+  }
+}
+.qday-list{
+  $clearfix();
+  text-align center;
+  li{
+    float left;
+    width 50%;
+    box-sizing border-box;
+    &:nth-child(2n){
+    padding-left .15rem;
+    margin-bottom .36rem;
+    }
+    &:nth-child(2n-1){
+      padding-right .15rem;
+    }
+    .prize-item{
+      background-color #f2e5c5;
+      border-radius .05rem;
+      height 2rem;
+      margin-bottom .16rem;
+      padding .1rem 0;
+      img{
+        height 2rem;
+      }
+    }
+    .prize-name{
+      font-size .2rem;
+      color #640d0d;
+      line-height .25rem;
+    }
+    .prize-rule{
+      font-size .2rem;
+      color #cc4047;
+    }
+  }
+}
+
+.poker{
+  padding: 0 0.12rem 0.36rem;
+  .info{
+    & ~ .info{
+      margin-top 0;
+    }
+  }
+  .poker-link{
+    text-align center;
+    font-size .24rem;
+  }
+  .poker-loading{
+    position absolute;
+    width .5rem;
+    height .5rem;
+    top 50%;
+    left 50%;
+    $positioncenter();
+    background url(../../images/loading.gif) no-repeat center center;
+    background-size 100%;
+  }
+}
+.poker-list{
+  $clearfix();
+  margin .3rem 0;
+  li{
+    position relative;
+    float left;
+    margin-bottom .2rem;
+    width 33.33333%;
+    height 2.1rem;
+  }
+}
+.back .poker-item{
+  transform: rotateY(900deg);
+  -webkit-transform: rotateY(900deg);
+}
+.poker-inner{
+  position absolute;
+  z-index 2;
+  opacity 0;
+  top 0;
+  left 50%;
+  transform: translateZ(0.8rem) translate(-50%, 0);
+  -webkit-transform: translateZ(0.8rem) translate(-50%, 0);
+}
+.poker-item{
+  position relative;
+  width 1.6rem;
+  height 2.1rem;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+
+  transition: transform 2s cubic-bezier(0.69, 0.18, 0.38, 0.89);
+  -webkit-transition: -webkit-transform 2s cubic-bezier(0.69, 0.18, 0.38, 0.89);
+
+  transform-origin: center 0 0px;
+  -webkit-transform-origin: center 0 0px;
+}
+.poker-face{
+  position absolute;
+  width 1.6rem;
+  height 2.1rem;
+  background #ffcf71 url(../../images/m1511/poker-face.png) no-repeat 0 0;
+  background-size 100% 100%;
+  border-radius .06rem;
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.poker-face-bg{
+  position absolute;
+  width 1.6rem;
+  height 2.1rem;
+  background #ffcf71 url(../../images/m1511/poker-face.png) no-repeat 0 0;
+  background-size 100% 100%;
+  border-radius .06rem;
+  top 0;
+  left 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+.poker-back{
+  position absolute;
+  width 1.6rem;
+  height 2.1rem;
+  background-color #ae69d2;
+  border-radius .06rem;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-align: center;
+  line-height: 2.1rem;
+  color: #fff;
+  .empty{
+    font-size: .4rem;
+    font-weight: bold;
+  }
+  .small{
+    font-size: .32rem;
+  }
+  .big{
+    font-size: .8rem;
+  }
+}
+.user-poker{
+  $clearfix();
+  margin .14rem 0;
+  li{
+    position relative;
+    float left;
+    width 25%;
+    margin-bottom .3rem;
+  }
+}
+.user-poker-item{
+  height 1rem;
+  .user-poker-inner{
+    position absolute;
+    top 0;
+    left 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    width 1rem;
+    height 1rem;
+    background url(../../images/m1511/poker-inner-bg.png) no-repeat 0 0;
+    background-size 100% 100%;
+    font-size .5rem;
+    line-height 1rem;
+    text-align center;
+    color #640d0d;
+  }
+}
+.user-poker-active{
+  .user-poker-inner{
+    background-color #ff9e2c;
+    color #fff;
+  }
+}
+.activity-explain{
+  margin .46rem .35rem 0;
+  color #fff;
+  h2{
+    font-size .28rem;
+    font-weight bold;
+  }
+  p{
+    font-size .22rem;
+    line-height .35rem;
+    text-align justify;
+    margin-bottom .24rem;
+  }
+  .underline{
+    color #fff94f;
+  }
+}
+.foot-bar{
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  border-top .04rem solid $border-color;
+  width 100%;
+  height: .9rem;
+  background-color: #fff6d6;
+  z-index: 3;
+  a{
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    width: 33.33%;
+    line-height: 0.86rem;
+    text-align: center;
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #640d0d;
+    text-decoration: none;
+    & ~ a{
+      border-left: .04rem solid $border-color;
+    }
+    .icon{
+      display inline-block;
+      margin-right .1rem;
+      width .33rem;
+      height .33rem;
+      background url(../../images/gift.png) no-repeat 0 0;
+      background-size 100%;
+      transform: translate(0, .04rem);
+      -webkit-transform: translate(0, .04rem);
+    }
+  }
+}
+
+#myPrizeBtn{
+  color #ef3c34;
+}
+// 弹窗样式
+.ui-dialog-wrap{
+  position absolute;
+  z-index 4;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0,0,0,.5);
+  .ui-dialog-box{
+    $positioncenter();
+    position absolute;
+    top 50%;
+    left 50%;
+    box-sizing border-box;
+    padding .3rem .38rem;
+    width 5rem;
+    border .06rem solid #640d0d;
+    background-color #fff;
+    border-radius .14rem;
+    max-height 90%;
+    overflow-y auto;
+    .ui-dialog-content{
+      color #640d0d;
+    }
+    .ui-dialog-footer{
+      padding-top .3rem;
+      box-sizing border-box;
+      .ui-dialog-btn{
+        display block;
+        box-sizing border-box;
+        width 3rem;
+        height .8rem;
+        margin 0 auto;
+        border .04rem solid #640d0d;
+        border-radius .06rem;
+        font-size .3rem;
+        font-weight bold;
+        color #640d0d;
+        text-align center;
+        line-height .72rem;
+        text-decoration none;
+      }
+    }
+  }
+}
+.ui-hide,
+.ui-dialog-hide{
+  display:none;
+}
+.dialog-cp{
+  font-size .24rem;
+  text-align center;
+}
+.dialog-ch{
+  font-size .3rem;
+  margin-bottom .24rem;
+  text-align center;
+}
+.dialog-rule{
+  font-size .24rem;
+  line-height .4rem;
+  margin-bottom .3rem;
+}
+.strong{
+  font-weight bold;
+}
+.ui-dialog-content{
+  .prize-pic{
+    position relative;
+    width .93rem;
+    height 1.25rem;
+    margin 0 auto;
+    background url(../../images/m1511/red.png) no-repeat 0 0;
+    background-size 100% 100%;
+    &:before{
+      content: '';
+      position absolute;
+      top .01rem;
+      right -.19rem;
+      @extend .icon-star;
+    }
+  }
+  .prize-pic1{
+    position relative;
+    width 1.53rem;
+    height 1.51rem;
+    margin 0 auto;
+    background url(../../images/m1511/boxful.png) no-repeat 0 0;
+    background-size 100% 100%;
+    &:before{
+      content: '';
+      position absolute;
+      top -.25rem;
+      left -.21rem;
+      @extend .icon-star;
+    }
+  }
+}
+.prize-str{
+  position relative;
+  box-sizing border-box;
+  width 1.58rem;
+  height 1.58rem;
+  margin 0 auto;
+  border .04rem solid #640d0d;
+  border-radius 50%;
+  background-color #ff9e2c;
+  line-height 1.5rem;
+  text-align center;
+  font-size .8rem;
+  color #fff;
+  &:before{
+    content: '';
+    position absolute;
+    top .01rem;
+    right -.19rem;
+    @extend .icon-star;
+  }
+}
+// 翻牌规则弹窗
+#pokerRule{
+  .ui-dialog-box{
+    overflow hidden;
+  }
+  .ui-dialog-content{
+    height: 6rem;
+    overflow-y auto;
+  }
+  .poker-cont{
+    padding 0.7rem 0;
+  }
+  .ui-dialog-header,
+  .ui-dialog-footer{
+    position absolute;
+    width 100%;
+    height 1.4rem;
+    bottom 0;
+    left 0;
+    background-color #fff;
+  }
+  .ui-dialog-header{
+    top 0;
+    height 1rem;
+  }
+}
+.com-title{
+  position relative;
+  box-sizing border-box;
+  width 2rem;
+  height .6rem;
+  margin .2rem auto 0;
+  background-color $title-bg-color;
+  border-radius .06rem;
+  text-align center;
+  h2{
+    font-size .3rem;
+    font-weight bold;
+    color #fff;
+    line-height .6rem;
+  }
+  &:before{
+    content: '';
+    position absolute;
+    top -.12rem;
+    right -.12rem;
+    @extend .icon-star;
+  }
+}
+.share-mask{
+  display none;
+  position absolute;
+  z-index 3;
+  top 0;
+  left: 0;
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,.8);
+  img{
+    position absolute;
+    top .34rem;
+    right .48rem;
+    width 2.65rem;
+  }
+}
+.ca-wrap{
+  position fixed;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+  .ca-pop,.empty{
+    position absolute;
+    top 50%;
+    left 50%;
+    background-color #fff;
+    width 5.46rem;
+    border-radius .1rem;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .empty-cont{
+    border-bottom 1px solid #ccc;
+    padding: .5rem .45rem;
+    font-size: .24rem;
+    color: #000;
+    text-align center;
+  }
+  .empty-btn{
+    display block;
+    text-align center;
+    font-size: .24rem;
+    line-height .68rem;
+    text-decoration none;
+  }
+  .ca-header{
+    padding 0 .28rem;
+    height 1.2rem;
+    line-height 1.2rem;
+    font-size .32rem;
+    font-weight: bold;
+    color #333;
+  }
+  .ca-content{
+    background-color #f4f4f4;
+    border-bottom 1px solid #ccc;
+    padding: .30rem .45rem;
+    font-size: .24rem;
+    color: #000;
+    p {
+      line-height 1.7;
+    }
+    .label{
+      display: inline-block;
+      width: 1.80rem;
+      text-align: right;
+      color: #666;
+    }
+  }
+  .ca-footer{
+    height 0.76rem;
+    padding .4rem .28rem;
+  }
+  .ca-btn{
+    float left;
+    display block;
+    width 2.32rem;
+    height .76rem;
+    box-sizing border-box;
+    text-align center;
+    line-height .76rem;
+    font-size .32rem;
+    text-decoration none;
+    border-radius .05rem;
+  }
+  .changeBtn{
+    border 1px solid #666;
+    color #666;
+    margin-right .2rem;
+  }
+  .comfirmBtn{
+    border 1px solid #f35c3f;
+    background-color #f35c3f
+    color #fff;
+  }
+}
+.ca-hide{
+  display none;
+}
+#loadpage{
+  position absolute;
+  z-index 100;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+}

@@ -1,0 +1,151 @@
+@import "../reset";
+@import "../address_moudle";
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$hliagn(){
+  transform translate(0, -50%);
+  -webkit-transform translate(0, -50%)
+}
+$vliagn(){
+  transform translate(-50%, 0);
+  -webkit-transform translate(-50%, 0)
+}
+$positioncenter(){
+  transform translate(-50%, -50%);
+  -webkit-transform translate(-50%, -50%)
+}
+$bg-color = #fff7d2;
+$high-color = #ffd570;
+$red-color = #cd3325;
+$font-color = #744e45;
+
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+}
+.high-color{
+  color $high-color;
+}
+.strong{
+  font-weight bold;
+}
+.fr{
+  float right;
+}
+.par{
+  font-size .25rem;
+  line-height .33rem;
+}
+html{
+  font-size: 100px;
+}
+body{
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+html, body{
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  background-color $bg-color;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.wrap{
+  padding-top 1.07rem;
+}
+.convert-cont{
+  box-sizing border-box;
+  position relative;
+  width 5.6rem;
+  background-color $red-color;
+  padding .22rem;
+  margin 0 auto;
+  border-radius .06rem;
+  &:before{
+    content '';
+    position absolute;
+    top -.78rem;
+    left -.22rem;
+    width 6.06rem;
+    height 1.17rem;
+    background: url(../../images/m20160205/roof.png) no-repeat 0 0;
+    background-size 100% 100%;
+  }
+  .convert-list{
+    $clearfix();
+    padding-top .4rem;
+    background-color: $high-color;
+    li {
+      float left;
+      width 50%;
+      margin-bottom .3rem;
+    }
+    .cont{
+      width 1.6rem;
+      height 1.2rem;
+      background url(../../images/m20160205/redPacket.png) no-repeat 0 0;
+      background-size 100% 100%;
+      margin 0 auto .16rem;
+      font-size .4rem;
+      font-weight bold;
+      text-align center;
+      line-height 1.2rem;
+      color #fff;
+      span {
+        font-size .22rem;
+        font-weight normal;
+      }
+    }
+    .info{
+      width 1.9rem;
+      height .38rem;
+      font-size .24rem;
+      color $font-color;
+      text-align center;
+      line-height .38rem;
+      margin 0 auto;
+      background-color: $bg-color;
+      border-radius .16rem;
+    }
+    .peach-num{
+      display inline-block;
+      width .23rem;
+      height .29rem;
+      background url(../../images/m20160205/peach.png) no-repeat 0 0;
+      background-size 100% 100%;
+      margin 0 .02rem;
+      vertical-align: middle;
+    }
+  }
+}
+.intro{
+  margin-top .2rem;
+  color $font-color;
+  font-size .22rem;
+  line-height .4rem;
+  padding 0 .32rem;
+}
+.goback{
+  box-sizing border-box;
+  display block;
+  max-width 1.4rem;
+  color #c34944;
+  font-size .28rem;
+  line-height .6rem;
+  border-radius .3rem;
+  border .03rem solid #c34944;
+  text-align center;
+  margin 0 auto;
+}

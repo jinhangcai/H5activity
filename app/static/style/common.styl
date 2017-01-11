@@ -1,0 +1,83 @@
+@import "reset";
+html{
+  font-size: 100px;
+}
+html,
+body,
+.page{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body{
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+//--------------------------------------------------------【工具代码块】
+
+//垂直居中
+$public-center-vertical =@block{
+  position: absolute
+  top: 50%
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//水平居中
+$public-center-horizontally =@block{
+  position: absolute
+  left: 50%
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+//水平垂直居中
+$public-center-completely =@block{
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+//清除浮动
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+
+#loadPage {
+  position fixed;
+  z-index 100;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background: url(../../images/loading.gif) no-repeat center center;
+  background-size: .78rem auto;
+  background-color: #fff;
+}

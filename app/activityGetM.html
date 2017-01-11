@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta id="viewportScale" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>填写地址</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <script>
+        (function(){
+            function o(){document.documentElement.style.fontSize=(document.documentElement.clientWidth>640?640:document.documentElement.clientWidth)/6.4+"px"}
+            var e=null;
+            window.addEventListener("resize",function(){clearTimeout(e),e=setTimeout(o,300)},!1),o()
+        })(window);
+    </script>
+    <style>
+        *{margin:0;padding:0;list-style: none;}
+        a{cursor: inherit;-webkit-tap-highlight-color: transparent;text-decoration:none}
+        input,textarea{  -webkit-tap-highlight-color: transparent;-webkit-appearance: none;outline: 0;-webkit-box-sizing: border-box;box-sizing: border-box;border:1px solid #ccc;-webkit-border-radius: .04rem;border-radius: .04rem;font-size: .28rem;line-height: .3rem;color: #666;}
+        select{display: block;color: #666}
+        html{min-height: 100%;}
+        body{background-color: #fff;padding-bottom: 0.30rem;}
+        ::-webkit-input-placeholder{color: #666;}
+        .content{margin:0 .5rem;transition: opacity .4s;}
+        .content .tit{margin-top: .38rem;font-size: .30rem;line-height: .38rem;color:#333;}
+        .content .cont{margin-top: .36rem}
+        .content .cont label{display:block;font-size: .24rem;color:#76adf3}
+        .content .cont label span{font-size: .16rem;color:#ff0000;margin-left: .22rem;vertical-align: middle;}
+        .content .cont .row+.row{margin-top: .30rem}
+        .content .cont input{display:block;margin-top: .20rem;padding: .25rem .24rem;width:100%;}
+        .content .cont .select-wrap{position: relative;-webkit-box-sizing: border-box;box-sizing: border-box;float: right;width:48%;height: .8rem;overflow: hidden;border: 1px solid #ccc;-webkit-border-radius: .04rem;border-radius: .04rem;}
+        .content .cont .select-wrap:before{content:'';display:block;position:absolute;top:50%;margin-top:-.06rem;right:.16rem;width:0;height:0;border: .065rem solid transparent;border-top: .11rem solid #666;}
+        .content .cont .select-wrap:first-child{float: left;}
+        .content .cont select{-webkit-box-sizing: border-box;box-sizing: border-box;width:100%;height: .80rem;font-size: .30rem;text-indent:1em;-webkit-appearance: none;border:none;background: transparent;}
+        .content .cont textarea{width: 100%;height: 1.40rem;padding: .30rem;margin-top: .3rem;}
+        .content .cont .input-error{color:red;margin-top: .15rem;font-size:.24rem}
+        .content .cont .error input,.content .cont .error textarea{border:1px solid red;background-color: rgb(255, 239, 239)}
+        .content .tips{margin: .20rem -.20rem 0;font-size: .20rem;color:#999;text-align:center;}
+        .content .operation{margin-top: .20rem;}
+        .content .operation a{display: block;width:100%;line-height: .80rem;text-align: center;font-size: .36rem;border-radius: .04rem}
+        .content .operation .btn-submit{color:#fff;background-color: #f35d3f;border:1px solid #f35d3f}
+        .content .operation .btn-back{margin-top: .20rem;color:#666;border:1px solid #adadad}
+        .content .submit-error{  width: 100%;background-color: #fee3ce;color: #ff5938;font-size: .32rem;line-height: .60rem;text-align: center;margin-bottom: .20rem;}
+        .float_confirm{position: fixed;left:0;top:0;right:0;bottom: 0;width:100%;height:100%;background-color: rgba(0,0,0,.5)}
+        .float_confirm .main{position:absolute;left:50%;top:50%;padding: .45rem 0;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);width: 5.50rem;background-color: #fff;border-radius: .1rem}
+        .float_confirm .tit{padding:0 .45rem;font-size: .32rem;color:#333}
+        .float_confirm .cont{padding: .30rem .45rem;margin-top: .32rem;font-size: .24rem;color:#000;background-color: #f4f4f4;border-bottom: 1px solid #ccc}
+        .float_confirm .cont p{line-height: 1.7}
+        .float_confirm .cont .label{display: inline-block;width: 1.80rem;text-align: right;color:#666}
+        .float_confirm .operation{margin-top: .30rem;padding: 0 .40rem;line-height: 0;font-size: 0}
+        .float_confirm .operation a{display: inline-block;font-size: .36rem;text-align: center;line-height: .70rem;border-radius: .10rem}
+        .float_confirm .operation .btn-back{width: 1.55rem;color:#666;border:1px solid #666}
+        .float_confirm .operation .btn-submit{margin-left: .08rem;width: 2.9rem;background-color: #f35d3f;color:#fff;border:1px solid #f35d3f}
+        .ui-pop-wait{position:fixed;left:0;top:0;right:0;bottom:0;z-index:99999;width:100%;height:100%;background-color:rgba(255,255,255,0.3)}
+        .ui-pop-wait .ui-pop-main{position:absolute;left:50%;top:50%;border-radius: .10rem;overflow:hidden;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);padding: .30rem;font-size: .28rem;color:#fff;background-color:rgba(0,0,0,0.7)}
+        .hide{opacity: 0}
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!--<div class="tit">在“<span id="activeName">钱庄日</span>”的活动中获得奖品的用户，请填写您的收货地址</div>-->
+        <div class="tit">在本活动中获得奖品的用户，请填写您的收货地址</div>
+        <form action="/activity/getGift/activityAddressM.html" method="POST" id="getForm">
+            <div class="cont">
+                <div class="row">
+                    <label for="userName">收货人姓名<span>*</span></label>
+                    <input id="userName" name="name" placeholder="请填写收货人姓名" type="text"/>
+                </div>
+                <div class="row">
+                    <label for="userPhone">手机号码<span>*</span></label>
+                    <input id="userPhone" name="tel" placeholder="请填写收货人的手机号码" type="text"/>
+                </div>
+                <div class="row"><label>收货地址<span>*</span></label></div>
+                <div class="row">
+                    <div class="select-wrap">
+                        <select name="province" id="province">
+                            <option value="">请选择省</option>
+                        </select>
+                    </div>
+                    <div class="select-wrap">
+                        <select name="city" id="city">
+                            <option value="">请选择市</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <textarea id="address" name="address" placeholder="请填写详细收货地址"></textarea>
+                </div>
+            </div>
+            <div class="tips">
+                提示：确保您能够及时收到我们的奖品，请如实填写收货地址!
+            </div>
+            <div class="operation">
+                <a class="btn btn-submit" id="getSubmit" href="javascript:;">提交</a>
+            </div>
+            <input type="hidden" id="provinceStr" name="provinceStr"/>
+            <input type="hidden" id="cityStr" name="cityStr"/>
+        </form>
+    </div>
+    <script src="/static/script/modules/sea.js"></script>
+    <script src="/static/script/modules/seajs-config.js"></script>
+    <script>
+        seajs.use('/static/script/activity_get_m.js');
+    </script>
+</body>
+</html>

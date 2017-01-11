@@ -1,0 +1,133 @@
+@import "../common";
+@import "../address_moudle";
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$hliagn(){
+  transform translate(0, -50%);
+  -webkit-transform translate(0, -50%)
+}
+
+$bg-color = #fae2be;
+$content-bg = #fef6eb;
+$font-color = #8b480e;
+$title-color = #f57468;
+$list-bg = #fae9d3;
+html, body{
+  overflow auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.btn{
+  display block;
+  background url(../../images/m20151212/btn-bg.png) no-repeat 0 0;
+  background-size 100% 100%;
+  font-size .24rem;
+  color #fff;
+  text-align center;
+}
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+}
+.viewport{
+  padding-top .5rem;
+}
+.bg-box{
+  background url(../../images/m20151212/bd-bg.png) repeat-y 0 0;
+  background-size 100%;
+}
+body{
+  background-color: $bg-color;
+}
+.item-bg01{
+  background url(../../images/m20151212/box-bg.png) no-repeat 0 0;
+  background-size 100% 100%;
+}
+.activity-item{
+  margin 0 .265rem;
+  padding .45rem .3rem .12rem;
+  .hd{
+    position relative;
+    height .82rem;
+    border-bottom 1px dashed #d67b2a;
+    h1 {
+      font-size .3rem;
+      color $font-color;
+      line-height .82rem;
+    }
+    .address-btn{
+      display none;
+      position absolute;
+      top 0;
+      right 0;
+      width 1.86rem;
+      line-height .64rem;
+    }
+  }
+  .content{
+    position relative;
+    height 6rem;
+  }
+  .prize-list{
+    margin-top .2rem;
+    .row-cont {
+      height 5.1rem;
+      overflow-y auto;
+    }
+  }
+  .prize-hd{
+    position relative;
+    height .55rem;
+    line-height .55rem;
+    background-color #fae9d3;
+    border-radius .08rem;
+    font-size .26rem;
+    color $font-color;
+  }
+  .row{
+    position relative;
+    height .6rem;
+    font-size .22rem;
+    color $font-color;
+  }
+  .label,
+  .cont{
+    position absolute;
+    top 50%;
+    $hliagn();
+    width 50%;
+    text-align center;
+  }
+  .label{
+    left 0;
+  }
+  .cont{
+    right 0;
+  }
+  .empty{
+    position absolute;
+    top 50%;
+    left 0;
+    width 100%;
+    $hliagn();
+    text-align center;
+    p {
+      font-size .28rem;
+      color $font-color;
+      margin-bottom .5rem;
+    }
+    .btn{
+      margin 0 1.6rem;
+      line-height .64rem;
+    }
+  }
+}

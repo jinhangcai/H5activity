@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Help！谁来拯救我的工资</title>
+    <link rel="stylesheet" href="/static/style/m20161101/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="banner"><img src="/static/images/m20161101/banner.jpg" alt="Help！谁来拯救我的工资"></div>
+    <div class="container">
+        <p class="content">当上月在投本金和当月新增在投本金同时满足下列条件时，就可获得最高项的拯救资金。</p>
+        <table class="act-table">
+            <thead>
+                <tr>
+                    <th style="width:32%">上月在投本金</th>
+                    <th>当月新增在投本金</th>
+                    <th style="width:32%">拯救资金</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>≥5000元</td>
+                    <td>≥3000元</td>
+                    <td>10元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥10000元</td>
+                    <td>≥6000元</td>
+                    <td>20元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥30000元</td>
+                    <td>≥10000元</td>
+                    <td>50元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥50000元</td>
+                    <td>≥30000元</td>
+                    <td>100元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥80000元</td>
+                    <td>≥100000元</td>
+                    <td>200元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥100000元</td>
+                    <td>≥300000元</td>
+                    <td>500元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥300000元</td>
+                    <td>≥500000元</td>
+                    <td>1000元现金红包</td>
+                </tr>
+                <tr>
+                    <td>≥500000元</td>
+                    <td>≥1000000元</td>
+                    <td>2000元现金红包</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="content min-font">当月新增在投本金=当月在投本金－上月在投本金；<br>【当月在投本金】为当月最后一天24点的在投本金。</p>
+        <div v-if="isStart && !isLogin" class="user-cont">登录可查看您的在投记录&nbsp;<a @click="goLogin" href="javascript:;">立即登录</a></div>
+        <template v-if="isStart && isLogin">
+            <div class="title"><span>您的在投记录</span></div>
+            <table class="act-table">
+                <thead>
+                <tr>
+                    <th style="width:25%">时间</th>
+                    <th style="width:25%">当月在投本金</th>
+                    <th style="width:25%">当月新增<br>在投本金</th>
+                    <th style="width:25%">拯救资金</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item in list">
+                    <td>{{item.date | date}}</td>
+                    <td>{{item.currentMonthSum}}元</td>
+                    <template v-if="item.date < startTime">
+                        <td>未开始</td>
+                        <td>未开始</td>
+                    </template>
+                    <template v-else>
+                        <td v-if="item.currentMonthAdd >= 0">{{item.currentMonthAdd}}元</td>
+                        <td v-else>0元</td>
+                        <td>{{item.redAmount}}元</td>
+                    </template>
+                </tr>
+                </tbody>
+            </table>
+            <p v-if="dataListLen > 0" class="link">
+                <a @click="goHistory" href="javascript:;">查看历史记录&gt;</a>
+            </p>
+        </template>
+        <a @click="goInvest" href="javascript:;" class="btn">立即投资</a>
+        <p class="content">
+            举个例子：<br>
+            9月30日24:00的在投本金为30000元，10月31日24:00的在投本金为40000元，则10月的新增在投金额为10000元，满足第3档要求，可获得50元现金红包。
+        </p>
+        <div class="title"><span>活动规则</span></div>
+        <p class="content">
+            1、每月8日为发薪日，我们将发放上月的工资拯救资金，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；<br>
+            2、本活动最终解释权归杭州乾庄互联网金融服务有限公司所有。
+        </p>
+    </div>
+</article>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161101/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161101/index.js');
+</script>
+</body>
+</html>

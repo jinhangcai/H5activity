@@ -1,0 +1,266 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+#loadPage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-size: 0.78rem auto;
+  background-color: #fff;
+}
+@font-face {
+  font-family: iconfont;
+  src: url("iconfont/iconfont.eot");
+  src: url("iconfont/iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff") format('woff'), url("iconfont/iconfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-group:before {
+  content: "\e644";
+}
+.icon-coin:before {
+  content: "\e645";
+}
+.icon-download:before {
+  content: "\e643";
+}
+.icon-close:before {
+  content: "\e604";
+}
+.viewport {
+  background: #6a2f6d;
+}
+.viewport .banner {
+  width: 6.4rem;
+  position: relative;
+}
+.viewport .banner .banImg {
+  width: 100%;
+}
+.viewport .banner .gotohome {
+  width: 1.33rem;
+  height: 0.56rem;
+  left: 0.3rem;
+  top: 0.3rem;
+  position: absolute;
+}
+.viewport .main {
+  width: 5.8rem;
+  margin: 0 auto;
+}
+.viewport .main .rates {
+  padding-top: 0.35rem;
+  color: #bedd0d;
+  font-size: 0.24rem;
+}
+.viewport .main .time {
+  padding-top: 0.2rem;
+  font-size: 0.24rem;
+  color: #fff;
+}
+.viewport .main .Login {
+  width: 5.8rem;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  margin: 0.3rem auto 0;
+  background: #5d1a5f;
+  font-size: 0.24rem;
+  color: #fff;
+}
+.viewport .main .Login i {
+  font-style: normal;
+}
+.viewport .main .Login span {
+  color: #c5d20c;
+  text-decoration: underline;
+}
+.viewport .main ul {
+  overflow: hidden;
+  margin-top: 0.38rem;
+}
+.viewport .main ul li {
+  width: 2.75rem;
+  height: 2.97rem;
+  float: left;
+}
+.viewport .main ul li img {
+  width: 100%;
+}
+.viewport .main ul li div:nth-child(1) {
+  background: #632b68;
+  width: 100%;
+  height: 2rem;
+}
+.viewport .main ul li div:nth-child(2) {
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  padding: 0.18rem 0 0.11rem 0;
+}
+.viewport .main ul li div:nth-child(3) {
+  text-align: center;
+  color: #bedd0e;
+  font-size: 0.2rem;
+}
+.viewport .main ul li:nth-child(even) {
+  margin-right: 0.3rem;
+}
+.viewport .main ul li:nth-child(1) {
+  width: 3.8rem;
+  margin: 0 auto;
+  float: none;
+}
+.viewport .main .hint {
+  color: #bede0e;
+  font-size: 0.28rem;
+  padding: 0.7rem 0 0.2rem 0;
+}
+.viewport .main ol {
+  overflow: hidden;
+}
+.viewport .main ol li {
+  color: #fff;
+  font-size: 0.24rem;
+  padding-bottom: 0.24rem;
+  line-height: 0.35rem;
+}
+.footers {
+  padding-bottom: 0.2rem;
+  background-size: 100%;
+}
+.footers .center {
+  font-size: 0.18rem;
+  line-height: 0.36rem;
+  color: #fff;
+  text-align: center;
+}

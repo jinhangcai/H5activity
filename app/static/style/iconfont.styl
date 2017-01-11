@@ -1,0 +1,38 @@
+/*iconfont*/
+$font-face(family-name, font-path, font-weight=normal, font-style=normal, include-svg=false){
+  font-family:family-name;
+  src:url(font-path+'.eot');
+  if include-svg{
+    src:url(font-path+'.eot?#iefix') format("embedded-opentype"),url(font-path+'.woff') format('woff'), url(font-path+'.ttf') format("truetype"), url(font-path+'.svg#'+family-name) format('svg');
+  }else{
+    src:url(font-path+'.eot?#iefix') format("embedded-opentype"),url(font-path+'.woff') format('woff'), url(font-path+'.ttf') format("truetype");
+  }
+  font-weight: font-weight;
+  font-style: font-style;
+}
+@font-face {
+  $font-face(iconfont, 'iconfont/iconfont');
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-group:before {
+  content: "\e644";
+}
+.icon-coin:before {
+  content: "\e645";
+}
+.icon-download:before {
+  content: "\e643";
+}
+.icon-close:before{
+  content: "\e604";
+}

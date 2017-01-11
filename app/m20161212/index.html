@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>12.12狂派大礼 全民疯抢</title>
+    <link rel="stylesheet" href="/static/style/m20161212/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body id="index">
+<article class="viewport">
+    <div class="bg-wrap"><div class="banner"><img src="/static/images/m20161212/banner.png" alt="12.12狂派大礼 全民疯抢"></div>
+        <div class="floor">
+            <div class="title">1+2拆红包 比手气</div>
+            <div class="info center">
+                活动期间，每人每天可免费玩1次，<br>
+                单笔投资满2000元可再玩2次，<br>
+                每天共可玩3次，所得红包有效期3天。
+            </div>
+            <a @click="goGame" href="javascript:;" class="phone-btn"><img src="/static/images/m20161212/phone-btn.png" alt="进入游戏"></a>
+        </div>
+        <div class="floor">
+            <div class="title">1.2%加息券 人人嗨</div>
+            <div class="floor-inner">
+                <div class="info">
+                    活动期间，单笔投资满5000元可领取加息券1张，
+                    每天限领一张，每人共可领取3张。
+                </div>
+                <template v-for="item in couponList">
+                    <a href="javascript:;" class="coupon" :class="item.able ? 'able' : 'disable'" @click="receiveCoupon($index, item.able)"></a>
+                </template>
+            </div>
+        </div>
+        <div class="floor">
+            <div class="title">12.12排行榜 送豪礼</div>
+            <div class="floor-inner">
+                <div class="info">活动期间，投资28天及以上产品的累计投资金额
+                    排名前12的用户，将获得12.12专属现金红包。</div>
+                <ul class="red-packet-list">
+                    <li>
+                        <div class="red-packet">
+                            <div class="prize">1212元</div><span class="tips">第一名</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="red-packet">
+                            <div class="prize">888元</div><span class="tips">第二名</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="red-packet">
+                            <div class="prize">666元</div><span class="tips">第三名</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="red-packet">
+                            <div class="prize">333元</div><span class="tips">第<em>4-8</em>名</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="red-packet">
+                            <div class="prize">120元</div><span class="tips">第<em>9-12</em>名</span>
+                        </div>
+                    </li>
+                </ul>
+                <template v-if="isPart3start">
+                    <div v-if="isLogin" class="user-wrap">活动中您累计投资:{{userTotal}}元 <a class="high-light under-line" @click="goInvest" href="javascript:;">立即投资</a></div>
+                    <div v-else class="user-wrap">登录后查看您的累计投资额 <a class="high-light under-line" @click="goLogin" href="javascript:;">立即登录</a></div>
+                    <template v-if="limitTopList.length >= 12">
+                        <table class="limit-top">
+                            <thead>
+                            <tr>
+                                <td style="width: .9rem">排名</td>
+                                <td>用户名</td>
+                                <td>累计投资额（元）</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="item in limitTopList">
+                                <td>{{$index+1}}</td>
+                                <td>{{item.phone | secretPhone}}</td>
+                                <td>{{item.tenderSum}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="top-tips">数据实时更新,最终排名以12月12日23:59:59数据统计为准</div>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <div class="floor">
+            <div class="title">1.2% 狂加息  定时抢</div>
+            <div class="floor-inner">
+                <div class="info">12月8日-12日，定时加息，最高加至1.2%！</div>
+                <img class="time-line" src="/static/images/m20161212/time-line.png" alt="定时抢加息红包">
+            </div>
+        </div>
+        <div class="rule-wrap">
+            <div class="title">活动说明</div>
+            <p>1、12.12排行榜中，若两人投资金额相同的，则投资时间靠前的用户获得奖励，红包将在活动结束后的3个工作日内发放，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</p>
+            <p>2、本次部分活动限定28天及以上理财产品，活动所获得红包、加息券的使用规则详见“我的券包使用说明”；</p>
+            <p>3、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+        </div>
+    </div>
+</article>
+<section v-if="alertMask" class="mask">
+    <div class="rope"></div>
+    <div class="pop">
+        <div class="content">{{alertContent}}</div>
+        <a @click="closeAlert" href="javascript:;" class="pop-btn">我知道了</a>
+        <a @click="closeAlert" href="javascript:;" class="pop-close"></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161212/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161212/index.js');
+</script>
+</body>
+</html>

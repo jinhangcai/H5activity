@@ -1,0 +1,75 @@
+@import "../common";
+body{
+  background-color #fff;
+}
+.header {
+  position relative;
+  background url(../../images/download/bg.png) no-repeat 0 0;
+  background-size 100%;
+  padding .64rem 0 1.1rem;
+  margin-bottom 1.28rem;
+  .logo{
+    width: 1.64rem;
+    height 1.63rem;
+    margin 0 auto .62rem;
+    img {
+      width 100%;
+    }
+  }
+  .title{
+    font-size .4rem;
+    text-align center;
+    font-weight normal;
+    color #fff;
+    line-height 1;
+    margin-bottom .32rem;
+    .big{
+      font-size .48rem;
+    }
+  }
+  .sub-title{
+    font-size .24rem;
+    text-align center;
+    color #fff;
+    span + span {
+      margin-left .58rem;
+    }
+    .iconfont{
+      font-size .26rem;
+      margin-right .1rem
+    }
+  }
+  .red-pic{
+    position absolute;
+    width: 1.65rem;
+    height: 1.65rem;
+    bottom -.825rem;
+    left 50%;
+    margin-left: -.825rem;
+    img {
+      width: 100%;
+    }
+  }
+}
+.info{
+  font-size .3rem;
+  color: #666;
+  text-align center;
+  line-height 1;
+  & + .info{
+    margin-top .18rem;
+  }
+  .red{
+    color: #f25f45;
+  }
+}
+.download-btn{
+  display: block;
+  margin .52rem 1.2rem .2rem;
+  line-height .9rem;
+  color #fff;
+  font-size .36rem;
+  text-align center;
+  background-color: #f25f45;
+  border-radius .45rem;
+}

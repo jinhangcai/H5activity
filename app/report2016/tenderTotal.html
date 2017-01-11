@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钱庄网</title>
+    <link rel="stylesheet" href="/static/style/reset.css">
+    <style>
+        html,body{
+            height: 100%
+        }
+        body{
+            background: #2b116e;
+            font-family: '微软雅黑';
+        }
+        .wrap{
+            background: url(/static/images/report2016/bg.png) no-repeat center bottom;
+            box-sizing: border-box;
+            min-height: 100%;
+            padding-top:80px;
+            text-align: center;
+            color: #fff;
+        }
+        .title{
+            width: 960px;
+            margin: 0 auto 40px;
+        }
+        .title img{
+            display:block;
+        }
+        .sub-title{
+            font-size: 30px;
+        }
+        .info{
+            line-height: 95px;
+            font-size: 68px;
+            color: #fff;
+        }
+        .money{
+            font-size: 182px;
+            color:#fdff35;
+        }
+        .logo{
+            width: 336px;
+            margin: 60px auto 0;
+        }
+    </style>
+    <script src="/static/script/modules/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <h1 class="title"><img src="/static/images/report2016/title.png" alt="双11"></h1>
+    <p class="sub-title">当前时间：<span id="date"></span></p>
+    <p class="info">钱庄累计交易额（元）</p>
+    <p class="money">0</p>
+    <div class="logo"><img src="/static/images/report2016/qian_logo.png" alt="钱庄网"></div>
+</div>
+<script type="text/javascript">
+    var nowDate = new Date(),dateDom = document.getElementById('date');
+    function showDate(){
+        nowDate = new Date();
+        var year = nowDate.getFullYear();
+        var month = nowDate.getMonth() + 1;
+        var day = nowDate.getDate();
+        var hours = twoNum(nowDate.getHours());
+        var minutes = twoNum(nowDate.getMinutes());
+        var sec = twoNum(nowDate.getSeconds());
+        dateDom.innerHTML = year+'年'+month+'月'+day+'日 '+hours+':'+minutes+':'+sec;
+    }
+    function twoNum(num){
+        return num >= 10 ? num : '0'+num
+    }
+    showDate();
+    setInterval(showDate, 1000);
+    var totalWrap = $('.money');
+    function dataChart(){
+        $.ajax({
+            url: 'https://www.qian360.com/activity/monthlyActivity/tenderReport.html',
+            type: "post",
+            data: {
+                activityCode: 20160415,
+                serviceName: 'tenderReport'
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var result = data.resultData.statics.tenderTotal;
+                totalWrap.text(milliFormat(result))
+            }
+        });
+    }
+    dataChart();
+    setInterval(dataChart, 300000);
+
+    function milliFormat(s){//添加千位符
+        s = s+'';
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        s=s.replace(".",",");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s)){
+            s=s.replace(re,"$1,$2");
+        }
+        s=s.replace(/,(\d\d)$/,".$1");
+        return s.replace(/^\./,"0.")
+    }
+</script>
+</body>
+</html>

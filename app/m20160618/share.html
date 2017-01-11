@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>周年好礼 人人领</title>
+    <link rel="stylesheet" href="/static/style/m20160618/share.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>周年好礼 人人领</h2>
+                <small>6月23日-6月29日</small>
+            </div>
+            <a class="back-btn" href="javascript:;" @click="linkHome">主会场</a>
+        </div>
+        <div class="main">
+            <template v-if="!isEnd">
+                <template v-if="isOpened">
+                    <div class="gift-box opened">
+                        <div class="red-packets">
+                            <div class="tit">周年庆典红包</div>
+                            <div class="cont">
+                                <div class="amount">
+                                    <span>{{amount}}<small>元</small></span>
+                                </div>
+                                <div class="describe">
+                                    <p>红包已到账：{{phone}}</p>
+                                    <p>快去使用，不要过期哦~</p>
+                                </div>
+                            </div>
+                            <div class="operation">
+                                <a href="javascript:;" @click="showShareMask">分享给好友</a>
+                                <a class="on" href="javascript:;" @click="linkInvest">去使用</a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="gift-box receive">
+                        <div class="input">
+                            <input type="tel" maxlength="11" v-model="phone" placeholder="请输入手机号码">
+                        </div>
+                        <div class="operation">
+                            <a href="javascript:;" v-if="phone.length==11" @click="receive">领取红包</a>
+                            <a class="disabled" href="javascript:;" v-else>领取红包</a>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template v-else>
+                <div class="gift-box end">
+                    <div class="cont">活动已结束</div>
+                    <div class="operation">
+                        <a href="javascript:;">下载钱庄理财APP</a>
+                    </div>
+                </div>
+            </template>
+            <div class="rule-box">
+                <div class="tit">活动规则</div>
+                <div class="cont">
+                    <ol>
+                        <li>1、活动期间每人限领1次红包；</li>
+                        <li>2、新用户为10元现金红包，老用户为1-10元不等，红包仅限钱庄网投资使用；</li>
+                        <li>3、领取红包的手机号码须为钱庄网注册手机号，新用户领取时默认同意注册；</li>
+                        <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司；</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section class="ui-pop-wait" style="display: none;" v-show="popTips">
+    <div class="ui-pop-main">
+        {{popTips}}
+    </div>
+</section>
+<section id="loadPage" v-show="isPageLoading"></section>
+<section id="shareMask" style="display: none;" v-show="isShareMask" @click="hideShareMask"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160618/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160618/share.js');
+</script>
+</body>
+</html>

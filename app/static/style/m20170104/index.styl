@@ -1,0 +1,378 @@
+@import "../common.styl";
+
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+body{
+  background-color #d03a0b
+}
+
+.viewport{
+  height 100%;
+  overflow auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.banner{
+  img {
+    display: block;
+    width 100%;
+  }
+}
+.under-line{
+  border-bottom 1px solid;
+}
+.high-light{
+  color #ff1a24
+}
+.user-wrap{
+  margin-top .16rem;
+  font-size .26rem;
+  color #ffd632;
+  line-height .45rem;
+  text-align center;
+  a {
+    color #ffd632;
+  }
+}
+.info{
+  margin-bottom .2rem;
+  font-size .2rem;
+  color #fb8e6c;
+  line-height .32rem;
+  text-align center;
+}
+
+.raffle-con {
+  box-sizing border-box;
+  position: relative
+  margin: 0 auto;
+  padding-top .3rem;
+  background url("../../images/m20170104/raffle-bg.png") no-repeat;
+  background-size 5.77rem 9.66rem;
+  background-position center top;
+  width: 5.77rem;
+  height: 4.83rem;
+  &.ing{
+    -webkit-animation:raffle-bg 1s steps(2) 0s infinite;
+    animation:raffle-bg 1s steps(2) 0s infinite;
+  }
+  ul {
+    margin 0 auto;
+    width: 5.1rem;
+    box-sizing border-box;
+    border-radius .20rem;
+    text-align: center
+  }
+  li {
+    float: left;
+    position: relative
+    width: 1.66rem
+    height: 1.38rem
+    line-height: 1.38rem
+    margin-right: .06rem
+    margin-bottom: .05rem
+    border-radius .10rem
+    background-color #fff
+    text-align: center
+    overflow: hidden
+    -webkit-box-shadow:0 -.12rem 0 #ffcab9 inset;
+    box-shadow:0 -.12rem 0 #ffcab9 inset;
+    img{
+      {$public-center-completely}
+      width 1.09rem
+    }
+    .pricetitle{
+      color #292043
+      font-size .20rem
+      text-align center
+      transform: translate(0, -.55rem);
+      -webkit-transform: -webkit-translate(0, -.55rem);
+    }
+    &.on {
+      background-color #9de0ff
+      -webkit-box-shadow:0 -.12rem 0 #67b2d4 inset;
+      box-shadow:0 -.12rem 0 #67b2d4 inset;
+    }
+    &.start-btn {
+      line-height: 1.37rem
+      font-size: .32rem;
+      background-color transparent
+      -webkit-box-shadow: 0 0 0 0 inset
+      box-shadow: 0 0 0 0  inset;
+      a {
+        position: absolute
+        left: 0
+        top: 0
+        display: block
+        width: 100%
+        height: 100%
+        font-size 0
+        line-height: 0
+        background url("../../images/m20170104/btn-default.png") no-repeat center center;
+        background-size 100%
+        //-webkit-animation:raffle-btn 1.2s steps(2) 0s infinite;抽奖
+        //animation:raffle-btn 1.2s steps(2) 0s infinite;
+      }
+      .btn-noTimes {
+        opacity .9;
+      }
+      .btn-ing {
+        background url("../../images/m20170104/btn-ing.png") no-repeat center center;
+        //抽奖中
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+      .btn-noChance{
+        background url("../../images/m20170104/btn-noChance.png") no-repeat center center;
+        //机会已用完
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+      .btn-end{
+        background url("../../images/m20170104/btn-end.png") no-repeat center center;
+        //机会已用完
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+      .btn-login{
+        background url("../../images/m20170104/btn-login.png") no-repeat center center;
+        //登入
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+      .btn-notStarted{
+        background url("../../images/m20170104/btn-notStarted.png") no-repeat center center;
+        //活动未开始
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+      .btn-end{
+        background url("../../images/m20170104/btn-end.png") no-repeat center center;
+        //活动已结束
+        background-size 100%
+        -webkit-animation: inherit;
+        animation: inherit;
+      }
+    }
+    &:nth-child(3n) {
+      margin-right: 0
+    }
+    &:nth-child(n+7){
+      margin-bottom: 0
+    }
+  }
+}
+.operate-con {
+  margin: .35rem 0;
+  text-align: center
+  a {
+    display: block;
+    width 2.34rem;
+    margin: 0 auto;
+    border 1px solid #ffcb3d
+    border-radius 1rem;
+    font-size: .24rem;
+    line-height: .60rem;
+    color: #ffcb3d
+  }
+}
+
+.declaration {
+  margin-top .18rem;
+  font-size .16rem;
+  color #f8746a;
+  text-align center;
+  &:before,
+  &:after {
+    content '';
+    display inline-block;
+    width .05rem;
+    height @width;
+    border-radius 50%;
+    background-color #f8746a;
+    margin .05rem;
+  }
+}
+@-webkit-keyframes raffle-btn {
+  form{
+    background-size 1.40rem auto;
+  }
+  to{
+    background-size 1.10rem auto;
+  }
+}
+
+@keyframes raffle-btn {
+  form{
+    background-size 1.40rem auto;
+  }
+  to{
+    background-size 1.10rem auto;
+  }
+}
+
+@-webkit-keyframes raffle-bg {
+  0%{
+    background-position center 0;
+  }
+  100%{
+    background-position center 200%
+  }
+}
+
+@keyframes raffle-bg {
+  0%{
+    background-position center 0;
+  }
+  100%{
+    background-position center 200%
+  }
+}
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9;
+  .pop{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 0.1rem;
+    overflow: hidden;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 4.8rem;
+    background-color: #fff;
+  }
+  .content{
+    padding: 0.7rem 0.35rem;
+    font-size: 0.32rem;
+    line-height: 1.5;
+    text-align: center;
+    background: url("../../images/m20170104/pop-bg.png") no-repeat center top;
+  }
+  .pop-btn{
+    width: 3rem;
+    height: 0.68rem;
+    border-radius: 0.35rem;
+    background: #d03a0b;
+    line-height: 0.68rem;
+    text-align: center;
+    display: block;
+    margin: 0.27rem auto;
+    color: #fff;
+    font-size: 0.3rem;
+  }
+  .title{
+    font-size: .36rem;
+    color: #d03a0b;
+    font-weight: bold;
+  }
+  p{
+    margin-top: .3rem;
+    font-size: .3rem;
+    color: #333;
+  }
+}
+#shareMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7) url("../../images/m20161218/share-mask.png") no-repeat 3rem .3rem;
+  background-size: 2.81rem auto;
+}
+
+// 中奖记录
+#record{
+  padding-bottom 0.97rem;
+  box-sizing border-box;
+  background-color: #f6f6f6;
+  .empty{
+    font-size .24rem;
+    text-align center;
+    padding-top 2rem;
+    color: #9c9c9c;
+  }
+  .tit {
+    font-size: 0.32rem;
+    color: #fff;
+    line-height: 0.7rem;
+    text-align: center;
+    background-color: #f35c3e;
+  }
+  .ui-list-double{
+    padding-left: 0.3rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    li {
+      height: 1.4rem;
+      position: relative;
+      border-bottom: 1px solid #eee;
+    }
+    .column-left {
+      left: 0;
+      text-align: left;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      .tits {
+        font-size: 0.28rem;
+        color: #333;
+      }
+      .conts {
+        margin-top: 0.2rem;
+        font-size: 0.24rem;
+        color: #999;
+      }
+    }
+    .column-right {
+      right: 0.3rem;
+      text-align: right;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      .tits {
+        font-size: 0.24rem;
+        color: #999;
+      }
+    }
+  }
+  .record-foot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.32rem;
+    color: #333;
+    text-align: center;
+    line-height: 0.97rem;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    a{
+      display: block;
+      color: inherit;
+    }
+  }
+}

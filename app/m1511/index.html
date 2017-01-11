@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>双11理财大餐，吃喝玩乐全带走</title>
+    <link rel="stylesheet" href="/static/style/common.css">
+    <link rel="stylesheet" href="/static/style/m1511/page.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+    <div id="loadpage"></div>
+    <div id="subTab" class="sub-ctrl-wrap">
+        <nav class="tab-ctrl-sub">
+            <ul>
+                <li>双11狂欢</li>
+                <li>惊喜8天乐</li>
+                <li>11月钱庄日</li>
+            </ul>
+        </nav>
+    </div>
+    <section class="page">
+        <article class="viewport">
+            <div class="banner"><img src="/static/images/m1511/banner.png" alt="banner"/></div>
+            <div id="mainTab" class="ctrl-wrap">
+                <nav class="tab-ctrl">
+                    <ul>
+                        <li>双11狂欢</li>
+                        <li>惊喜8天乐</li>
+                        <li>11月钱庄日</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="tab-cont">
+                <div class="tab-item" style="display:none">
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>送加息</h2>
+                            <span>年化最高提升3%!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info mr152">11月11日限量发布200万短期产品，加息到<strong class="linkcolor">年化11%</strong>，数量有限抢完即无！</p>
+                            <a href="javascript:;" class="big-btn investBtn">立即投资</a>
+                        </div>
+                    </div>
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>拼运气</h2>
+                            <span>你是我的幸运符号!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info">11月11日9:00-21:00期间每个整点公布当日的实时累计成交额，并将后5、4、3位数依次与截止数据公布前的全部投资用户手机号码后5、4、3位进行匹配，符合条件的用户依次获赠以下奖品：
+                                <br><a href="javascript:;" class="linkcolor underline bbs">点此查看整点累计成交额</a>
+                            </p>
+                            <ul class="luck-prize">
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/luck-pic1.png" alt=""/>
+                                        <span class="prize-name">iPad mini 2</span>
+                                    </div>
+                                    <p class="prize-rule">后5位数相同</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/luck-pic2.png" alt=""/>
+                                        <span class="prize-name">111元红包</span>
+                                    </div>
+                                    <p class="prize-rule">后4位数相同</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/luck-pic3.png" alt=""/>
+                                        <span class="prize-name">11元红包</span>
+                                    </div>
+                                    <p class="prize-rule">后3位数相同</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>开胃菜</h2>
+                            <span>让血拼季胃口大开!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info">11月11日当天累计投资额满足以下条件即可获赠对应奖品：</p>
+                            <ul class="starter-list">
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/starter-pic1.png" alt=""/>
+                                    </div>
+                                    <div class="prize-cont">
+                                        <p class="prize-name">40寸乐视TV</p>
+                                        <p class="prize-rule">投资额≥1,111,111</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/starter-pic2.png" alt=""/>
+                                    </div>
+                                    <div class="prize-cont">
+                                        <p class="prize-name">高级定制保温杯2个</p>
+                                        <p class="prize-rule">111,111≤投资额<1,111,111</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/starter-pic3.png" alt=""/>
+                                    </div>
+                                    <div class="prize-cont">
+                                        <p class="prize-name">投资11111元可获1瓶干红<br>每加2万元再送1瓶</p>
+                                        <p class="prize-rule">11,111≤投资额<111,111</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-item" style="display:none">
+                    <div class="floor-item poker">
+                        <div class="title">
+                            <h2>天天翻</h2>
+                            <span>光棍们的翻牌福利!</span>
+                        </div>
+                        <div id="pokerLoading" class="poker-loading"></div>
+                        <div id="pokerBox" class="content ui-hide">
+                            <p class="info fs30">可翻牌：<strong id="havePokerNum" class="linkcolor">0</strong>次</p>
+                            <p class="info">成功分享活动再翻2次。<a id="shareCurPage" class="linkcolor underline" href="javascript:;">立即分享</a></p>
+                            <p class="info">单笔每投5000元可再翻1次。<a class="linkcolor underline investBtn" href="javascript:;">立即投资</a></p>
+                            <p class="info">每天最多可翻10次。翻牌可获得红包、神秘大礼。</p>
+                            <ul class="poker-list">
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                                <li>
+                                    <div class="poker-inner">
+                                        <div class="poker-item">
+                                            <div class="poker-face"></div>
+                                            <div class="poker-back"><div class="empty">?</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="poker-face-bg"></div>
+                                </li>
+                            </ul>
+                            <p class="info">翻幸运文字 得神秘大礼</p>
+                            <ul class="user-poker">
+                                <li class="user-poker-item" data-prize="理">
+                                    <div class="user-poker-inner">理</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="财">
+                                    <div class="user-poker-inner">财</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="大">
+                                    <div class="user-poker-inner">大</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="餐">
+                                    <div class="user-poker-inner">餐</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="不">
+                                    <div class="user-poker-inner">不</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="二">
+                                    <div class="user-poker-inner">二</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="之">
+                                    <div class="user-poker-inner">之</div>
+                                </li>
+                                <li class="user-poker-item" data-prize="选">
+                                    <div class="user-poker-inner">选</div>
+                                </li>
+                            </ul>
+                            <p class="poker-link">
+                                <a id="exchangeBtn" class="basis-btn disabled-btn">立即兑换</a>
+                                <!--<a class="basis-btn abled-btn">立即兑换</a>-->
+                                <a id="pokerRuleBtn" class="linkcolor underline" href="javascript:;">查看翻牌规则</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>土豪君</h2>
+                            <span>终极大奖等你来拿!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info">11月11日-18日期间累计投资金额≥350万的壕君，可获得小二为您独家提供<span class="linkcolor">价值74000元</span>的“3天2夜活力净化营”海南游。
+                                <a id="hnpage" href="javascript:;" class="linkcolor underline">详情可戳这里</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>新手礼</h2>
+                            <span>小二带酒等你报到!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info">11月11日-18日，新用户完成首笔投资满288元，即可获赠干红葡萄酒1瓶；<br>
+                                成功邀请一名新用户完成注册并首笔投资满288元，邀请人可获赠干红葡萄酒1瓶，每人最多可得40瓶。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-item" style="display:none">
+                    <div class="floor-item">
+                        <div class="title">
+                            <h2>钱庄日</h2>
+                            <span>理财收益饕餮盛宴!</span>
+                        </div>
+                        <div class="content">
+                            <p class="info">11月18日当天累计投资额满足以下条件即可获赠对应奖品：</p>
+                            <ul class="qday-list">
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic1.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">3000元京东卡</p>
+                                    <p class="prize-rule">投资额≥150万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic2.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">启迈斯家用多功能跑步机</p>
+                                    <p class="prize-rule">120万≤投资额<150万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic3.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">CTT家用滚筒式烘衣机</p>
+                                    <p class="prize-rule">90万≤投资额<120万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic4.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">罗莱羊毛蚕丝子母被<br>/金腰带二选一</p>
+                                    <p class="prize-rule">60万≤投资额<90万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic5.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">艾美特取暖器</p>
+                                    <p class="prize-rule">30万≤投资额<60万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic6.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">苏泊尔多功能电火锅</p>
+                                    <p class="prize-rule">10万≤投资额<30万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic7.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">100元水果券<br>/苏泊尔电水壶二选一</p>
+                                    <p class="prize-rule">5万≤投资额<10万</p>
+                                </li>
+                                <li>
+                                    <div class="prize-item">
+                                        <img src="/static/images/m1511/qday-pic8.png" alt=""/>
+                                    </div>
+                                    <p class="prize-name">每满1万元送1瓶红酒</p>
+                                    <p class="prize-rule">1万≤投资额<5万</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="activity-explain">
+                <h2>活动说明</h2>
+                <p>1.因本次活动参与用户众多，请中奖用户务必于11月20日前在“我的奖品”页面留下您的收货地址，逾期未提交则视为主动放弃活动奖品；若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</p>
+                <p>2.活动结束后我们将在<a href="javascript:;" class="underline bbs">活动帖</a>公布中奖用户清单，奖品将在15个工作日内统一寄出，奖品以实际收到的实物为准；</p>
+                <p>3.翻牌游戏环节红包即时充入账户，其他环节红包统一将在活动结束后7天内充入账户，您可通过个人账户查看；红包可用于投资，不能直接兑现，使用红包金额不超过其投资金额的5%；</p>
+                <p>4.本次活动仅限投资定期理财产品，钱宝宝不在活动范围内；</p>
+                <p>5.本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+            </div>
+        </article>
+    </section>
+    <div class="foot-bar">
+        <a id="inviteBtn" href="javascript:;">邀请好友</a>
+        <a class="investBtn" href="javascript:;">立即投资</a>
+        <a id="myPrizeBtn" href="javascript:;"><i class="icon"></i>我的奖品</a>
+    </div>
+    <div id="pokerRule" class="ui-dialog-wrap ui-dialog-hide">
+        <div class="ui-dialog-box">
+            <div class="ui-dialog-header">
+                <div class="com-title"><h2>翻牌规则</h2></div>
+            </div>
+            <div class="ui-dialog-content">
+                <div class="poker-cont">
+                    <p class="dialog-rule">11.11-11.18期间注册用户每天均可免费翻牌2次；成功分享活动页面且至少有一名好友点击该链接后可再翻牌2次；单笔投资额每满5000元可再翻牌1次，投资最多可翻6次。(每人每天最多可翻牌10次)</p>
+                    <p class="dialog-rule">翻牌即可获得红包、幸运文字，集齐文字“理财大餐，不二之选”可兑换神秘礼包，礼包数量有限，先到先得。（活动期间神秘礼包只可兑换一次）</p>
+                    <p class="dialog-rule">客官要登录账户以后才能玩游戏，同一用户同一天多次分享游戏页面只奖励一次。翻牌次数当日未用完，次日不累加。</p>
+                </div>
+            </div>
+            <div class="ui-dialog-footer">
+                <a href="javascript:;" class="ui-dialog-btn">朕知道了</a>
+            </div>
+        </div>
+    </div>
+    <div id="shareMask" class="share-mask"><img src="/static/images/m1511/share-mask.png" alt=""/></div>
+    <script src="/static/script/modules/sea.js"></script>
+    <script src="/static/script/modules/seajs-config.js"></script>
+    <script>
+        seajs.use('/static/script/m1511/page.js');
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+@import "../common.styl";
+@import "../address_moudle";
+
+//--------------------------------------------------------【工具代码块】
+
+//垂直居中
+$public-center-vertical =@block{
+  position: absolute
+  top: 50%
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//水平居中
+$public-center-horizontally =@block{
+  position: absolute
+  left: 50%
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+//水平垂直居中
+$public-center-completely =@block{
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.no-text {
+  text-indent -999999px;
+  font-size: 0;
+  line-height: 0;
+}
+
+#shareMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .8) url(../../images/m20160618/countdown-share-mask.png) no-repeat 3rem .3rem;
+  background-size: 2.95rem auto;
+}
+
+#loadPage {
+  position fixed;
+  z-index 100;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background: url(../../images/loading.gif) no-repeat center center;
+  background-size: .39rem auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+//等待提示框
+.ui-pop-wait {
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 99999
+  background-color rgba(255, 255, 255, .3)
+  .ui-pop-main {
+    position: absolute
+    left: 50%
+    top: 50%
+    border-radius 10px;
+    overflow: hidden
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: .3rem;
+    font-size: .28rem;
+    color: #fff
+    background-color rgba(0, 0, 0, .7);
+  }
+}
+
+body {
+  background-color: #198162;
+  line-height: 1.3;
+}
+
+.header {
+  position: relative
+  height: 3.7rem;
+  background: url(../../images/m20160618/hd-renrenling.png) no-repeat 0 0;
+  background-size: 6.4rem auto;
+  .back-btn {
+    position: absolute
+    top: .3rem;
+    left: .25rem;
+    font-size: .24rem;
+    color: #fff;
+    width: 1.14rem;
+    text-indent: .28rem;
+    line-height: .48rem;
+    background: url(../../images/m20160618/btn-back.png) no-repeat 0 0;
+    background-size: 1.14rem auto;
+  }
+  .rule-btn {
+    position: absolute
+    top: .3rem;
+    right: .25rem;
+    font-size: .24rem;
+    line-height: .48rem;
+    color: #fff
+  }
+}
+
+.main {
+  padding: .3rem;
+  .gift-box {
+    height: 3.6rem;
+    background-color: #00976b;
+    border-radius: 5px;
+    overflow: hidden;
+    &.opened {
+      .red-packets {
+        position: relative;
+        height: 2.31rem;
+        width: 5rem;
+        margin: .3rem auto 0;
+        background: url(../../images/m20160618/share-redpacket.png) no-repeat center center;
+        background-size: 5rem auto;
+        .tit {
+          position: absolute;
+          left: .55rem;
+          top: .5rem;
+          font-size: .24rem;
+          color: #de4e40;
+          width: 1.5em;
+          line-height: 1em;
+        }
+        .cont {
+          box-sizing: border-box;
+          padding-left: 1rem;
+          height: 100%;
+          .amount {
+            color: #f7f24f;
+            font-size: 1.16rem;
+            font-weight: bold;
+            text-align: center;
+            small {
+              font-weight: normal;
+              font-size: .42rem;
+            }
+          }
+          .describe {
+            font-size: .22rem;
+            color: #fff;
+            text-align: center;
+          }
+        }
+      }
+      .operation {
+        margin-top: .2rem;
+        text-align: center;
+        a {
+          display: inline-block;
+          width: 1.7rem;
+          color: #f7f24f;
+          border: 1px solid #f7f24f;
+          line-height: .5rem;
+          border-radius: 100px;
+          font-size: .24rem;
+          &.on {
+            color: #582415;
+            background-color: #f7f24f;
+          }
+          & + a {
+            margin-left: .4rem;
+          }
+        }
+      }
+    }
+    &.receive {
+      .input {
+        margin-top: .8rem;
+        text-align: center;
+        input {
+          display: inline-block;
+          width: 4.2rem;
+          line-height: .8rem;
+          background-color: #fff;
+          border-radius: 5px;
+          border: 0 none;
+          text-align: center;
+          font-size: .28rem;
+        }
+      }
+      .operation {
+        margin-top: .5rem;
+        text-align: center;
+        a {
+          display: inline-block;
+          padding: 0 .6rem;
+          border: 1px solid #f7f24f;
+          line-height: .8rem;
+          border-radius: 100px;
+          font-size: .28rem;
+          color: #582415;
+          background-color: #f7f24f;
+          &.disabled {
+            color: rgba(88, 36, 21, .4);
+          }
+        }
+      }
+    }
+    &.end {
+      .cont {
+        padding-top: 1.5rem;
+        font-size: .32rem;
+        color: #fff;
+        text-align: center
+        background: url(../../images/m20160618/bg-share-end.png) no-repeat center .44rem;
+        background-size: 1.7rem auto;
+      }
+      .operation {
+        margin-top: .3rem;
+        text-align: center;
+        a {
+          display: inline-block;
+          padding: 0 .35rem;
+          border: 1px solid #f7f24f;
+          line-height: .8rem;
+          border-radius: 100px;
+          font-size: .24rem;
+          color: #582415;
+          background-color: #f7f24f;
+        }
+      }
+    }
+  }
+}
+
+.rule-box {
+  margin-top: .7rem;
+  .tit {
+    font-size: .22rem;
+    color: #fff;
+    text-align: center
+  }
+  .cont {
+    margin-top: .15rem;
+    font-size: .22rem;
+    color: #fff;
+  }
+}

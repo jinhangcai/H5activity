@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>周年天天乐</title>
+    <link rel="stylesheet" href="/static/style/m20160618/happyDay.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>周年天天乐</h2>
+                <small>6月19日-6月30日</small>
+            </div>
+            <a class="back-btn ca-hide" href="javascript:;" @click="linkHome">主会场</a>
+            <a class="rule-btn" href="javascript:;" @click="showRulePop">活动说明</a>
+        </div>
+        <div class="main">
+            <div class="box">
+                <div class="tit">周年好礼·纪念礼</div>
+                <div class="cont">
+                    <div class="row">
+                        <p>6月19日 - 6月29日的新增投资金额满足条件，送相应的纪念礼。红包将统一在6月30日发放到用户账户，红包有效期为6月30日 - 7月4日。</p>
+                        <p>新增投资额=活动期间总投资额 - 活动期间总回款额</p>
+                    </div>
+                    <div class="row" v-show="isStart">
+                        <template v-if="isLogin">
+                            您的新增投资额：<span>{{investment}}</span>元
+                        </template>
+                        <template v-else>
+                            <a href="javascript:;" @click="linkLogin">登录查看您的新增投资额</a>
+                        </template>
+                    </div>
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <th>新增投资额（元）</th>
+                                <th>钱庄纪念礼</th>
+                            </tr>
+                            <tr>
+                                <td>5000≤新增投资额＜1万</td>
+                                <td>10元话费券</td>
+                            </tr>
+                            <tr>
+                                <td>1万≤新增投资额＜2万</td>
+                                <td>10元话费券+10元红包</td>
+                            </tr>
+                            <tr>
+                                <td>2万≤新增投资额＜5万</td>
+                                <td>10元话费券+30元红包</td>
+                            </tr>
+                            <tr>
+                                <td>5万≤新增投资额＜10万</td>
+                                <td>10元话费券+60元红包</td>
+                            </tr>
+                            <tr>
+                                <td>新增投资金额≥10万</td>
+                                <td>10元话费券+100元红包</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <a href="javascript:;" @click="showReceivePop">如何领取话费？</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·靠关系</div>
+                <div class="cont">
+                    <div class="row">
+                        <ul class="box-main">
+                            <li>
+                                <div class="tits">老用户专享</div>
+                                <div class="conts">
+                                    <p>6月19日 - 6月30日邀请2位好友</p>
+                                    <p>完成注册且首次投资满3000元</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tits">新用户专享</div>
+                                <div class="conts">
+                                    <p>6月19日 - 6月30日单笔投资</p>
+                                    <p>金额满10000元</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pic">
+                            <figure>
+                                <img src="/static/images/m20160618/happy-day-drink.png" alt="皇台干红葡萄酒">
+                                <figcaption>送皇台干红葡萄酒1瓶</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="row">请去APP “我”-“邀请好友”页邀请。活动结束将在<a href="javascript:;" @click="linkBbs">活动帖</a>公布中奖名单，请获奖用户去APP个人中心完善收货地址。
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·论经验</div>
+                <div class="cont">
+                    <div class="row">
+                        <p>6月19日 - 6月30日，点击下方进入论坛分享你的理财经验：说说你使用钱庄已有多长时间，您累计投了多少金额，获得多少收益等等。</p>
+                        <p>活动结束后我们将抽选10名幸运用户赠送钱小二公仔作为纪念礼哦！</p>
+                    </div>
+                    <div class="row">
+                        <a href="javascript:;" @click="linkBbs">进入论坛</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="rulePop" class="pop-box" v-show="rulePop" style="display: none;">
+    <div class="main">
+        <div class="tit">活动说明</div>
+        <div class="cont">
+            <ol>
+                <li>1、用户投资后请主动去APP个人中心完善收货地址，如有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、所有红包发放时间详见各活动环节，实物奖品将统一在6月30日活动结束后的7个工作日内发放，请注意查收；</li>
+                <li>3、部分活动限定28天以上理财产品，活动使用规则详见“我的红包使用说明”；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideRulePop">关闭</a>
+    </div>
+</section>
+<section id="receivePop" class="pop-box" v-show="receivePop" style="display: none;">
+    <div class="main">
+        <div class="tit">如何领取话费</div>
+        <div class="cont">
+            <ol>
+                <li>1、活动结束后，获奖用户请添加钱庄小编微信号：zhenqoanxun，发送文字“手机号+领话费”获取兑换码。</li>
+                <li>2、收到兑换码后，关注白领聚乐部微信：bailingclub，点击“获得积分”—“话费充值”，输入兑换码即可（需先注册）；</li>
+                <li>
+                    3、遇到充值高峰期或月初到账时间会略有延迟，请耐心等待。话费到账一般都有短信提醒，部分省份充值不会有短信提醒或延迟，若未收到短信，用户也可自行通过运营商网上营业厅、手机营业厅或拨打运营商客服电话查询。
+                </li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideReceivePop">关闭</a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160618/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160618/happyDay.js');
+</script>
+</body>
+</html>

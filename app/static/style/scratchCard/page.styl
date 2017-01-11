@@ -1,0 +1,354 @@
+@import "../reset";
+html{
+  font-size: 100px;
+}
+html,
+body{
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+body{
+  font-size: 0.14rem;
+  line-height: 1.2;
+  overflow scroll;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$positioncenter(){
+  transform translate(-50%, -50%);
+  -webkit-transform translate(-50%, -50%)
+}
+
+$bg-color = #ef5756;
+$high-color = #e84645;
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+  line-height: 1.2;
+}
+.tc{
+  text-align center;
+}
+.high-color{
+  color $high-color;
+}
+html,
+body,
+.page{
+  background-color $bg-color;
+}
+.viewport{
+  background url(../../images/scratchCard/bg.png) no-repeat 0 0;
+  background-size 100%;
+}
+.banner{
+  img{
+    width 100%;
+    display block
+  }
+}
+.content-box{
+  box-sizing border-box;
+  padding .28rem .25rem 0;
+  .content-inner{
+    padding .24rem 0 .22rem;
+  }
+}
+.scratch-box{
+  display none;
+  margin-bottom .3rem;
+}
+.decorate-box{
+  margin-top -1.92rem;
+  .in-phone{
+    display none;
+  }
+  .scratch-box{
+    display block;
+  }
+}
+.rule-btn{
+  color #bb2120;
+  font-size .24rem;
+}
+.in-phone{
+  margin 0 .5rem .78rem;
+  .row{
+    margin-bottom .42rem;
+  }
+  .phone-text,
+  .phone-btn{
+    display block;
+    width 100%;
+    line-height .78rem;
+    font-size .3rem;
+    border 0;
+    margin 0;
+    padding 0;
+    text-align center;
+    border-radius .06rem;
+  }
+  .phone-text{
+    height .78rem;
+    box-sizing border-box;
+    line-height .4rem;
+    padding .19rem .15rem;
+  }
+  .phone-btn{
+    background-color #d93b3a;
+    color #fce9a4;
+    font-weight bold;
+  }
+}
+
+.decorate-box{
+  .content-inner{
+    background-color #fff;
+    padding 0 .26rem .22rem;
+    position relative;
+    &:before{
+      content '';
+      display block;
+      position absolute;
+      top -.1rem;
+      left 0;
+      height .1rem;
+      width 100%;
+      background url(../../images/scratchCard/fence-bg.png) repeat-x 0 0;
+      background-size auto 100%;
+    }
+  }
+  .cont-row{
+    font-size .28rem;
+    color #7b7b7b;
+    margin .18rem 0 .48rem;
+  }
+  .share-wrap{
+    margin 0 .2rem;
+  }
+  .rule-btn{
+    color #989696;
+  }
+  .user-phone{
+    font-size .24rem;
+    line-height .5rem;
+    color #7b7b7b;
+    text-align right
+  }
+}
+.scratch-wrap{
+  position relative;
+  width 5.36rem;
+  height 2.46rem;
+  margin 0 auto;
+  overflow hidden;
+  img {
+    z-index 1;
+  }
+  canvas {
+    position absolute;
+    top 0;
+    left 0;
+    z-index 2;
+  }
+}
+.btn{
+  display block;
+  line-height .7rem;
+  font-size .34rem;
+  font-weight bold;
+  color #fce9a4;
+  text-align center;
+  background: #ef5756;
+  border-radius .04rem;
+  box-shadow 0 6px #cf3f3f;
+}
+.share-wrap{
+  p {
+    color #7b7b7b;
+    font-size .21rem;
+    text-align center;
+    margin .21rem 0;
+  }
+}
+#loadpage{
+  position fixed;
+  z-index 100;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+}
+
+.rule-description {
+  margin: .15rem .4rem;
+  .tit {
+    text-align: center
+    height: .54rem
+    img {
+      height: 100%
+    }
+  }
+  .cont {
+    margin: .35rem .4rem 0;
+  }
+  li {
+    font-size: .28rem;
+    line-height: .35rem;
+    color: #eee1b7
+    a{
+      color:#ffdd3e
+    }
+    & + li {
+      margin-top: .15rem;
+    }
+  }
+}
+// 弹窗样式
+.ui-dialog-wrap{
+  position fixed;
+  z-index 4;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0,0,0,.5);
+  .ui-dialog-box{
+    $positioncenter();
+    position absolute;
+    top 50%;
+    left 50%;
+    box-sizing border-box;
+    padding .3rem .38rem;
+    width 5rem;
+    border .1rem solid #640d0d;
+    background-color #fff;
+    border-radius .14rem;
+    max-height 90%;
+    overflow-y auto;
+    .ui-dailog-close{
+      position absolute;
+      width .44rem;
+      height .44rem;
+      background: url(../../images/scratchCard/close-bg.png) no-repeat center center;
+      background-size .22rem .22rem;
+      color #640d0d;
+      top 0;
+      right 0;
+    }
+    .ui-dialog-content{
+      color #939393;
+      .commen-text{
+        text-align center;
+        font-size .24rem;
+        line-height 1.5;
+      }
+      .empty{
+        line-height: .3rem;
+        text-align: center;
+        font-size: .24rem;
+      }
+    }
+    .ui-dialog-footer{
+      padding-top .3rem;
+      box-sizing border-box;
+      .btn{
+        margin 0 .46rem;
+      }
+    }
+  }
+}
+.ui-hide,
+.ui-dialog-hide{
+  display:none;
+}
+.dialog-tit{
+  font-size .24rem;
+  line-height .4rem;
+  text-align center;
+  margin: 0.2rem 0;
+}
+.dialog-txt{
+  font-size .24rem;
+  margin-bottom .1rem;
+}
+.prize-txt{
+  font-size .72rem;
+  text-align center;
+  color #f65957;
+}
+.dialog-table{
+  border 1px solid #a0a0a0;
+  overflow auto;
+  max-height 3rem;
+  table {
+    width 100%;
+    th,
+    td {
+      font-size .3rem;
+      height .54rem;
+      font-weight normal;
+      text-align center;
+    }
+    th,tr {
+      border-bottom 1px solid #a0a0a0;
+    }
+    tr:last-of-type {
+      border-bottom none;
+    }
+  }
+  .red{
+    color #ef5756;
+  }
+}
+
+
+.share-mask{
+  display none;
+  position fixed;
+  z-index 3;
+  top 0;
+  left: 0;
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,.8);
+  img{
+    position absolute;
+    top .34rem;
+    right .48rem;
+    width 2.65rem;
+  }
+}
+
+#shareBtn{
+  margin 0 .92rem;
+}
+#loadpage{
+  position fixed;
+  z-index 100;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+}

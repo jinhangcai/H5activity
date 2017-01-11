@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>周年前奏礼</title>
+    <link rel="stylesheet" href="/static/style/m20160618/prelude.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>周年前奏礼</h2>
+                <small>6月18日</small>
+            </div>
+            <a class="back-btn ca-hide" href="javascript:;" @click="linkHome">主会场</a>
+            <a class="rule-btn" href="javascript:;" @click="showRulePop">活动说明</a>
+        </div>
+        <div class="main">
+            <div class="box">
+                <div class="tit">周年好礼·送加息</div>
+                <div class="cont">
+                    <p>6月18日当天，</p>
+                    <p>疯狂加息，火热开抢！</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·抢爆款</div>
+                <div class="cont">
+                    <div class="row">6月18日当天，投资带有“笔记本”、“挂烫机”标识的理财产品，送对应礼品，每个产品的礼品可以累计领取，投资金额不足的用户我们将以红包形式补发相应利息。<a href="javascript:;" @click="linkBbs">详情点击</a></div>
+                    <div class="row">
+                        <ul>
+                            <li>
+                                <div class="tits">三星11.6英寸超薄笔记本</div>
+                                <div class="conts">单标累计投资“笔记本”产品50000元，享年利率1%</div>
+                                <div class="pic"><img src="/static/images/m20160618/prelude-computer.png" alt=""></div>
+                            </li>
+                            <li>
+                                <div class="tits">美的蒸汽挂烫机</div>
+                                <div class="conts">单标累计投资“挂烫机”产品20000元，享年利率1%</div>
+                                <div class="pic"><img src="/static/images/m20160618/prelude-ironer.png" alt=""></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">请获得礼品的用户去APP个人中心完善收货地址。</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·发红包</div>
+                <div class="cont">
+                    <div class="row">6月18日当天，投资28天及以上理财产品的累计金额满40000元及以上，送相应的大红包。<span>（红包将于6月29日发）</span></div>
+                    <div class="row" v-show="isStart">
+                        <template v-if="isLogin">
+                            6月18日您累计投资:<span>{{investment}}</span>元
+                        </template>
+                        <template v-else>
+                            <a href="javascript:;" @click="linkLogin">登录查看您的累计投资额</a>
+                        </template>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">1100
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>900元现金红包</p>
+                                        <p>+200元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">累计投资≥120万</div>
+                            </li>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">750
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>600元现金红包</p>
+                                        <p>+150元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">80万≤累计投资＜120万</div>
+                            </li>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">480
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>380元现金红包</p>
+                                        <p>+100元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">50万≤累计投资＜80万</div>
+                            </li>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">280
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>220元现金红包</p>
+                                        <p>+60元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">30万≤累计投资＜50万</div>
+                            </li>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">90
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>70元现金红包</p>
+                                        <p>+20元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">10万≤累计投资＜30万</div>
+                            </li>
+                            <li>
+                                <div class="conts">
+                                    <div class="pic">40
+                                        <small>元</small>
+                                    </div>
+                                    <div class="txt">
+                                        <p>30元现金红包</p>
+                                        <p>+10元抵扣红包</p>
+                                    </div>
+                                </div>
+                                <div class="tits">4万≤累计投资＜10万</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="rulePop" class="pop-box" v-show="rulePop" style="display: none;">
+    <div class="main">
+        <div class="tit">活动说明</div>
+        <div class="cont">
+            <ol>
+                <li>1、用户投资后请主动去APP个人中心完善收货地址，如有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、所有红包发放时间详见各活动环节，实物奖品将统一在6月30日活动结束后的7个工作日内发放，请注意查收；</li>
+                <li>3、部分活动限定28天以上理财产品，活动使用规则详见“我的红包使用说明”；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideRulePop">关闭</a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160618/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160618/prelude.js');
+</script>
+</body>
+</html>

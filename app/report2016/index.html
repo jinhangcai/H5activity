@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钱庄网</title>
+    <link rel="stylesheet" href="/static/style/reset.css">
+    <style>
+        body{
+            background-color: #a72234;
+            font-family: '微软雅黑';
+        }
+        .wrap{
+            padding-top:38px;
+            width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+        }
+        .box{
+            background-color: #fff;
+            margin-top:40px;
+        }
+        .title{
+            font-size:80px;
+        }
+        .sub-title{
+            font-size: 30px;
+        }
+        .info{
+            margin-top:30px;
+            font-size: 52px;
+        }
+        .money{
+            font-size: 130px;
+            color:#ffe63e;
+        }
+    </style>
+    <script src="/static/script/modules/echarts.min.js"></script>
+    <script src="/static/script/modules/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <h1 class="title">钱庄日交易额展示</h1>
+    <p class="sub-title">当前时间：<span id="date">2016年4月18日 16:00</span></p>
+    <p class="info">累计成交额（元）</p>
+    <p class="money">0</p>
+    <div class="box">
+        <div id="main" style="width: 100%;height:460px;"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            subtext: '单位（万元）'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        grid: {
+            left: '3%',
+            right: '3%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            data: ['0:01-1:00','1:01-2:00','2:01-3:00','3:01-4:00','4:01-5:00','5:01-6:00','6:01-7:00','7:01-8:00','8:01-9:00','9:01-10:00','10:01-11:00','11:01-12:00','12:01-13:00','13:01-14:00','14:01-15:00','15:01-16:00','16:01-17:00','17:01-18:00','18:01-19:00','19:01-20:00','20:01-21:00','21:01-22:00','22:01-23:00','23:01-24:00']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+                textStyle:{
+                    fontSize:24,
+                    fontWeight:'bold'
+                }
+            }
+        },
+        series: [{
+            name: '成交',
+            type: 'bar',
+            smooth: true,
+            data: []
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    var nowDate = new Date(),dateDom = document.getElementById('date');
+    function showDate(){
+        nowDate = new Date();
+        var year = nowDate.getFullYear();
+        var mounth = nowDate.getMonth() + 1;
+        var day = nowDate.getDate();
+        var hours = twoNum(nowDate.getHours());
+        var minutes = twoNum(nowDate.getMinutes());
+        var sec = twoNum(nowDate.getSeconds());
+        dateDom.innerHTML = year+'年'+mounth+'月'+day+'日 '+hours+':'+minutes+':'+sec;
+    }
+    function twoNum(num){
+        return num >= 10 ? num : '0'+num
+    }
+    showDate();
+    setInterval(showDate, 1000);
+
+    var timer = null;
+    var totalWrap = $('.money');
+    function dataChart(){
+        $.ajax({
+            url: 'https://www.qian360.com/activity/monthlyActivity/tenderReport.html',
+            type: "post",
+            data: {
+                activityCode: 20160415,
+                serviceName: 'tenderReport'
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var _data = [];
+                var sum = 0;
+                var result = data.resultData.today;
+                var _temp = 0,j= 0,odd;
+                for( var _num in result){
+                    if(result.hasOwnProperty(_num)){
+                        j++;
+                        var _rnum = parseFloat(result[_num]);
+//                        odd = _num;
+//                        if(j%2 == 1){
+//                            _temp = _rnum;
+//                        }else{
+//                            _data.push(((_rnum+_temp)/10000).toFixed(2));
+//                        }
+
+                        _data.push(((_rnum)/10000).toFixed(2));
+                        sum += _rnum;
+                    }
+                }
+//                if(j%2 == 1){
+//                    _data.push((result[odd]/10000).toFixed(2));
+//                }
+                totalWrap.text(milliFormat(sum));
+                myChart.setOption({
+                    series:[{
+                        data: _data
+                    }]
+                })
+            }
+        });
+    }
+    dataChart();
+    timer = setInterval(dataChart, 300000);
+
+    function milliFormat(s){//添加千位符
+        s = s+'';
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        s=s.replace(".",",");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s)){
+            s=s.replace(re,"$1,$2");
+        }
+        s=s.replace(/,(\d\d)$/,".$1");
+        return s.replace(/^\./,"0.")
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>辞旧迎新 升金双响炮</title>
+    <link rel="stylesheet" href="/static/style/m20170118/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="banner"><img src="/static/images/m20170118/banner.png"></div>
+        <div class="main">
+            <div class="title"><img src="/static/images/m20170118/number1.png"></div>
+            <div class="handline">
+                月16-1月18日，用户点击“我要升金”，随机进入一支队伍，并可领取一份金子。每日队伍pk，还可获得额外金子。
+            </div>
+            <a href="javascript:;" class="gotologin"><img src="/static/images/m20170118/go.png"></a>
+            <p class="rules"><a>活动规则</a></p>
+            <div class="title titletwo"><img src="/static/images/m20170118/number2.png"></div>
+            <div class="handline">
+                月18日当天，用户投资28天及以上理财产品，累计投资金额满足下列条件，奖励现金红包和京东礼卡。
+            </div>
+            <template v-if="isTime">
+                <div class="login" v-if="isLogin">1月18日您累计投资额：<span>{{money}}</span>元</div>
+                <div class="login" v-else>登录可查看您的累计投资额   <span class="login-dr" @click="gotologin">立即登录</span></div>
+            </template>
+            <ul class="shop">
+                <li>
+                    <img src="/static/images/m20170118/jd3000.png">
+                    <p>3000元京东礼卡</p>
+                    <p>累计投资≥180万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/jd2000.png">
+                    <p>2000元京东礼品卡</p>
+                    <p>150万≤累计投资<180万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/jd1500.png">
+                    <p>1500元京东礼品卡</p>
+                    <p>120万≤累计投资<150万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/jd1000.png">
+                    <p>1000元京东礼品卡</p>
+                    <p>80万≤累计投资<120万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/jd600.png">
+                    <p>600元京东礼品卡</p>
+                    <p>50万≤累计投资<80万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/jd300.png">
+                    <p>300元京东礼品卡</p>
+                    <p>25万≤累计投资<50万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/red130.png" class="redbom">
+                    <p>130元现金红包</p>
+                    <p>11万≤累计投资<25万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/red60.png" class="redbom">
+                    <p>60元现金红包</p>
+                    <p>5万≤累计投资<11万</p>
+                </li>
+                <li>
+                    <img src="/static/images/m20170118/red30.png" class="redbom">
+                    <p>30元现金红包</p>
+                    <p>2万≤累计投资<5万</p>
+                </li>
+            </ul>
+            <h2 class="instructions">活动说明：</h2>
+            <ol class="ols">
+                <li>1、获得京东礼卡的用户请注意查收短信，其账户密码将以短信方式发送，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、环节1的红包将实时发放，环节2的红包将在活动结束后的3个工作日内发放，红包的使用规则和有效期详见“我的券包使用说明”；</li>
+                <li>3、本次部分活动限定28天及以上理财产品，请注意查看；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。本活动由钱庄网提供，与设备生产商Apple lnc 无关。</li>
+            </ol>
+        </div>
+    </article>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20170118/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20170118/index.js');
+</script>
+</body>
+</html>

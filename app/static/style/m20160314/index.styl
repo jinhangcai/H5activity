@@ -1,0 +1,371 @@
+@import "../common";
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$hliagn(){
+  transform translate(0, -50%);
+  -webkit-transform translate(0, -50%)
+}
+
+$positioncenter(){
+  transform translate(-50%, -50%);
+  -webkit-transform translate(-50%, -50%)
+}
+$bg-color = #36b5a7;
+$font-color = #333;
+$high-color = #fdff5d;
+$title-bg-color = #41ead8;
+$title-color = #2f3c44;
+$dark-color = #178b8a;
+.IOSRead{
+  display none;
+}
+.isIOSApp{
+  .IOSRead{
+    display block
+  }
+}
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+}
+.highlight{
+  color $high-color;
+}
+.strong{
+  font-weight bold;
+}
+.fr{
+  float right;
+}
+.center{
+  text-align center;
+}
+.bbs{
+  color #fff;
+  font-size .24rem;
+}
+html, body{
+  height auto;
+  overflow auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  background-color $bg-color;
+  color $font-color;
+}
+.banner{
+  position relative;
+  z-index 10;
+  background-color: $bg-color;
+  img {
+    display block;
+    width 100%;
+  }
+}
+.floor{
+  position relative;
+  color #fff;
+  padding-top: .09rem;
+  .container{
+    padding: .36rem 0 .54rem;
+  }
+  .center-wrap{
+    width 4.1rem;
+    margin 0 auto;
+  }
+  .title{
+    background-color $title-bg-color;
+    color $title-color;
+    font-size .32rem;
+    line-height .6rem;
+    text-align center;
+    font-weight bolder;
+  }
+  .cont{
+    position relative;
+    font-size .24rem;
+    line-height .3rem;
+  }
+  .intro-btn{
+    position absolute;
+    top -.2rem;
+    right -.12rem;
+    width 1.5rem;
+    height 1.6rem;
+    background url(../../images/m20160314/btn-bg.png) no-repeat 0 0;
+    background-size 3rem 1.55rem;
+    &:active{
+      background-position -1.5rem 0;
+    }
+  }
+  .highest{
+    clear both;
+    font-size .24rem;
+    line-height .6rem;
+    background-color $dark-color;
+    text-align center;
+    margin-top .4rem;
+  }
+  .bbs-wrap{
+    margin-top .1rem;
+  }
+  .decorate{
+    position absolute;
+    z-index 2;
+    top -.02rem;
+    width .37rem;
+    height 1.07rem;
+    border .02rem solid $title-bg-color;
+    background-color: $bg-color;
+  }
+  &:before{
+    content '';
+    position absolute;
+    z-index 3;
+    width .1rem;
+    height .1rem;
+    border-radius .05rem;
+    background-color $title-bg-color;
+    top -.06rem;
+  }
+  &:after{
+    content '';
+    position absolute;
+    width .5rem;
+    height .74rem;
+    background-color $bg-color;
+    top 0;
+  }
+}
+.floor:nth-child(even){
+  &:before{
+    left .33rem;
+  }
+  &:after{
+    left 0;
+  }
+  .decorate{
+    left 0;
+    border-width 0 .02rem .02rem 0;
+    &:before{
+      content '';
+      position absolute;
+      left 0;
+      bottom 0;
+      width .27rem;
+      height .78rem;
+      border-top .02rem solid $title-bg-color;
+      border-right .02rem solid $title-bg-color;
+    }
+    &:after{
+      content '';
+      position absolute;
+      bottom .4rem;
+      left 0;
+      width .27rem;
+      height 0;
+      border-bottom .02rem solid $title-bg-color;
+    }
+  }
+  .container{
+    margin-left .27rem;
+    padding-left .19rem;
+    padding-right .48rem;
+    border-left .02rem solid $title-bg-color;
+    border-bottom .02rem solid $title-bg-color;
+  }
+}
+.floor:nth-child(odd){
+  &:before{
+    right .33rem;
+  }
+  &:after{
+    right 0;
+  }
+  .decorate{
+    right 0;
+    border-width 0 0 .02rem .02rem;
+    &:before{
+      content '';
+      position absolute;
+      right 0;
+      bottom 0;
+      width .27rem;
+      height .78rem;
+      border-top .02rem solid $title-bg-color;
+      border-left .02rem solid $title-bg-color;
+    }
+    &:after{
+      content '';
+      position absolute;
+      bottom .4rem;
+      right 0;
+      width .27rem;
+      height 0;
+      border-bottom .02rem solid $title-bg-color;
+    }
+  }
+  .container{
+    margin-right .27rem;
+    padding-right .19rem;
+    padding-left .48rem;
+    border-right .02rem solid $title-bg-color;
+    border-bottom .02rem solid $title-bg-color;
+  }
+}
+.floor-first{
+  &:before{
+    display none;
+  }
+  .decorate{
+    top -.29rem;
+  }
+}
+.reward-rule{
+  margin-top .34rem;
+  background url(../../images/m20160314/coins.png) no-repeat .5rem 0;
+  background-size .85rem 4.15rem;
+  li {
+    padding .16rem 0 .16rem .85rem;
+    line-height .26rem;
+    font-size .24rem;
+    text-align center;
+  }
+  li + li {
+    border-top 1px dashed $title-bg-color
+  }
+}
+.top-wrap{
+  padding-top .28rem;
+  .top-list-box{
+    .center{
+      font-size .24rem;
+    }
+  }
+  .list-wrap{
+    padding .16rem .28rem;
+    margin-bottom .14rem;
+    background-color $dark-color;
+  }
+  .head{
+    font-size .24rem;
+    color $high-color;
+    line-height .53rem;
+    height .53rem;
+    span {
+      float left;
+      text-align center;
+      &:nth-child(1){
+        width 14%;
+      }
+      &:nth-child(2){
+        width 43%;
+      }
+      &:nth-child(3){
+        width 43%;
+      }
+    }
+  }
+  .list-viewport{
+    max-height 5.15rem;
+    overflow-y auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    li {
+      height .49rem;
+      line-height .49rem;
+      font-size .22rem;
+      color #feffbf;
+      box-sizing border-box;
+      & + li{
+        border-top 1px dashed #28a199;
+      }
+      span {
+        float left;
+        text-align center;
+        &:nth-child(1){
+          width 14%;
+        }
+        &:nth-child(2){
+          width 43%;
+        }
+        &:nth-child(3){
+          width 43%;
+        }
+      }
+    }
+  }
+}
+.info-wrap{
+  padding .3rem;
+  color #feffbf;
+  font-size .22rem;
+  line-height .26rem;
+  p {
+    margin-bottom .12rem;
+  }
+}
+
+.content-wrap{
+  margin: 0 .3rem;
+  font-size .24rem;
+  p {
+    line-height .3rem;
+    color #fff;
+  }
+}
+.intro-pic{
+  margin-top -.48rem;
+  img {
+    display block;
+    width 100%;
+  }
+}
+.intro-table{
+  margin-top .6rem;
+  width 100%;
+  border 1px solid #fff;
+  font-size .22rem;
+  line-height .32rem;
+  td,th{
+    width 30%;
+    border-left 1px solid #fff;
+    border-bottom 1px solid #fff;
+    text-align center;
+    vertical-align middle;
+    padding 0.08rem 0;
+  }
+  th {
+    font-weight normal;
+    color $high-color;
+  }
+  td {
+    color #feffbf;
+  }
+}
+.intro-item{
+  position relative;
+  margin-top .32rem;
+  padding-left 1.24rem;
+  .label{
+    position absolute;
+    left .1rem;
+  }
+}
+.mb80{
+  margin-bottom .8rem;
+}
+.pr160{
+  padding-right 1.6rem;
+}
+.hide{
+  display none;
+}

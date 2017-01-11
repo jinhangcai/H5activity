@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>年终现金红包大派送</title>
+    <link rel="stylesheet" href="/static/style/m20170104/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article v-show="!showRecord" class="viewport">
+    <div class="banner"><img src="/static/images/m20170104/banner.jpg" alt="年终现金红包大派送"></div>
+    <div class="user-wrap" v-if="isStart && !isEnd">
+        <template v-if="isLogin">
+            可玩: {{availableTimes}} 次 <a class="under-line" href="javascript:;" @click="goInvest">立即投资</a>
+        </template>
+        <template v-else>
+            登录查看可玩次数 <a class="under-line" href="javascript:;" @click="goLogin">立即登录</a>
+        </template>
+    </div>
+    <div class="user-wrap" v-else>
+        &nbsp;
+    </div>
+    <div class="info">单笔每投1万可玩1次，每天最多玩10次</div>
+    <div class="raffle-con" id="raffleCon" :class="{ 'ing': isRunning }">
+        <ul>
+            <li data-id="0" data-name="50" class="on">
+                <img src="/static/images/m20170104/pic1.png">
+            </li>
+            <li data-id="1" data-name="20">
+                <img src="/static/images/m20170104/pic2.png">
+            </li>
+            <li data-id="2" data-name="5">
+                <img src="/static/images/m20170104/pic3.png">
+            </li>
+            <li data-id="3" data-name="150">
+                <img src="/static/images/m20170104/pic4.png">
+            </li>
+            <li class="start-btn" @click="globalLottery"><a :class="btnStyle" href="javascript:;" id="raffleStartBtn">抽奖</a></li>
+            <li data-id="4" data-name="100">
+                <img src="/static/images/m20170104/pic5.png">
+            </li>
+            <li data-id="5" data-name="30">
+                <img src="/static/images/m20170104/pic6.png">
+            </li>
+            <li data-id="6" data-name="200">
+                <img src="/static/images/m20170104/pic7.png">
+            </li>
+            <li data-id="7" data-name="10">
+                <img src="/static/images/m20170104/pic8.png">
+            </li>
+        </ul>
+    </div>
+    <div class="operate-con">
+        <a @click="openRecord" href="javascript:;">查看中奖记录</a>
+    </div>
+    <p v-if="isIOSApp" class="declaration">此活动与设备生产商Apple Inc.无关</p>
+</article>
+<article v-show="showRecord" id="record" class="viewport">
+    <div class="tit">中奖记录</div>
+    <ul v-if="recordList.length > 0" class="ui-list-double">
+        <li v-for="list in recordList">
+            <div class="column-left">
+                <div class="tits">{{list.point}}元</div>
+                <div class="conts">已发至“资产 — 我的券包”</div>
+            </div>
+            <div class="column-right">
+                <div class="tits">{{list.addTime | date}}</div>
+            </div>
+        </li>
+    </ul>
+    <div v-else class="empty">暂无中奖记录</div>
+    <footer class="record-foot">
+        <a  @click="closeRecord" href="javascript:;">返回</a>
+    </footer>
+</article>
+<section v-if="alertMask && !showRecord" class="mask">
+    <div class="pop">
+        <div class="content">
+            <h2 v-if="alertTitle" class="title">中奖了</h2>
+            <p>{{{alertContent}}}</p>
+        </div>
+        <a @click="closeAlert" href="javascript:;" class="pop-btn">我知道了</a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20170104/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20170104/index.js');
+</script>
+</body>
+</html>

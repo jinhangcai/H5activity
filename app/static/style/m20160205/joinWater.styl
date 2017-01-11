@@ -1,0 +1,498 @@
+@import "../reset";
+$clearfix() {
+  \*zoom: 1
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+$hliagn(){
+  transform translate(0, -50%);
+  -webkit-transform translate(0, -50%)
+}
+$vliagn(){
+  transform translate(-50%, 0);
+  -webkit-transform translate(-50%, 0)
+}
+$positioncenter(){
+  transform translate(-50%, -50%);
+  -webkit-transform translate(-50%, -50%)
+}
+$bg-color = #1e847a;
+$bg-sky = #fff7d2;
+$high-color = #731f77;
+.underline{
+  text-decoration none;
+  border-bottom 1px solid;
+}
+.high-color{
+  color $high-color;
+}
+.strong{
+  font-weight bold;
+}
+.fr{
+  float right;
+}
+.par{
+  font-size .25rem;
+  line-height .33rem;
+}
+html{
+  font-size: 100px;
+}
+body{
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+html, body{
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.stage-bg{
+  background-color: $bg-color
+}
+
+.stage{
+  position relative;
+  .sky{
+    box-sizing border-box;
+    padding-top .6rem;
+    height 5.73rem;
+    background $bg-sky url(../../images/m20160205/sky-cloud-bg.png) no-repeat 0 0;
+    background-size 100% 100%;
+    .tit{
+      position relative;
+      width 3.16rem;
+      height 1.43rem;
+      margin 0 auto;
+      background url(../../images/m20160205/water-title.png) no-repeat 0 0;
+      background-size 100% 100%;
+      .rule-btn{
+        position absolute;
+        top .02rem;
+        right -.4rem;
+        width .6rem;
+        height .6rem;
+        line-height .6rem;
+        text-align center;
+        font-size .24rem;
+        color #cd3325;
+        border-radius 50%;
+        border .04rem solid #cd3325;
+      }
+    }
+  }
+  .greensward{
+    margin-top -.78rem;
+    height 3.72rem;
+    background url(../../images/m20160205/greensward2.png) no-repeat 0 0;
+    background-size 100%;
+  }
+  .tree{
+    position absolute;
+    top 2.2rem;
+    left 1.08rem;
+    width 4.4rem;
+    height 4.6rem;
+    .hang{
+      position absolute;
+      top 1.26rem;
+      left .57rem;
+      width .54rem;
+      height 1.18rem;
+      animation: hang 10s ease-in-out infinite;
+      -webkit-animation: hang 10s ease-in-out infinite;
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0
+    }
+  }
+  .tree1{
+    background url(../../images/m20160205/tree1.png) no-repeat 0 0;
+    background-size 100% 100%;
+    .hang{
+      background url(../../images/m20160205/hang1.png) no-repeat 0 0;
+      background-size 100% 100%;
+    }
+  }
+  .tree2{
+    background url(../../images/m20160205/tree2.png) no-repeat 0 0;
+    background-size 100% 100%;
+    .hang{
+      background url(../../images/m20160205/hang2.png) no-repeat 0 0;
+      background-size 100% 100%;
+    }
+  }
+  .tree3{
+    background url(../../images/m20160205/tree3.png) no-repeat 0 0;
+    background-size 100% 100%;
+    .hang{
+      background url(../../images/m20160205/hang3.png) no-repeat 0 0;
+      background-size 100% 100%;
+    }
+  }
+  .peach{
+    position absolute;
+    i {
+      display block;
+      opacity: 0;
+      width: .5rem;
+      height: .64rem;
+      background url(../../images/m20160205/peach.png) no-repeat 0 0;
+      background-size 100% 100%;
+    }
+  }
+  .p02{
+    top: 2.4rem;
+    left: 1.4rem;
+  }
+  .p03{
+    top: 2.6rem;
+    left: 3.8rem;
+  }
+  .movepeach{
+    transition all .3s ease-in;
+    -webkit-transition all .3s ease-in;
+    transform: scale(1.1) translate(0, -30px);
+    -webkit-transform: scale(1.1) translate(0, -30px);
+    opacity: 0;
+    pointer-events none;
+  }
+  .container{
+    margin-top -1.8rem;
+  }
+  .cont{
+    font-size .26rem;
+    color #fff;
+    text-align center;
+    margin-bottom .16rem;
+  }
+  .img-btn{
+    display: block;
+    width: 2.97rem;
+    height: 0.8rem;
+    background-color: #fff;
+    background-image: url("../../images/m20160205/help-btn.png");
+    background-repeat: no-repeat;
+    border-radius: 0.4rem;
+    background-size: 100%;
+    overflow: hidden;
+    text-indent: -999px;
+    margin: 0 auto;
+    margin-bottom .2rem;
+  }
+  .btn{
+    box-sizing border-box;
+    display: block;
+    width: 2.97rem;
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+    color #fff;
+    font-size .36rem;
+    border .03rem solid #fff;
+    line-height 0.8rem;
+    text-align center;
+    margin-bottom .38rem;
+  }
+  .logo{
+    width 1.45rem;
+    height .44rem;
+    margin 0 auto;
+    background url(../../images/m20160205/logo2.png) no-repeat 0 0;
+    background-size 100% 100%;
+  }
+}
+.stage .has-peach{
+  i {
+    opacity 1;
+    animation: marker-raise .5s ease-in 1;
+    -webkit-animation: marker-raise .5s ease-in 1;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+}
+@keyframes marker-raise {
+  from {
+      -webkit-transform: scale3d(0,0,1) translate3d(0,0,0);
+      transform: scale3d(0,0,1) translate3d(0,0,0);
+      opacity 1
+  }
+
+  50% {
+      -webkit-transform: scale3d(0.9,1.1,1) translate3d(0,-30%,0);
+      transform: scale3d(0.9,1.1,1) translate3d(0,-30%,0)
+    }
+
+  80% {
+      -webkit-transform: scale3d(1.1,.85,1) translate3d(0,0,0);
+      transform: scale3d(1.1,.85,1) translate3d(0,0,0)
+    }
+
+  to {
+      -webkit-transform: scale3d(1,1,1) translate3d(0,0,0);
+      transform: scale3d(1,1,1) translate3d(0,0,0)
+      opacity 1
+  }
+}
+@keyframes hang {
+  from {
+      -webkit-transform: rotate(0) skew(0deg,0deg);
+      transform: rotate(0) skew(0deg,0deg)
+    }
+  20%{
+      -webkit-transform: rotate(-8deg) skew(0deg,0deg);
+      transform: rotate(-8deg) skew(0deg,0deg)
+    }
+  40%{
+    -webkit-transform: rotate(6deg) skew(0deg,0deg);
+    transform: rotate(6deg) skew(0deg,0deg)
+  }
+  60% {
+    -webkit-transform: rotate(-4deg) skew(0deg,0deg);
+    transform: rotate(-4deg) skew(0deg,0deg)
+  }
+  80% {
+      -webkit-transform: rotate(2deg) skew(0deg,0deg);
+      transform: rotate(2deg) skew(0deg,0deg)
+    }
+  90% {
+    -webkit-transform: rotate(0) skew(0deg,0deg);
+    transform: rotate(0) skew(0deg,0deg)
+  }
+  to {
+      -webkit-transform: rotate(0) translate3d(0,0,0);
+      transform: rotate(0) translate3d(0,0,0)
+    }
+}
+.dialog-title-common{
+  background url(../../images/m20160205/title-bg.png) no-repeat 0 0;
+  background-size 2.21rem .71rem;
+  width 2.21rem;
+  height .71rem;
+  color #cf3c2e;
+  font-size .36rem;
+  line-height .71rem;
+  margin 0 auto .32rem;
+  text-align center;
+  font-family Georgia;
+  font-weight bold;
+}
+// 弹窗样式
+.ui-dialog-wrap{
+  position fixed;
+  z-index 20;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0,0,0,.5);
+  .ui-dialog-box{
+    $positioncenter();
+    position absolute;
+    top 50%;
+    left 50%;
+    box-sizing border-box;
+    padding .32rem .36rem;
+    width 5.8rem;
+    border-radius .14rem;
+    max-height 90%;
+    background-color #fff;
+    .ui-dialog-header{
+      padding-top .32rem;
+      box-sizing border-box;
+    }
+    .ui-dialog-close{
+      position absolute;
+      z-index 3;
+      top 0;
+      right 0;
+      padding .18rem .2rem;
+      &:before{
+        content '';
+        display block
+        background url(../../images/m20160205/x-icon.png) no-repeat 0 0;
+        background-size .28rem .28rem;
+        width .28rem;
+        height .28rem;
+      }
+    }
+    .ui-dialog-content{
+      box-sizing border-box;
+      .prize-cont{
+        text-align center;
+        .title {
+          font-size .26rem;
+          color #744e45;
+        }
+        .peach-send{
+          display: inline-block;
+          margin: .42rem 0;
+          line-height .93rem;
+          font-size .36rem;
+          font-weight bold;
+          color #cf3c29
+          padding-left .9rem;
+          background url(../../images/m20160205/peach.png) no-repeat 0 0;
+          background-size .72rem .93rem;
+        }
+        .festival-peach{
+          padding-left 1.18rem;
+          background url(../../images/m20160205/festival-peach.png) no-repeat 0 0;
+          background-size .93rem 1.03rem;
+          line-height 1.03rem;
+        }
+      }
+      .cont{
+        font-size .36rem;
+        color #666;
+        text-align center;
+        line-height 2.8rem;
+        min-height 2.8rem
+      }
+    }
+    .ui-dialog-footer{
+      text-align center;
+      .ui-dialog-btn{
+        display: inline-block;
+        line-height .8rem;
+        min-width 2.8rem;
+        text-align center;
+        font-size .36rem;
+        color #fff;
+        background #cf3c29;
+        border-radius .4rem;
+      }
+    }
+  }
+}
+.ui-dialog-hide{
+  display:none;
+}
+// 特殊弹窗样式
+.spec-dialog-wrap{
+  position fixed;
+  z-index 20;
+  top 0;
+  left 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0,0,0,.5);
+  .ui-dialog-box{
+    $positioncenter();
+    position absolute;
+    top 50%;
+    left 50%;
+    box-sizing border-box;
+    padding .32rem .36rem;
+    width 5.8rem;
+    border-radius .14rem;
+    max-height 90%;
+    background-color #fff;
+    .ui-dialog-header{
+      position absolute;
+      top 0;
+      left 0;
+      z-index 2;
+      width 100%;
+      background-color #fff;
+      border-radius .14rem .14rem 0 0;
+      box-sizing border-box;
+    }
+    .ui-dialog-close{
+      position absolute;
+      z-index 3;
+      top 0;
+      right 0;
+      padding .18rem .2rem;
+      &:before{
+        content '';
+        display block
+        background url(../../images/m20160205/x-icon.png) no-repeat 0 0;
+        background-size .28rem .28rem;
+        width .28rem;
+        height .28rem;
+      }
+    }
+    .ui-dialog-content{
+      box-sizing border-box;
+      overflow-y auto;
+      .cont{
+        font-size .26rem;
+        color $font-color;
+        li{
+          margin-bottom .2rem;
+        }
+      }
+    }
+  }
+}
+#ruleBox{
+  .ui-dialog-header{
+    padding-top .32rem;
+    height 1.36rem;
+  }
+
+  .ui-dialog-content{
+    padding-top 1.2rem;
+  }
+}
+
+.end-cont{
+  position absolute;
+  width 100%;
+  top 2rem;
+  left 0;
+  text-align center;
+  p {
+    font-size .36rem;
+    color #744e45;
+    line-height .56rem;
+  }
+  .cont-download{
+    display inline-block;
+    width 4.17rem;
+    height .8rem;
+    margin-top .48rem;
+    line-height .8rem;
+    font-size .28rem;
+    color #fff;
+    border-radius .4rem;
+    background-color #cd3325;
+  }
+}
+.bottom-monkey2{
+  position absolute;
+  top 5.84rem;
+  left 0;
+  width 6.4rem;
+  height 3.25rem;
+  background url(../../images/m20160205/bottom-monkey2.png) no-repeat 0 0;
+  background-size 100% 100%;
+  .has-peach-num{
+    position absolute;
+    top 1.56rem;
+    right .8rem;
+    margin 0;
+  }
+}
+#loadpage{
+  position fixed;
+  z-index 100;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+}

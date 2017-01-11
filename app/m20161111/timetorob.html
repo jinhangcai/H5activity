@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>限时抢红包</title>
+    <link rel="stylesheet" href="/static/style/m20161111/timetorob/timetorob.css">
+    <link rel="stylesheet" href="/static/style/m20161111/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="de-bg">
+            <div class="top">
+                <div class="gotoroom" @click="gotohome" v-if="!isApp"><img src="/static/images/m20161111/timetorob/room.png"></div>
+                <div class="myred" @click="showLotteryList">我的红包</div>
+            </div>
+            <div class="main">
+                <div class="headline">限时抢红包<img src="/static/images/m20161111/timetorob/adorn.png"></div>
+                <div class="time">
+                    <div class="timedate"><span>11月7日</span><span>11月8日</span><span>11月9日</span><span>11月10日</span></div>
+                    <div class="line"><span></span><span></span><span></span><span></span></div>
+                    <div class="timedate timedateIn"><span>11:11</span><span>11:11</span><span>11:11</span><span>11:11</span></div>
+
+                    <template v-if="activity">
+                        <div class="redbom" v-if="showred">
+                            <img src="/static/images/m20161111/timetorob/redboom.png">
+                        </div>
+                        <div class="redbom" v-else>
+                            <img src="/static/images/m20161111/timetorob/nored.png">
+                        </div>
+                        <div class="grab" v-if="down">距开抢还有  {{form}}</div>
+                        <template v-else>
+                                <div class="button btn"  v-if="nored"><span>今日已抢完</span></div>
+                                <div class="button btn"  v-if="dayvie"><span>已结束</span></div>
+                                <div class="button btn"  v-if="degree" ><span>立即抢</span></div>
+                            <template v-if="isshow">
+                                <div class="button" v-if="isLogin" @click="openRed"><span>立即抢</span></div>
+                                <div class="button" v-else @click="gotoenter"><span>立即抢</span></div>
+                            </template>
+                        </template>
+                    </template>
+                    <template v-else>
+                            <div class="redbom">
+                                <img src="/static/images/m20161111/timetorob/redmoney.png">
+                                <div class="redmoney"><span>{{money}}</span>元</div>
+                            </div>
+                            <div class="coke" v-if="showcock">分享成功+1次机会</div>
+                            <div class="bomconter":class="{ bomshowtop: bomshowtops}">
+                                <div class="button buttonIn" @click="again">再抢一次</div>
+                                <div class="button buttonIn" @click="usershare">告诉小伙伴</div>
+                            </div>
+                    </template>
+                    <p class="share">活动期间每天可抢1次，</p>
+                    <p class="share">每天成功分享活动可再抢1次。</p>
+                    <p class="share shareIn">（分享链接需被他人点击才算成功分享）</p>
+                    <a class="onshare" href="javascript:;" @click="usershare">立即分享</a>
+                </div>
+            </div>
+
+            <div class="footers">
+                <p class="center">本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+            </div>
+
+            <div class="bom"><img src="/static/images/m20161111/timetorob/bomadorn.png"></div>
+            <div class="orientation">
+                <img src="/static/images/m20161111/timetorob/adorn1.png">
+                <img src="/static/images/m20161111/timetorob/adorn2.png">
+            </div>
+        </div>
+    </article>
+</section>
+<section v-show="showAwardMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="title">我的红包</div>
+        <div class="content-wrap">
+            <ul v-if="awardList.length > 0" class="award-list">
+                <li v-for="list in awardList">
+                    <div class="award-name">限时抢红包</div>
+                    <div class="award-time">{{list.addTime | date}}</div>
+                    <div class="award-packet">{{list.point}}元</div>
+                </li>
+            </ul>
+            <div class="empty-list" v-else>暂无红包</div>
+        </div>
+        <a @click="hideAwardMask" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<div class="poker" v-if="poker" @click="nopoker">
+     <img src="/static/images/m20161111/timetorob/goshare.png">
+</div>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161111/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161111/timetorob/timetorob.js');
+</script>
+</body>
+</html>

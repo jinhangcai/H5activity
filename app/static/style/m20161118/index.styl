@@ -1,0 +1,415 @@
+@import "../common.styl";
+@import "../iconfont";
+@font-face {
+  $font-face(iconfont, '../iconfont/iconfont');
+}
+//水平居中
+$public-center-horizontally =@block{
+  position: absolute
+  left: 50%
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.viewport{
+  .whole{
+    width 6.4rem
+    background-image: url(("../../images/m20161118/bg.jpg"));
+  }
+  .banner{
+    width 6.4rem
+    border-bottom 2px solid #0e0304
+    height 4.05rem
+    img{
+      width 100%
+    }
+  }
+  .main{
+    width 6.4rem
+    margin 0 auto
+    .center{
+      width 5.7rem
+      margin 0 auto
+    }
+    .blackline{
+      border-bottom 2px solid #0e0304
+      margin-top .5rem
+    }
+    .line{
+      width 1.56rem
+      height .35rem
+      border-left 2px solid #0e0304
+      border-right 2px solid #0e0304
+      position relative
+      margin 0 auto
+      &:before{
+        content ''
+        position absolute
+        left -0.05rem
+        top 0
+        width .07rem
+        height .07rem
+        border-radius .5rem
+        background #000000
+      }
+      &:after{
+        content ''
+        position absolute
+        right -0.05rem
+        top 0
+        width .07rem
+        height .07rem
+        border-radius .5rem
+        background #000000
+      }
+    }
+    .login{
+      width 2.42rem
+      height .64rem
+      border 2px solid #0e0304
+      text-align center
+      line-height .64rem
+      color #ff204c
+      font-size .3rem
+      margin 0 auto
+      background #fff
+      img{
+        width 100%
+      }
+    }
+    .Time{
+      color #fff
+      font-size .24rem
+      padding-top .4rem
+    }
+    .main-shop{
+      width 100%
+      overflow hidden
+    }
+    .shop{
+      padding-top .28rem
+      float left
+      width 2.67rem
+      .red{
+        width 2.67rem
+        height 1.38rem
+        border 2px solid #1c1213
+        background #fff
+        .img{
+          width 1.51rem
+          height 1.01rem
+          margin .2rem auto
+          background-image: url(("../../images/m20161118/red.png"));
+          background-size 100%
+          .cen{
+            text-align center
+            height 100%
+            span{
+              color #fff
+              text-align center
+              line-height 1.31rem
+            }
+            span:nth-child(1){
+              font-size .36rem
+            }
+            span:nth-child(2){
+              font-size .18rem
+            }
+          }
+        }
+      }
+      .buttom{
+        width 1.96rem
+        height .6rem
+        border 2px solid #0e0304
+        text-align center
+        line-height .6rem
+        color #ff204c
+        font-size .28rem
+        margin .3rem auto 0
+        background #fff45c
+        display block
+      }
+      .outbottom{
+        color #ff204c
+        span{
+          opacity 0.4
+        }
+      }
+      .title{
+        color #520010
+        font-size .18rem
+        margin 0 auto
+        padding-top .23rem
+        text-align center
+      }
+      .titles{
+        text-align left
+        width 1.96rem
+      }
+    }
+    .shopright{
+      margin-left .2rem
+      .img{
+        width 1.74rem !important
+        height .91rem !important
+        background-image: url(("../../images/m20161118/raise.png")) !important;
+        span{
+          line-height .91rem !important
+        }
+        span:nth-child(1){
+          padding-left .35rem
+        }
+        span:nth-child(2){
+          font-size .21rem !important
+        }
+      }
+    }
+  }
+  .main{
+    .cen-shop{
+      .shop{
+        width 2.67rem
+      }
+      .shop:nth-child(odd){
+        margin-right .29rem
+      }
+      .red{
+        width 2.67rem
+        height 2rem
+        .img{
+          width 1.4rem
+          height .74rem
+          margin .3rem auto
+          background-image: url(("../../images/m20161118/red1.png"));
+          background-size 100%
+          .cen{
+            width 1.4rem
+            height .74rem
+            img{
+              width 100%
+            }
+            span{
+              line-height .74rem
+            }
+            span:nth-child(2){
+              font-size .14rem
+            }
+          }
+        }
+        .title{
+          width 1.5rem
+          margin 0 auto
+          color #ff204c
+          font-size .18rem
+          padding-top 0
+        }
+      }
+      .price{
+        color #fff45c
+        font-size .24rem
+        text-align center
+        width 100%
+        padding-top .2rem
+      }
+    }
+    .Times{
+      padding-top .2rem
+    }
+    .Login{
+      width 100%
+      background #df0731
+      height .6rem
+      line-height .6rem
+      text-align center
+      color #fff
+      font-size .24rem
+      margin-top .3rem
+      span{
+        color #fff45c
+      }
+      .investIn{
+        text-decoration underline
+      }
+      .money{
+        color #fff
+        font-size .24rem
+      }
+    }
+    .invest-shop{
+      padding-bottom .5rem
+      .shop:nth-child(even){
+        margin-right .29rem
+      }
+      .shop:nth-child(odd){
+        margin-right 0
+      }
+      .red{
+        .img{
+          width 100%
+          height auto
+          background-image none
+          margin 0 auto 0 0
+          img{
+            width 100%
+          }
+        }
+        .title{
+          width 100%
+          margin 0 auto
+          text-align center
+        }
+      }
+     .price{
+       font-size .22rem
+     }
+     .shoppiad{
+       width 3.27rem
+       float none
+       margin 0 auto 0 !important
+       .red{
+         width 3.27rem
+         height 2rem
+         margin 0 auto
+       }
+     }
+    }
+    .bottom{
+      width 100%
+      background #f21c46
+      .cen{
+        width 5.68rem
+        margin 0 auto
+        .img{
+          width 100%
+          img{
+            padding-top .38rem
+            width 100%
+          }
+        }
+        ol{
+          padding .25rem 0 .25rem 0
+          li{
+            font-size .24rem
+            color #fff
+            line-height .38rem
+          }
+        }
+      }
+    }
+  }
+}
+.poker{
+  position absolute
+  z-index 3
+  left 0
+  top 0
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,0.8)
+  img{
+    width 3.24rem
+    height 2.49rem
+    position absolute
+    right 0
+    top 0
+  }
+}
+.pop-rule2{
+  .pop-rule-content{
+    padding-top 0;
+    .title{
+      height .88rem;
+      line-height .88rem;
+      color #3c2ab4;
+      border-bottom 1px solid #3c2ab4;
+    }
+    .pop-rule-close2{
+      position absolute;
+      top 0;
+      right 0;
+      padding .3rem;
+      color #3c2ab4;
+      .iconfont{
+        font-size .32rem;
+      }
+    }
+  }
+  .alert-pic{
+    margin .3rem 0 .25rem;
+    img {
+      display block;
+      width 1.39rem;
+      margin 0 auto;
+    }
+  }
+  .alert-content{
+    height 1rem;
+    line-height .42rem;
+    text-align center;
+    font-size .28rem;
+    color #333;
+  }
+  .alert-btn{
+    display block;
+    width 1.76rem;
+    height .46rem;
+    line-height @height;
+    color #ff204c;
+    border .02rem solid;
+    border-radius .23rem;
+    text-align center;
+    font-size .24rem;
+    margin 0 auto;
+  }
+  .empty-list{
+    height 2rem;
+    line-height @height;
+    text-align center;
+    font-size: 0.24rem;
+    color: #3c2ab4;
+  }
+}
+.pop-rule{
+  position fixed;
+  z-index 10;
+  top: 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background-color rgba(0, 0, 0, .7)
+  .pop-rule-content{
+    position relative;
+    box-sizing border-box;
+    {$public-center-completely}
+    padding .2rem .4rem .4rem;
+    width 5.4rem;
+    background-color #fff;
+    .title{
+      height .67rem;
+      line-height @height;
+      font-size .3rem;
+      color #f81976;
+      text-align center;
+      border-bottom 1px solid #f81976;
+      margin-bottom .2rem;
+    }
+    p {
+      font-size .24rem;
+      line-height .4rem;
+      color #3c2ab4;
+      margin-bottom .14rem;
+    }
+    .content-wrap{
+      max-height: 50vh;
+      overflow: auto;
+    }
+    .pop-rule-close{
+      {$public-center-horizontally}
+      bottom -.84rem;
+      width .62rem;
+      height .62rem;
+      background url(../../images/m20160918/close-btn.png) no-repeat top center;
+      background-size .62rem;
+    }
+  }
+}

@@ -1,0 +1,534 @@
+@import "../common.styl";
+@import "../address_moudle";
+i{
+  font-style normal
+}
+//金猴活动文案大小
+$pss=@block{
+  font-size .26rem
+  color #fff7d2
+}
+//金猴活动标题大小
+$hs=@block{
+  font-size .36rem
+  color #fff
+}
+//沉积
+$cj=@block{
+  position relative
+  z-index 1
+}
+//after+before
+$after=@block{
+  content ""
+  background url("../../images/m20160205/cut-monkey.png") no-repeat 0 0
+  width 1.7rem
+  height 1.59rem
+  position absolute
+  left 0
+  top 0
+  background-size 100%
+}
+$before=@block{
+  content ""
+  background url("../../images/m20160205/cut-monkey1.png") no-repeat 0 0
+  width 2.07rem
+  height 1.64rem
+  position absolute
+  right 0
+  bottom 0
+  background-size 100%
+}
+//li的大小
+$lis=@block{
+  float left
+  width 2.6rem
+  height 2.57rem
+  margin-right .37rem
+  &:nth-child(even){
+    margin-right 0
+  }
+  .shop-image{
+    width 100%
+    height 2rem
+    background #ce5651
+    border-radius .2rem
+  }
+  img{
+    width 100%
+  }
+  .shop-bottom{
+    width 100%;
+    position relative
+    margin-top .15rem
+    padding-left .1rem
+    .money{
+      width .22rem
+      height .22rem
+      border 1px solid #fff
+      border-radius .05rem
+      display block
+      float left
+      font-size .14rem
+      text-align center
+      line-height .22rem
+      color #fff
+      margin-right .12rem
+    }
+  }
+  .title{
+    font-size .22rem
+    color #fff
+    text-align center
+  }
+  .price{
+    font-size .2rem
+    color #ffea39
+    margin-right .1rem
+  }
+  .price-one{
+    font-size .2rem
+    color #f37d78
+    text-decoration line-through
+  }
+  .more{
+    width .56rem
+    height .26rem
+    border-radius .05rem
+    text-align center
+    line-height .26rem
+    font-size .18rem
+    color #cf3c29
+    display block
+    position absolute
+    right .2rem
+    bottom -.02rem
+    background #fff7d2
+
+  }
+}
+.viewport{
+  background #c14742
+}
+.head{
+
+  width 100%
+  img{
+    width 100%
+  }
+}
+.main{
+  background #c14742
+  padding-top  .3rem
+  width 6rem
+  margin 0 auto
+  overflow hidden
+  .game{
+    width 100%
+    background url("../../images/m20160205/border-image.png") no-repeat 0 0
+    height 2.6rem
+    background-size 100%
+    background-color #ce5651
+    position relative
+    h2{
+      {$hs}
+      color #fff
+      padding .27rem 0 0 .65rem
+    }
+    p{
+      {$pss}
+      text-align left
+      padding .2rem 0 0 .67rem
+    }
+    a{
+      display block
+      width 1.7rem
+      height .6rem
+      border-radius .5rem
+      background #fff
+      color #cd3325
+      text-align center
+      line-height .6rem
+      font-size .28rem
+      margin .2rem 0 0 .67rem
+    }
+    img{
+      position absolute
+      width 1.28rem
+      height 1.82rem
+      right .4rem
+      bottom .6rem
+    }
+  }
+  .coin{
+    width 100%
+    border-radius .1rem
+    background #ce5651
+    margin-top .3rem
+    position relative
+    &:after{
+      {$after}
+    }
+    &:before{
+      {$before}
+    }
+    h2{
+      {$hs}
+      {$cj}
+      text-align center
+      padding-top .37rem
+    }
+    .festival{
+      {$pss}
+      {$cj}
+      width 5.5rem
+      margin  .25rem auto
+    }
+    .Gold{
+      margin-top .25rem
+      padding-bottom .3rem
+      .Gold-species{
+        {$cj}
+        display none
+        background #fff7d2
+        width 1rem
+        height .8rem
+        margin-right .4rem
+        float left
+        border-radius .2rem
+        &:nth-child(4){
+          margin-right 0
+        }
+        &:nth-child(1){
+          margin-left .42rem
+        }
+        .on{
+          color #fff
+          font-size .24rem
+          text-align center
+          line-height .8rem
+        }
+        .go{
+          span{
+            font-weight bold;
+            font-size: .26rem;
+          }
+          color #cf3c29
+          font-size .18rem
+          text-align center
+          padding-top .15rem
+        }
+        .trigon{
+          width: 0;
+          height: 0;
+          border-left: .1rem solid transparent;
+          border-right: .1rem solid transparent;
+          border-top: .18rem solid #fff7d2;
+          position absolute
+          left 40%
+          bottom -.15rem
+        }
+        .trigon-one{
+          width: 0;
+          height: 0;
+          border-left: .1rem solid transparent;
+          border-right: .1rem solid transparent;
+          border-top: .18rem solid #b3b3b3;
+          position absolute
+          left 40%
+          bottom -.15rem
+        }
+      }
+      .small{
+        width 4.7rem
+        height .4rem
+        margin 0 auto
+        position relative
+        overflow hidden
+        padding-top .3rem
+        .small-head{
+          width 90%
+          height .08rem
+          background #fff7d2
+          margin 0 auto
+          margin-top .1rem
+          .award{
+            box-sizing border-box
+            border 2px solid #fff7d2
+            border-radius .5rem
+            width .42rem
+            height .42rem
+            background #ce5651
+            position absolute
+            &:nth-child(1){
+              left .05rem
+              top .2rem
+            }
+            &:nth-child(2){
+              left 1.46rem
+              top .2rem
+            }
+            &:nth-child(3){
+              left 2.85rem
+              top .2rem
+            }
+            &:nth-child(4){
+              left 4.26rem
+              top .2rem
+            }
+            .guess{
+              box-sizing border-box
+              width .26rem
+              height .26rem
+              border-radius .5rem
+              margin 0 auto
+              background #fff7d2
+              margin-top .05rem
+            }
+            .guess-one{
+              color #fff7d2
+              font-size .26rem
+              text-align center
+            }
+          }
+        }
+      }
+      .date{
+        width 100%
+        overflow hidden
+        span{
+          color #fff
+          font-size .26rem
+          float left
+          display block
+          margin-right .6rem
+          position relative
+          {$cj}
+          &:nth-child(1){
+            padding-left .55rem
+          }
+          &:nth-child(4){
+            margin-right 0
+          }
+        }
+      }
+    }
+  }
+  .feedback{
+    margin-top .28rem
+    width 100%
+    height 2.48rem
+    border-radius .1rem
+    background #ce5651
+    position relative
+    &:after{
+      {$after}
+    }
+    &:before{
+      {$before}
+    }
+    h2{
+      {$hs}
+      text-align center
+      {$cj}
+      padding-top .37rem
+    }
+    p{
+      width 5.41rem
+      margin .38rem auto
+      {$pss}
+      {$cj}
+    }
+  }
+  .prize{
+    margin-top .28rem
+    width 100%
+    height 3.1rem
+    border-radius .1rem
+    background #ce5651
+    position relative
+    &:after{
+      {$after}
+    }
+    &:before{
+      {$before}
+    }
+    h2{
+      {$hs}
+      text-align center
+      {$cj}
+      padding-top .37rem
+    }
+    p{
+      width 5.41rem
+      margin .38rem auto
+      {$pss}
+      {$cj}
+    }
+  }
+  .shop{
+    margin-top .28rem
+    background url("../../images/m20160205/border-image1.png") no-repeat 0 0
+    background-size 100% 100%
+    height 12.45rem
+    width 100%
+    h2{
+      {$hs}
+      text-align center
+      padding-top .4rem
+    }
+    .shop-sort{
+      overflow hidden
+      width 5.57rem
+      margin 0 auto
+      margin-top .3rem
+    }
+    .shop-title{
+      padding-top .34rem
+      width 5.44rem
+      margin 0 auto
+      {$pss}
+    }
+    li{
+      {$lis}
+      a{
+        display block
+      }
+    }
+  }
+  .footer{
+    width 94%;
+    padding-top .4rem
+    margin 0 auto 1rem
+    h2{
+      {$hs}
+      text-align center
+      font-size .28rem
+      color #fff7d2
+    }
+    ol{
+      padding-top .3rem
+    }
+    li{
+      color #fff7d2
+      font-size .22rem
+      margin-bottom .25rem
+      line-height .3rem
+    }
+  }
+}
+#bbsBtn{
+  color #ffea39
+  text-decoration underline
+}
+.address{
+  width 100%
+  height .8rem
+  text-align center
+  line-height .8rem
+  color #cd3325
+  font-size .28rem
+  position fixed
+  left 0
+  bottom 0
+  background #fff7d2
+  z-index 2
+}
+.poker{
+  display none
+  position absolute
+  z-index 3
+  left 0
+  top 0
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,0.8)
+  div{
+    position absolute
+    left 1.8rem
+    top 1.77rem
+    .out-money{
+      font-size .5rem
+      color #ffea39
+      text-align center
+      padding-left .2rem
+    }
+    .int-money{
+      font-size .24rem
+      color #fff
+      text-align center
+    }
+    img{
+      width 2.83rem
+      height 3.33rem
+    }
+    a{
+      display block
+      width 2.8rem
+      height .8rem
+      text-align center
+      line-height .8rem
+      color #fff
+      font-size .32rem
+      background #cf3c29
+      border-radius .45rem
+      margin-top .4rem
+    }
+  }
+}
+.logged{
+  display none
+  position absolute
+  z-index 3
+  left 0
+  top 0
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,0.8)
+  div{
+    position absolute
+    left .71rem
+    top 1.26rem
+    .out-money{
+      visibility hidden
+      font-size .24rem
+      color #fff
+      text-align center
+    }
+    .int-money{
+      font-size .5rem
+      color #ffea39
+      text-align center
+    }
+    .moneky-up{
+      width 3.94rem
+      height 3.98rem
+      margin-left .7rem
+    }
+    .streamer{
+      width 4.99rem
+      height 1.20rem
+      margin-top -.2rem
+      position relative
+      span{
+        display block
+        text-align center
+        line-height 1.2rem
+        width 100%
+        height 1.2rem
+        position absolute
+        left 0
+        top 0
+        font-size .3rem
+        color #fff
+      }
+      img{
+        width 100%
+      }
+    }
+  }
+}
+.cartoon{
+  transform:scale(0)
+  -webkit-transform:scale(0)
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>我要集赞</title>
+    <link rel="stylesheet" href="/static/style/m20160506/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body class="page-bg">
+    <!--<div id="loadpage"></div>-->
+    <article class="viewport">
+        <div class="praise-list">
+            <ul>
+                <li>
+                    <h2 class="tit">方式一、找好友帮忙</h2>
+                    <p class="info">每个好友每天可以帮忙点赞1次</p>
+                    <p class="info">奖励：<span>2</span>个赞</p>
+                    <div class="about">
+                        <a id="help" href="javascript:;" class="btn disabled">找好友</a>
+                        <p class="user">已获得<span class="highlight" id="helpNum">0</span>个赞</p>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="tit">方式二、自己点赞</h2>
+                    <p class="info">每天可以给自己的画点赞1次</p>
+                    <p class="info">奖励：<span>1</span>个赞</p>
+                    <div class="about">
+                        <a id="self" href="javascript:;" class="btn disabled">去点赞</a>
+                        <p class="user">已获得<span class="highlight" id="selfNum">0</span>个赞</p>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="tit">方式三、分享活动</h2>
+                    <p class="info">每天首次成功分享本活动</p>
+                    <p class="info">奖励：<span>1</span>个赞</p>
+                    <div class="about">
+                        <a id="share" href="javascript:;" class="btn disabled">去分享</a>
+                        <p class="user">已获得<span class="highlight" id="shareNum">0</span>个赞</p>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="tit">方式四、投资</h2>
+                    <p class="info">活动期间单笔投资每满5000元（28天及以上<br>理财产品）</p>
+                    <p class="info">奖励：<span>1</span>个赞</p>
+                    <div class="about">
+                        <a id="tender" href="javascript:;" class="btn disabled">去投资</a>
+                        <p class="user">已获得<span class="highlight" id="tenderNum">0</span>个赞</p>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="tit">方式五、邀请</h2>
+                    <p class="info">活动期间邀请1人注册+实名</p>
+                    <p class="info">奖励：<span>2</span>个赞</p>
+                    <p class="info">好友首次投资满1000元（除钱宝宝）</p>
+                    <p class="info">奖励：<span>5</span>个赞</p>
+                    <div class="about">
+                        <a id="invite" href="javascript:;" class="btn disabled">去邀请</a>
+                        <p class="user">已获得<span class="highlight" id="inviteNum">0</span>个赞</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <div id="shareMask" class="share-mask"><img src="/static/images/m20160506/share-mask.png" alt=""/></div>
+    <input id="sharePic" type="hidden" value="/static/images/m20160506/share-pic.jpg"/>
+    <script src="/static/script/modules/sea.js"></script>
+    <script src="/static/script/modules/seajs-config.js"></script>
+    <script>
+        seajs.use('/static/script/m20160506/praiseList.js');
+    </script>
+</body>
+</html>

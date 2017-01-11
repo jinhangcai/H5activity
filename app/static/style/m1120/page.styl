@@ -1,0 +1,213 @@
+@import "common";
+@import "../address_moudle";
+html,
+body,
+page{
+  background-color $bg-color;
+}
+.viewport{
+  padding-bottom .9rem;
+}
+.banner{
+  img{
+    width 100%;
+    display block
+  }
+}
+.inner{
+  margin 0 .3rem;
+}
+.title{
+  position relative;
+  font-size .38rem;
+  color #fff;
+  line-height .46rem;
+  height .46rem;
+  text-align center;
+  margin-bottom .32rem;
+  &:before{
+    content: '';
+    position: absolute;
+    left 0;
+    top 50%;
+    width 100%;
+    height .02rem;
+    background-color #fff;
+  }
+  span{
+    position relative;
+    z-index: 2;
+    padding 0 .18rem;
+    background-color $bg-color;
+  }
+}
+.activity-box{
+  padding .24rem .32rem;
+  background-color #7857b7;
+  border-radius .09rem;
+  font-size .28rem;
+  line-height .4rem;
+  color #fff;
+  margin-bottom .26rem;
+  .big{
+    font-size .34rem;
+  }
+  p{
+    padding-top .2rem;
+    padding-bottom .2rem;
+  }
+  p + p{
+    border-top .02rem solid #9676d5;
+  }
+}
+.act-btn{
+  display block;
+  margin 0 .65rem;
+  line-height .76rem;
+  font-size .36rem;
+  font-weight bold;
+  color #2e3093;
+  text-align center;
+  background-color #fff43c;
+  border-radius .04rem;
+  box-shadow 0 .07rem #dd950a;
+  margin-bottom .5rem;
+}
+.rule{
+  padding 0 .32rem;
+  font-size .28rem;
+  line-height .38rem;
+  color #392957;
+  .high{
+    color #fff43c;
+  }
+  p{
+    margin-bottom .12rem;
+  }
+}
+.foot-bar{
+  display none;
+  position: absolute;
+  left 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width 100%;
+  height: .92rem;
+  background-color: #4e50b5;
+  z-index: 3;
+  .user-prize, a{
+    float left;
+    width 50%;
+    line-height: .92rem;
+    text-align: center;
+    font-size: 0.3rem;
+  }
+  .user-prize{
+    color #fff;
+  }
+  .empty{
+    display block;
+    width 100%;
+    line-height: .92rem;
+    text-align: center;
+    font-size: 0.3rem;
+    color #fff;
+  }
+  a{
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #640d0d;
+    text-decoration: none;
+    background-color #fff43c;
+    .icon{
+      display inline-block;
+      margin-right .1rem;
+      width .33rem;
+      height .33rem;
+      background url(../../images/m1120/gift.png) no-repeat 0 0;
+      background-size 100%;
+      transform: translate(0, .04rem);
+      -webkit-transform: translate(0, .04rem);
+    }
+  }
+}
+
+#myPrizeBtn{
+  color #4e50b5;
+}
+.share-mask{
+  display none;
+  position absolute;
+  z-index 3;
+  top 0;
+  left: 0;
+  width 100%
+  height 100%
+  background-color rgba(0,0,0,.8);
+  img{
+    position absolute;
+    top .34rem;
+    right .48rem;
+    width 2.65rem;
+  }
+}
+#loadpage{
+  position absolute;
+  z-index 100;
+  top 0;
+  left: 0;
+  width 100%;
+  height 100%;
+  background url(../../images/loading.gif) no-repeat center center;
+  background-color rgba(0, 0, 0, 0.8);
+  background-size: 1rem auto;
+}
+
+//公共样式变量
+$pop-main = @block{
+  position: absolute
+  left: 50%
+  top: 50%
+  overflow: hidden
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+//弹出警告框
+.dailog{
+  display none;
+  position: absolute;
+  width: 100%
+  height: 100%
+  top 0
+  left @top
+  background-color rgba(0, 0, 0, .5)
+  z-index: 99999
+  .dailog-main{
+    {$pop-main}
+    border-radius .1rem;
+    width: 85%
+    background-color #fff;
+  }
+  .dailog-cont{
+    padding: .5rem .35rem;
+    font-size .32rem;
+    line-height: 1.5
+    text-align: center
+    border-bottom: 1px solid #ccc
+  }
+  .dailog-footer{
+    .btn{
+      display block;
+      text-align center;
+      line-height .9rem;
+      font-size .32rem;
+      color: #007aff
+      text-decoration none;
+    }
+  }
+}
+.ca-wrap{
+  z-index 4;
+}

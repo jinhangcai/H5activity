@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>1+2拆红包 比手气</title>
+    <link rel="stylesheet" href="/static/style/m20161212/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body id="drawGame">
+<article class="viewport">
+    <a v-if="part != 2" @click="showAward" href="javascript:;" class="my-packet-btn">我的红包</a>
+    <template v-if="part == 1">
+        <div class="game-title"><img src="/static/images/m20161212/game-title.png" alt="1+2拆红包 比手气"></div>
+        <div class="sub-title">12月8日-12月12日</div>
+        <a href="javascript:;" class="play-game-btn" @click="play"><img src="/static/images/m20161212/play-game-btn.png" alt="开始游戏"></a>
+        <div v-if="isStart && isLogin && !isEnd" class="user-number">
+            可玩:<span>{{userNumber}}</span>次
+        </div>
+        <div class="rule">
+            活动期间，每人每天可免费玩1次，<br>
+            单笔投资满2000元可再玩2次，<br>
+            每天共可玩3次，所得红包有效期3天。
+        </div>
+        <div class="disclaimer">本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有</div>
+    </template>
+    <template v-if="part == 2">
+        <div class="count-down-wrap">
+            <div class="count-down">{{gameTime | countDown}}秒</div>
+        </div>
+        <div class="drawn-game" :class="{'ios-drawn': isIOS}">
+            <div class="drawn-encourage">
+                <span v-for="item in encourageList" class="encourage{{$index+1}}" :class="{'show-encourage':item.unglued}">{{item.text}}</span>
+            </div>
+            <div class="monster" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></div>
+            <div v-for="item in list" class="drawn-red-packet" :class="{'move':item.unglued}" @transitionend="transitionEnd($index)"></div>
+        </div>
+    </template>
+    <template v-if="part == 3">
+        <div class="game-result">
+            <div class="result-content">恭喜获得<span>{{redAmount}}</span>元红包</div>
+        </div>
+        <div class="btns-wrap">
+            <a v-if="usedNumber >= 3" @click="goIndex" href="javascript:;" class="game-btn red">看其他活动</a>
+            <a v-else @click="play" href="javascript:;" class="game-btn red">再玩一次</a>
+            <a @click="share" href="javascript:;" class="game-btn violet">分享出去</a>
+        </div>
+    </template>
+</article>
+<div v-if="part != 1" class="intersperse"></div>
+<div v-if="newHandMask" class="mask">
+    <div class="new-hand-cont">
+        <a @click="closeNewHand" href="javascript:;" class="btn">我知道了</a>
+    </div>
+</div>
+<div v-if="startCountDownMask" class="start-count-down mask">{{startCountDown}}</div>
+<section v-show="showAwardMask" class="mask">
+    <div class="pop-rule-content">
+        <div class="title">我的红包</div>
+        <div class="content-wrap">
+            <ul v-if="awardList.length > 0" class="award-list">
+                <li v-for="list in awardList">
+                    <div class="award-name">拆红包</div>
+                    <div class="award-time">{{list.addTime | date}}</div>
+                    <div class="award-packet">{{list.point}}元</div>
+                </li>
+            </ul>
+            <div v-else class="empty-list">再不玩红包都是隔壁老王的了！</div>
+        </div>
+        <a @click="hideAwardMask" class="pop-rule-close"></a>
+    </div>
+</section>
+<section v-if="alertMask" class="mask">
+    <div class="rope"></div>
+    <div class="pop">
+        <div class="content">{{{alertContent}}}</div>
+        <a @click="closeAlert" href="javascript:;" class="pop-btn">我知道了</a>
+        <a @click="closeAlert" href="javascript:;" class="pop-close"></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<div @click="hideShareMask" id="shareMask" v-show="shareMask"></div>
+<input type="hidden" id="sharePic" value="/static/images/m20161212/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161212/drawnGame.js');
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+input::-webkit-input-placeholder {
+  color: #cfcfcf;
+}
+input,
+textarea,
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+}
+.banner img {
+  display: block;
+  width: 100%;
+}
+.main {
+  padding: 0 0.3rem;
+}
+.main .from-friend {
+  font-size: 0.24rem;
+  color: #666;
+  line-height: 0.97rem;
+}
+.main .row {
+  margin-bottom: 0.3rem;
+}
+.main .row input[type="text"],
+.main .row input[type="password"] {
+  box-sizing: border-box;
+  height: 0.8rem;
+  border-radius: 0.06rem;
+  padding: 0 0.23rem;
+  border: 0.02rem solid #ccc;
+  font-size: 0.28rem;
+}
+.main .row .btn {
+  box-sizing: border-box;
+  display: block;
+  height: 0.8rem;
+  border-radius: 0.06rem;
+  border: none;
+  text-align: center;
+  line-height: 0.8rem;
+  background-color: #f35c3f;
+  font-size: 0.28rem;
+  color: #fff;
+}
+.main .verify input {
+  width: 2.75rem;
+}
+.main .verify .btn {
+  float: right;
+}
+.main .agreement {
+  font-size: 0.28rem;
+  color: #999;
+}
+.main .agreement a {
+  color: #77adf3;
+}
+.main .phone input,
+.main .password input {
+  width: 100%;
+}
+.main .input-error {
+  margin-top: 0.1rem;
+  font-size: 0.2rem;
+  color: #f00;
+}
+.main .submit-error {
+  width: 100%;
+  margin: 0.3rem auto 0.1rem;
+  background-color: #fee3ce;
+  color: #ff5938;
+  font-size: 0.25rem;
+  line-height: 0.6rem;
+  text-align: center;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Help！谁来拯救我的工资</title>
+    <link rel="stylesheet" href="/static/style/m20161101/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="container history-wrap">
+        <p class="tips">记录仅展示有在投本金的月份</p>
+        <template v-if="isStart">
+            <table class="act-table">
+                <thead>
+                <tr>
+                    <th style="width:25%">时间</th>
+                    <th style="width:25%">当月在投本金</th>
+                    <th style="width:25%">当月新增<br>在投本金</th>
+                    <th style="width:25%">拯救资金</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item in list">
+                    <td>{{item.date | date}}</td>
+                    <td>{{item.currentMonthSum}}元</td>
+                    <template v-if="item.date < startTime">
+                        <td>未开始</td>
+                        <td>未开始</td>
+                    </template>
+                    <template v-else>
+                        <td v-if="item.currentMonthAdd >= 0">{{item.currentMonthAdd}}元</td>
+                        <td v-else>0元</td>
+                        <td>{{item.redAmount}}元</td>
+                    </template>
+                </tr>
+                </tbody>
+            </table>
+            <div v-if="loading" class="loading">加载中...</div>
+        </template>
+        <template v-else>
+            <div class="loading">暂无记录</div>
+        </template>
+    </div>
+</article>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161101/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161101/history.js');
+</script>
+</body>
+</html>

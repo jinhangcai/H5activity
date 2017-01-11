@@ -1,0 +1,410 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+  overflow: scroll;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.underline {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  line-height: 1.2;
+}
+.tc {
+  text-align: center;
+}
+.high-color {
+  color: #e84645;
+}
+html,
+body,
+.page {
+  background-color: #ef5756;
+}
+.viewport {
+  background: url("../../images/scratchCard/bg.png") no-repeat 0 0;
+  background-size: 100%;
+}
+.banner img {
+  width: 100%;
+  display: block;
+}
+.content-box {
+  box-sizing: border-box;
+  padding: 0.28rem 0.25rem 0;
+}
+.content-box .content-inner {
+  padding: 0.24rem 0 0.22rem;
+}
+.scratch-box {
+  display: none;
+  margin-bottom: 0.3rem;
+}
+.decorate-box {
+  margin-top: -1.92rem;
+}
+.decorate-box .in-phone {
+  display: none;
+}
+.decorate-box .scratch-box {
+  display: block;
+}
+.rule-btn {
+  color: #bb2120;
+  font-size: 0.24rem;
+}
+.in-phone {
+  margin: 0 0.5rem 0.78rem;
+}
+.in-phone .row {
+  margin-bottom: 0.42rem;
+}
+.in-phone .phone-text,
+.in-phone .phone-btn {
+  display: block;
+  width: 100%;
+  line-height: 0.78rem;
+  font-size: 0.3rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border-radius: 0.06rem;
+}
+.in-phone .phone-text {
+  height: 0.78rem;
+  box-sizing: border-box;
+  line-height: 0.4rem;
+  padding: 0.19rem 0.15rem;
+}
+.in-phone .phone-btn {
+  background-color: #d93b3a;
+  color: #fce9a4;
+  font-weight: bold;
+}
+.decorate-box .content-inner {
+  background-color: #fff;
+  padding: 0 0.26rem 0.22rem;
+  position: relative;
+}
+.decorate-box .content-inner:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -0.1rem;
+  left: 0;
+  height: 0.1rem;
+  width: 100%;
+  background: url("../../images/scratchCard/fence-bg.png") repeat-x 0 0;
+  background-size: auto 100%;
+}
+.decorate-box .cont-row {
+  font-size: 0.28rem;
+  color: #7b7b7b;
+  margin: 0.18rem 0 0.48rem;
+}
+.decorate-box .share-wrap {
+  margin: 0 0.2rem;
+}
+.decorate-box .rule-btn {
+  color: #989696;
+}
+.decorate-box .user-phone {
+  font-size: 0.24rem;
+  line-height: 0.5rem;
+  color: #7b7b7b;
+  text-align: right;
+}
+.scratch-wrap {
+  position: relative;
+  width: 5.36rem;
+  height: 2.46rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.scratch-wrap img {
+  z-index: 1;
+}
+.scratch-wrap canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.btn {
+  display: block;
+  line-height: 0.7rem;
+  font-size: 0.34rem;
+  font-weight: bold;
+  color: #fce9a4;
+  text-align: center;
+  background: #ef5756;
+  border-radius: 0.04rem;
+  box-shadow: 0 6px #cf3f3f;
+}
+.share-wrap p {
+  color: #7b7b7b;
+  font-size: 0.21rem;
+  text-align: center;
+  margin: 0.21rem 0;
+}
+#loadpage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-color: rgba(0,0,0,0.8);
+  background-size: 1rem auto;
+}
+.rule-description {
+  margin: 0.15rem 0.4rem;
+}
+.rule-description .tit {
+  text-align: center;
+  height: 0.54rem;
+}
+.rule-description .tit img {
+  height: 100%;
+}
+.rule-description .cont {
+  margin: 0.35rem 0.4rem 0;
+}
+.rule-description li {
+  font-size: 0.28rem;
+  line-height: 0.35rem;
+  color: #eee1b7;
+}
+.rule-description li a {
+  color: #ffdd3e;
+}
+.rule-description li + li {
+  margin-top: 0.15rem;
+}
+.ui-dialog-wrap {
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.ui-dialog-wrap .ui-dialog-box {
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  padding: 0.3rem 0.38rem;
+  width: 5rem;
+  border: 0.1rem solid #640d0d;
+  background-color: #fff;
+  border-radius: 0.14rem;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dailog-close {
+  position: absolute;
+  width: 0.44rem;
+  height: 0.44rem;
+  background: url("../../images/scratchCard/close-bg.png") no-repeat center center;
+  background-size: 0.22rem 0.22rem;
+  color: #640d0d;
+  top: 0;
+  right: 0;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dialog-content {
+  color: #939393;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dialog-content .commen-text {
+  text-align: center;
+  font-size: 0.24rem;
+  line-height: 1.5;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dialog-content .empty {
+  line-height: 0.3rem;
+  text-align: center;
+  font-size: 0.24rem;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dialog-footer {
+  padding-top: 0.3rem;
+  box-sizing: border-box;
+}
+.ui-dialog-wrap .ui-dialog-box .ui-dialog-footer .btn {
+  margin: 0 0.46rem;
+}
+.ui-hide,
+.ui-dialog-hide {
+  display: none;
+}
+.dialog-tit {
+  font-size: 0.24rem;
+  line-height: 0.4rem;
+  text-align: center;
+  margin: 0.2rem 0;
+}
+.dialog-txt {
+  font-size: 0.24rem;
+  margin-bottom: 0.1rem;
+}
+.prize-txt {
+  font-size: 0.72rem;
+  text-align: center;
+  color: #f65957;
+}
+.dialog-table {
+  border: 1px solid #a0a0a0;
+  overflow: auto;
+  max-height: 3rem;
+}
+.dialog-table table {
+  width: 100%;
+}
+.dialog-table table th,
+.dialog-table table td {
+  font-size: 0.3rem;
+  height: 0.54rem;
+  font-weight: normal;
+  text-align: center;
+}
+.dialog-table table th,
+.dialog-table table tr {
+  border-bottom: 1px solid #a0a0a0;
+}
+.dialog-table table tr:last-of-type {
+  border-bottom: none;
+}
+.dialog-table .red {
+  color: #ef5756;
+}
+.share-mask {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+.share-mask img {
+  position: absolute;
+  top: 0.34rem;
+  right: 0.48rem;
+  width: 2.65rem;
+}
+#shareBtn {
+  margin: 0 0.92rem;
+}
+#loadpage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-color: rgba(0,0,0,0.8);
+  background-size: 1rem auto;
+}

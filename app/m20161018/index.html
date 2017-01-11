@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>浓情十月 相约钱庄嗨不停</title>
+    <link rel="stylesheet" href="/static/style/m20161018/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="banner"><img src="/static/images/m20161018/banner.jpg" alt="浓情十月 相约钱庄嗨不停"></div>
+    <div class="floor step-1">
+        <h2 class="title"><img src="/static/images/m20161018/title-1.png" alt="最疯狂的18号"></h2>
+        <div class="cont">10月18日当天投资28天及以上理财产品的累计投资额满足下列条件，送相应礼品。</div>
+        <template v-if="isStart">
+            <div v-if="!isLogin" @click="goLogin" class="user-cont">登录可查看您的累计投资额 <span class="hignlight underline">立即登录</span></div>
+            <div v-else class="user-cont">10月18日您累计投资：<span class="hignlight">{{all18}}</span>元</div>
+        </template>
+        <ul class="goods-list show-box">
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic1.png" alt=""></div>
+                <div class="name">iphone 7 32G</div>
+                <div class="rule">累计投资额≥180万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic2.png" alt=""></div>
+                <div class="name">Beats Solo2 Wireless耳机</div>
+                <div class="rule">130万≤累计投资额<180万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic3.png" alt=""></div>
+                <div class="name">卡西欧时尚手表</div>
+                <div class="rule">110万≤累计投资额<130万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic4.png" alt=""></div>
+                <div class="name">博洋家纺蚕丝子母被</div>
+                <div class="rule">85万≤累计投资额<110万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic5.png" alt=""></div>
+                <div class="name">公路自行车/京东卡800元</div>
+                <div class="rule">50万≤累计投资额<85万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic6.png" alt=""></div>
+                <div class="name">1080P夜视摄像机<br>/格力干衣机</div>
+                <div class="rule">20万≤累计投资额<50万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic7.png" alt=""></div>
+                <div class="name">暴风魔镜VR<br>/元祖礼卡200元</div>
+                <div class="rule">12万≤累计投资额<20万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic8.png" alt=""></div>
+                <div class="name">小米移动电源<br>/办公室养生杯</div>
+                <div class="rule">5万≤累计投资额<12万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20161018/pic9.png" alt=""></div>
+                <div class="name">全棉浴巾<br>/30元现金红包</div>
+                <div class="rule">2万≤累计投资额<5万</div>
+            </li>
+        </ul>
+    </div>
+    <div class="floor">
+        <h2 class="title"><img src="/static/images/m20161018/title-2.png" alt="加息停不下来"></h2>
+        <div class="raise-box">10月18日 - 20日<br>疯狂加息，火热开抢！</div>
+    </div>
+    <div class="floor">
+        <h2 class="title"><img src="/static/images/m20161018/title-3.png" alt="万人迎财神计划"></h2>
+        <div class="cont">10月18日—20日，用户每投资满500元可获得1个财气，当财气到达6、18、38、98、388、888时可分别迎财神红包一个（点击领取即可到账）。财气集齐888时，额外赠送精品干白一瓶。红包的有效期两天。</div>
+        <template v-if="isStart">
+            <div v-if="!isLogin" @click="goLogin" class="user-cont">登录可查看您的的财气值 <span class="hignlight underline">立即登录</span></div>
+            <div v-else class="user-cont">您的的财气值：<span class="hignlight">{{all1820}}</span></div>
+        </template>
+        <ul class="red-packet-list show-box">
+            <li v-for="list in redPacketList">
+                <div class="red-packet">
+                    {{list.limit}}<span>元</span>
+                </div>
+                <div class="name">{{list.limit}}元红包</div>
+                <div class="rule">{{list.rule}}</div>
+                <template v-if="list.btnStatus == 'default'">
+                    <a href="javascript:;" class="btn">立即领取</a>
+                </template>
+                <template v-else>
+                    <template v-if="list.btnStatus == 'primary'">
+                        <a @click="receive(list.limit, $index)" class="btn primary">立即领取</a>
+                    </template>
+                    <template v-else>
+                    <a href="javascript:;" class="btn">已领取</a>
+                    </template>
+                </template>
+            </li>
+        </ul>
+    </div>
+    <div class="floor">
+        <h2 class="title"><img src="/static/images/m20161018/title-4.png" alt="邀请有礼嗨不停"></h2>
+        <div class="cont">10月18日-20日，邀请3位好友注册且都首次投资满5000元，奖励100元京东卡一张；<br>(请至APP “我”-“邀请好友”页去邀请)</div>
+        <div class="gift"><img src="/static/images/m20161018/jd-card.png" alt="100元京东卡"></div>
+        <template v-if="isStart">
+            <div v-if="!isLogin" @click="goLogin" class="user-cont">登录可查看您邀请好友数 <span class="hignlight underline">立即登录</span></div>
+            <div v-else class="user-cont">您成功邀请好友数：<span class="hignlight">{{inviteNum}}</span></div>
+        </template>
+    </div>
+    <a @click="showRulePop" class="rule-pop-btn">查看活动说明</a>
+</article>
+<section v-show="shareMask" class="pop-rule">
+    <div class="pop-rule-content">
+        <div class="title">活动说明</div>
+        <div class="content-wrap">
+            <p>1、获得实物礼品的用户请去“我”-“个人中心”完善收货地址，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</p>
+            <p>2、实物礼品将统一在活动结束后的7个工作日内安排寄出，环节2的红包将在活动结束后的3个工作日内发放，请注意查收；投资中标明2档礼品的，获奖用户请在10月19日16：00前主动联系客服备注一项礼品，若逾期未联系者，将默认选择第一种礼品寄出；</p>
+            <p>3、本次部分活动限定28天及以上理财产品，活动所获得红包的使用规则详见“我的券包使用说明”；</p>
+            <p>4、本次活动最终解释权归归杭州乾庄互联网金融服务有限公司所有。</p>
+            <p v-show="isIOSApp">本活动由钱庄网提供，与设备生产商Apple Inc.无关。</p>
+        </div>
+        <a @click="hideShareMask" class="pop-rule-close"></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161018/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161018/index.js');
+</script>
+</body>
+</html>

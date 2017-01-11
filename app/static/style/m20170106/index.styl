@@ -1,0 +1,160 @@
+@import "../common.styl";
+body{
+  background-color #360861
+}
+.viewport{
+  background-color #360861
+}
+.banner{
+  width 100%
+  img{
+    width 100%
+  }
+}
+.awary{
+  width 1.91rem
+  height .6rem
+  margin-top .49rem
+  img{
+    width 100%
+  }
+}
+.content{
+  margin .49rem auto 0
+  width 5.5rem
+  overflow hidden
+
+  div{
+    float left
+  }
+  div:nth-child(1){
+    width 1.74rem
+    height 1.76rem
+    margin-right .3rem
+    background url("../../images/m20170106/money.png") no-repeat;
+    background-size 100%
+  }
+  .title{
+    width 3.38rem
+    padding-top .1rem
+    p:nth-child(1){
+      font-size .26rem
+      color #ece1f7
+      line-height .35rem
+    }
+    p:nth-child(2){
+      color #ffe84a
+      font-size .28rem
+      text-align right
+    }
+  }
+  .round{
+    width 100%
+    height .96rem
+    position relative
+    span{
+      display inline-block
+      width .25rem
+      height .25rem
+      border-radius 50%
+      background -webkit-linear-gradient(#4a1977, #380a63);
+      background linear-gradient(#4a1977, #380a63);
+      position absolute
+    }
+    span:nth-child(1){
+      left 1.9rem
+      top .1rem
+    }
+    span:nth-child(2){
+      left 2.52rem
+      top .73rem
+    }
+    span:nth-child(3){
+      left 3.6rem
+      top .6rem
+    }
+  }
+  div:nth-child(4){
+    margin-right .3rem
+    width 3.3rem
+  }
+  div:nth-child(5){
+    width 1.74rem
+    height 1.76rem
+    background url("../../images/m20170106/money1.png") no-repeat;
+    background-size 100%
+  }
+  .invitation{
+    overflow hidden
+    width 100%
+    background #4c207d
+    border-radius .2rem
+    li{
+      color #ece1f7
+      font-size .26rem
+      padding 0 .4rem .23rem .4rem
+      overflow hidden
+      p{
+        display inline-block
+        text-align left
+        float left
+      }
+      p:nth-child(1){
+        width 3.3rem
+      }
+      p:nth-child(2){
+
+      }
+    }
+    li:nth-child(1){
+      padding .35rem 0 .3rem .4rem
+      p{
+        color #ffe84a
+      }
+    }
+  }
+
+  .btn{
+    color #360861
+    font-size .36rem
+    text-align center
+    line-height .8rem
+    border-radius .1rem
+    width 2.77rem
+    height .8rem
+    box-shadow inset  -0.07rem -0.07rem #dcc41f
+    font-weight bold
+    background #f7e040
+    display block
+    margin .4rem auto 0
+  }
+
+}
+.instructions{
+  margin .8rem auto .6rem
+  width 5.8rem
+  li{
+    color #c89af3
+    font-size .26rem
+    line-height .4rem
+  }
+  li:nth-child(1){
+    padding-bottom .25rem
+  }
+}
+.poker{
+  position fixed
+  z-index 10
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background-color: rgba(0,0,0,0.7)
+  img{
+    position absolute
+    right 0
+    top 0
+    width 3.55rem
+    height 2.76rem
+  }
+}

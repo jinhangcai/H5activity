@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>钱庄网</title>
+    <link rel="stylesheet" href="/static/style/common.css"/>
+    <link rel="stylesheet" href="/static/style/register.css"/>
+    <script>
+        (function(){
+            function o(){document.documentElement.style.fontSize=(document.documentElement.clientWidth>720?720:document.documentElement.clientWidth)/6.4+"px"}
+            var e=null;
+            window.addEventListener("resize",function(){clearTimeout(e),e=setTimeout(o,300)},!1),o()
+        })(window);
+    </script>
+</head>
+<body>
+<section class="page">
+    <div class="viewport">
+        <div id="banner" class="banner"></div>
+        <div class="main">
+            <p class="from-friend">
+                您的好友<span id="inviterPhone"></span>邀请您来钱庄网领好礼
+            </p>
+            <form action="" method="post" id="registerForm">
+                <div class="row phone">
+                    <input type="text" id="phone" name="phone" data-required="true" data-type="phone" placeholder="请输入您的手机号码" maxlength='11'/>
+                </div>
+                <div class="row verify">
+                    <input type="text" id="verify" data-type="verify" data-required="true" placeholder="请输入验证码"/>
+                    <input type="button" class="btn" id="verifyBtn" value="获取验证码">
+                </div>
+                <div class="row password">
+                    <input type="password" id="password" data-required="true" maxlength='16' placeholder="请设置8-20个字符密码，区分大小写"/>
+                </div>
+                <div class="row agreement">
+                    <label>
+                        <input type="checkbox" value="1" id="agreement" checked/>
+                        我同意<a href="https://www.qian360.com/promotion/agreement.html">《钱庄网注册协议》</a>
+                    </label>
+                </div>
+                <div class="row registered">
+                    <a id="submitBtn" class="btn">注册</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/register.js');
+</script>
+</body>
+</html> 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>钱庄夏日海底大冒险</title>
+    <link rel="stylesheet" href="/static/style/m20160818/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="banner"><img src="/static/images/m20160818/banner.jpg" alt=""></div>
+    <div class="floor step-1">
+        <h2 class="title">冒险福利</h2>
+        <div class="floor-one">
+            <div class="interest">+2<span>%</span></div>
+            <p>8月18日—8月20日带有“海底冒险”标识的产品，加息最高达2%！</p>
+        </div>
+    </div>
+    <div class="floor step-2">
+        <h2 class="title">海底寻宝</h2>
+        <div class="floor-content">8月18日，投资28天及以上理财产品的累计投资额满足下列条件，送对应海底宝贝一份。</div>
+        <template v-if="isStart">
+            <div v-if="!isLogin" @click="goLogin" class="user-cont">登录查看您的累计投资额</div>
+            <div v-else class="user-cont">8月18日您累计投资：{{userTotal}}元</div>
+        </template>
+        <ul class="goods-list">
+            <li>
+                <div class="pic"><img src="/static/images/m20160818/pic1.png" alt=""></div>
+                <div class="name">IPhone7预抢购</div>
+                <div class="rule">累计投资额≥180万</div>
+            </li>
+            <li class="alternative">
+                <div class="pic"><img src="/static/images/m20160818/pic2.png" alt=""></div>
+                <div class="name">智能折叠电动自行车/信达天文望远镜</div>
+                <div class="rule">130万≤累计投资额<180万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20160818/pic3.png" alt=""></div>
+                <div class="name">乐视43寸高清电视机+16VIP</div>
+                <div class="rule">110万≤累计投资额<130万</div>
+            </li>
+            <li class="alternative">
+                <div class="pic"><img src="/static/images/m20160818/pic4.png" alt=""></div>
+                <div class="name">龙吟电动平衡车/飞利浦扫地机器人</div>
+                <div class="rule">85万≤累计投资额<110万</div>
+            </li>
+            <li class="alternative">
+                <div class="pic"><img src="/static/images/m20160818/pic5.png" alt=""></div>
+                <div class="name">DW男女超薄石英手表/富士拍立得</div>
+                <div class="rule">50万≤累计投资额<85万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20160818/pic6.png" alt=""></div>
+                <div class="name">京东E卡300元</div>
+                <div class="rule">20万≤累计投资额<50万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20160818/pic7.png" alt=""></div>
+                <div class="name">暴风魔镜4代成人VR</div>
+                <div class="rule">12万≤累计投资额<20万</div>
+            </li>
+            <li>
+                <div class="pic"><img src="/static/images/m20160818/pic8.png" alt=""></div>
+                <div class="name">乐心智能运动手环</div>
+                <div class="rule">6万≤累计投资额<12万</div>
+            </li>
+            <li class="alternative">
+                <div class="pic"><img src="/static/images/m20160818/pic9.png" alt=""></div>
+                <div class="name">30元现金红包/天堂晴雨伞</div>
+                <div class="rule">2万≤累计投资额<6万</div>
+            </li>
+        </ul>
+    </div>
+    <div class="floor step-3">
+        <h2 class="title">夺宝联盟</h2>
+        <template v-if="isStart">
+            <div v-if="!isLogin" @click="goLogin" class="user-cont">登录查看您的团队累计投资额</div>
+            <div v-else class="user-cont">您的团队累计投资：{{teamTotal}}元</div>
+        </template>
+        <ul class="red-packet-list">
+            <li>
+                <div class="red-packet">
+                    200<span>元</span>
+                </div>
+                <div class="name">200元红包</div>
+                <div class="rule">团队累计投资额≥30万</div>
+            </li>
+            <li>
+                <div class="red-packet">
+                    150<span>元</span>
+                </div>
+                <div class="name">150元红包</div>
+                <div class="rule">10万≤团队累计投资额<30万</div>
+            </li>
+            <li>
+                <div class="red-packet">
+                    100<span>元</span>
+                </div>
+                <div class="name">100元红包</div>
+                <div class="rule">5万≤团队累计投资额<10万</div>
+            </li>
+            <li>
+                <div class="red-packet">
+                    50<span>元</span>
+                </div>
+                <div class="name">50元红包</div>
+                <div class="rule">2万≤团队累计投资额<5万</div>
+            </li>
+        </ul>
+        <div class="rule-content">8月18日—8月20日，您邀请的所有好友的总投资额即您的团队累计投资额，满额送您相应豪礼。邀请的好友仅指8月20日24:00前您所邀请的未投资新用户。（请去APP“我”-“邀请好友”页去邀请）</div>
+        <a @click="showRulePop" class="rule-pop-btn">查看活动说明</a>
+    </div>
+</article>
+<section v-show="shareMask" class="pop-rule">
+    <div class="pop-rule-content">
+        <div class="title"></div>
+        <div class="content-wrap">
+            <p>1、获得实物用户请主动去“我”-“个人中心”完善个人收货地址；若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</p>
+            <p>2、实物奖品将在活动结束后的7个工作日内寄出，红包将在活动结束后的3个工作日内发放，请注意查收；投资中标明2档礼品的，获奖用户请在8月22日16：00前主动联系客服备注一项礼品，若逾期未联系者，将默认选择第一种礼品寄出；</p>
+            <p>3、获得Iphone7预抢购的用户，我们将在Iphone7正式上市后联系您，根据您的意向为您下单购买；</p>
+            <p>4、本次部分活动限定28天及以上理财产品，活动所获得红包的使用规则详见“我的红包使用说明”；</p>
+            <p>5、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+            <p v-show="isIOSApp">本活动由钱庄网提供，与设备生产商Apple Inc.无关。</p>
+        </div>
+        <a @click="hideShareMask" class="pop-rule-close"></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160818/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160818/index.js');
+</script>
+</body>
+</html>

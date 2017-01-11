@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>周年倒计时</title>
+    <link rel="stylesheet" href="/static/style/m20160618/countdown.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>周年倒计时</h2>
+                <small>6月23日-6月29日</small>
+            </div>
+            <a class="back-btn ca-hide" href="javascript:;" @click="linkHome">主会场</a>
+            <a class="rule-btn" href="javascript:;" @click="showRulePop">活动说明</a>
+        </div>
+        <div class="main">
+            <div class="box">
+                <div class="tit">周年好礼·倒计时</div>
+                <div class="cont">
+                    <div class="row">
+                        <p>客官，陪小二一起倒计时吧！6月23日—6月29日，<span>每天累计投资满1000元记签到一次</span>，根据连续签到次数赠送相应的钱庄见证礼。<a href="javascript:;" @click="linkInvest">立即投资</a></p>
+                    </div>
+                    <div class="row" style="display: none;" v-show="isStart">
+                        <table>
+                            <caption>2016年6月</caption>
+                            <tr>
+                                <td v-for="(time,state) in attendanceTable" v-if="$index>=0&&$index<4" :class="{'on':state}"><span>{{ time|days }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td v-for="(time,state) in attendanceTable" v-if="$index>=4&&$index<7" :class="{'on':state}"><span>{{ time|days }}</span></td>
+                                <td><span>两岁啦</span></td>
+                            </tr>
+                        </table>
+                        <div class="login-mask" v-if="!isLogin">
+                            <div class="mask-main">
+                                <p>登录查看您的签到次数</p>
+                                <a href="javascript:;" @click="linkLogin">立即登录</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <th>连续签到次数</th>
+                                <th>钱庄见证礼</th>
+                            </tr>
+                            <tr>
+                                <td>连续3-4次</td>
+                                <td>5元现金红包+10元抵扣红包</td>
+                            </tr>
+                            <tr>
+                                <td>连续5-6次</td>
+                                <td>10元现金红包+15元抵扣红包</td>
+                            </tr>
+                            <tr>
+                                <td>连续7次</td>
+                                <td>15元现金红包+20元抵扣红包</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <p>红包将于6月30日发放，红包仅限6月30日使用有效。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·人人领</div>
+                <div class="cont">
+                    <div class="row">
+                        请在6月23日—6月29日期间点击下面按钮分享活动至朋友圈，点开分享链接则可领取周年庆典红包一个，新用户为10元现金红包，老用户为1-10元不等的现金红包，红包有效期为7天。
+                    </div>
+                    <div class="row">
+                        <a href="javascript:;" v-if="isStart&&!isEnd" @click="showShareMask">立即分享</a>
+                        <a href="javascript:;" class="disabled" v-else>立即分享</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="rulePop" class="pop-box" v-show="rulePop" style="display: none;">
+    <div class="main">
+        <div class="tit">活动说明</div>
+        <div class="cont">
+            <ol>
+                <li>1、用户投资后请主动去APP个人中心完善收货地址，如有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、所有红包发放时间详见各活动环节，实物奖品将统一在6月30日活动结束后的7个工作日内发放，请注意查收；</li>
+                <li>3、部分活动限定28天以上理财产品，活动使用规则详见“我的红包使用说明”；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideRulePop">关闭</a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<section id="shareMask" style="display: none;" v-show="shareMask" @click="hideShareMask"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20160618/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160618/countdown.js');
+</script>
+</body>
+</html>

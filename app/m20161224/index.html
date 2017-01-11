@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>嗨爆钱庄双蛋趴  惊喜彩蛋送不停</title>
+    <link rel="stylesheet" href="/static/style/m20161224/index.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="banner"><img src="/static/images/m20161224/index/banner.jpg"></div>
+        <div class="main">
+            <div class="shop">
+                <div class="title">分享彩蛋 礼劵放肆赢</div>
+                <div class="official">12月24日-1月3日，每天连续分享且好友打开链接即可领加息券，第一天0.2%，第二天0.3%......依次类推，若有中断重新开始计算。</div>
+                <div class="share" @click="shareone" v-if="datashare">立即分享</div>
+                <div class="share share2"  v-else><p>分享成功</p><p>奖励{{vouchers}}%加息券</p></div>
+                <div class="proportion" v-if="!datashare && isday">明天分享可领{{voucherss}}%加息券</div>
+                <div class="snow"></div>
+            </div>
+            <div class="shop">
+                <div class="title title1">投资彩蛋 礼包放手领</div>
+                <div class="official">12月24日-1月3日，每天单笔投资满2000元可领取一份彩蛋，圣诞、元旦当天领有礼包惊喜。红包仅限领取当天使用。</div>
+                <div class="share" @click="gotoreceive" v-if="isReceived">立即领取</div>
+                <template v-else>
+                    <div class="share share3" v-if="isday"><p>今日已领</p><p>明日再来</p></div>
+                    <div class="share share4" v-else>今日已领</div>
+                </template>
+                <div class="snow"></div>
+                <img src="/static/images/m20161224/index/decoration3.png" class="decoration3">
+                <img src="/static/images/m20161224/index/decoration4.png" class="decoration4">
+            </div>
+            <div class="shop">
+                <div class="title">双蛋夺宝</div>
+                <div class="official">
+                    <p>纪梵希口红</p>
+                    <p>施华洛世奇项链</p>
+                    <p>新春大礼包</p>
+                    <p>诸多好礼等你拿</p>
+                </div>
+                <div class="share" @click="gotograb">立即夺宝</div>
+                <div class="snow"></div>
+                <img src="/static/images/m20161224/index/decoration2.png" class="decoration2">
+                <img src="/static/images/m20161224/index/decoration5.png" class="decoration5">
+            </div>
+            <div class="shop">
+                <div class="title title1">圣诞彩蛋 红包放手赚</div>
+                <div class="official">12月25日，当天投资28天及以上理财产品的累计投资金额满足条件，即赠送圣诞彩蛋礼一份。</div>
+                <div class="share" @click="gotoeggs">立即参与</div>
+                <div class="snow"></div>
+            </div>
+            <div class="shop">
+                <div class="title">元旦彩蛋 年货放肆兑</div>
+                <div class="official">1月1日，投资所得收益（即利息）可兑换任意一件年货，每位用户仅限兑换一件好礼。</div>
+                <div class="share share1" @click="gotoeggs1">立即参与</div>
+            </div>
+            <div class="line-bom"></div>
+        </div>
+        <div class="bottom">
+            <h2>活动说明：</h2>
+            <ol>
+                <li>1、获得实物礼品的用户请主动去“我”-“个人中心”完善收货地址，若有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、实物礼品将在活动结束后的7个工作日内寄出，环节2和环节5的红包将在活动结束后的3个工作日内发放，所获得红包的使用规则详见“我的券包使用说明”；</li>
+                <li>3、环节5中获得腊肉或橄榄油的用户请在1月4日16:00前联系客服做好礼品备注，实物礼品也可兑换成相应折扣的红包；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</li>
+            </ol>
+        </div>
+    </article>
+</section>
+<div class="poker" v-if="poker" @click="pokers">
+    <img src="/static/images/m20161224/index/share.png" >
+</div>
+<section class="mask" v-if="mask">
+    <div class="pop">
+        <div class="pop-cen" v-if="pop">
+            <p class="titles">{{title}}</p>
+            <a class="btn" @click="btn">我知道了</a>
+            <div class="round"></div>
+            <img src="/static/images/m20161224/index/happyday.png" class="happyday">
+            <img src="/static/images/m20161224/index/snow1.png" class="snow1">
+            <img src="/static/images/m20161224/index/snow2.png" class="snow2" >
+        </div>
+        <div class="pop-cen pop-cen1" v-if="!pop">
+            <p class="titles1" >{{title}}</p>
+            <div class="content" >
+                <div class="red" v-if="shop">
+                    <p>{{money}}<span>元</span></p>
+                </div>
+                <img :src="bgImg" v-if="!shop" class="shopImg">
+                <div class="send">已发至您账户，请查收</div>
+            </div>
+            <a class="btn btn1" @click="btn">我知道了</a>
+            <div class="round"></div>
+            <img src="/static/images/m20161224/index/snow1.png" class="snow1">
+            <img src="/static/images/m20161224/index/snow2.png" class="snow2" >
+        </div>
+    </div>
+</section>
+
+<section id="loadPage" v-show="pageLoading"></section>
+<div @click="hideShareMask" id="shareMask" v-show="shareMask"></div>
+<input type="hidden" id="sharePic" value="/static/images/m20161224/share.jpg">
+<input type="hidden" id="combination" value="/static/images/m20161224/index/combination1.png">
+<input type="hidden" id="combination1" value="/static/images/m20161224/index/combination.png">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20161224/index.js');
+</script>
+</body>
+</html>

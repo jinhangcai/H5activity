@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>javascript开发中的基本动画： 简单的碰撞测试</title>
+
+    <style type="text/css">
+        *{margin : 0; padding : 0;}
+        body{font:12px  "微软雅黑", Tahoma, "宋体" }
+        .inputcon{margin:50px auto 50px;; width:600px;}
+        .inputcon p{ padding-bottom : 10px;}
+        .inputcon .inp{ border : 1px solid #ccc;  width : 100px; height: 18px; line-height : 18px;}
+        .container{ position:relative; overflow:hidden; border:1px solid #000; margin:0 auto;}
+        .container .sprite {  overflow:hidden; background:#f00; color:#fff; line-height:40px; position:absolute;  }
+    </style>
+    <script type="text/javascript">
+
+        /*
+         ** 运动对象封装
+         */
+        function Run(dir){this.dir = dir;};
+        Run.prototype = {};
+        /*
+         ** 自动移动
+         ** 返回值: undefined
+         ** 参数:
+         w : 舞台宽度(Number)
+         h : 舞台高度(Number)
+         sw : 移动对象宽度(Number)
+         sh : 移动对象高度(Number)
+         gx : 单位时间沿x轴移动的长度(Number)
+         gy : 单位时间沿y轴移动的长度(Number)
+         sprite : 运动对象(dom Object)
+         t : 移动间隔（单位毫秒 Number）
+         */
+        Run.prototype.play = function(w, h, sw, sh, gx, gy, sprite, t){
+            var _this = this;
+            (function(dir){
+                _this.dir = dir;
+                var _self = arguments.callee;
+                _this.__beginauto(t, function(){
+                    var _left = parseInt(sprite.style.left);
+                    var _top = parseInt(sprite.style.top);
+                    sprite.innerHTML = "<p>"+ dir + "</p>" + "<p>" + _left + "," + _top + "</p>";
+
+                    if(dir === "top"){//竖直向上运动
+                        sprite.style.top = _top - gy + "px";
+                        if(parseInt(sprite.style.top) <= 0){
+                            sprite.style.top = 0 + "px";
+                            _self("bottom");
+                        };
+                    }else if(dir === "bottom"){//竖直向下运动
+
+
+                        sprite.style.top = _top + gy + "px";
+                        if(parseInt(sprite.style.top) + sh >= h){
+                            sprite.style.top = h - sh + "px";
+                            _self("top");
+                        };
+                    }else if(dir === "right"){//水平向右运动
+
+                        sprite.style.left = _left + gx + "px";
+                        if(parseInt(sprite.style.left) + sw >= w){
+                            sprite.style.left = w - sw;
+                            _self("left");
+                        };
+                    }else if(dir === "left"){//水平相左运动
+                        //_this.__stopauto();
+                        //alert(_left - gy)
+                        sprite.style.left = _left - gx + "px";
+                        if(parseInt(sprite.style.left) <= 0){
+                            sprite.style.left = 0;
+                            _self("right");
+                        };
+                    }else if(dir === "leftTop"){//向左上角方向运动
+                        sprite.style.left = _left - gx +"px";
+                        sprite.style.top = _top - gy + "px";
+                        if(parseInt(sprite.style.left) <= 0 || parseInt(sprite.style.top) <= 0){
+                            if(parseInt(sprite.style.left) + sw <= 0){
+                                sprite.style.left = 0;
+                            };
+                            if(parseInt(sprite.style.top) + sh <= 0){
+                                sprite.style.top = 0;
+                            };
+                            _self("rightBottom");
+                        };
+                    }else if(dir === "rightTop"){//向右上角方向运动
+                        sprite.style.left = _left + gx + "px";
+                        sprite.style.top = _top - gy + "px";
+                        if(parseInt(sprite.style.left) + sw >= w || parseInt(sprite.style.top) <= 0){
+                            if(parseInt(sprite.style.left) + sw >= w){
+                                sprite.style.left = w - sw;
+                            };
+                            if(parseInt(sprite.style.top) <= 0){
+                                sprite.style.top = 0;
+                            };
+                            _self("leftBottom");
+                        };
+                    }else if(dir === "leftBottom"){//向左下角方向运动
+                        sprite.style.left = _left - gx + "px";
+                        sprite.style.top = _top + gy + "px";
+                        //_this.__stopauto();
+                        //alert(dir);
+                        if(parseInt(sprite.style.left) <= 0 || parseInt(sprite.style.top) + sh >= h){
+                            if(parseInt(sprite.style.left) <= 0){
+                                sprite.style.left = 0;
+                            };
+                            if(parseInt(sprite.style.top) + sh >= h){
+                                sprite.style.top = h - sh;
+                            };
+                            _self("rightTop");
+                        };
+                    }else if(dir === "rightBottom"){//向右下角方向运动
+                        sprite.style.left = _left + gx +"px";
+                        sprite.style.top = _top + gy + "px";
+                        if(parseInt(sprite.style.left) + sw >= w || parseInt(sprite.style.top) + sh  >= h){
+                            _this.__stopauto();
+                            if(parseInt(sprite.style.left) + sw >= w){
+                                sprite.style.left = w - sw;
+                            };
+                            if(parseInt(sprite.style.top) + sh >= h){
+                                sprite.style.top = h - sh;
+                            };
+                            _self("leftTop");
+                        };
+                    };
+
+                });
+            })(_this.dir);
+        };
+        //移动方向
+        Run.prototype.dir = null;
+        Run.prototype.pause = function(){
+            this.__stopauto();
+        };
+        //开始自动移动
+        Run.prototype.__beginauto = function(t, togo){
+            togo = togo || function(){};
+            this.__stopauto();
+            this.__auto = setInterval(function(){
+                togo();
+            }, t);
+        };
+        //停止自动移动
+        Run.prototype.__stopauto = function(togo){
+            togo = togo || function(){};
+            if(this.__auto !== null){
+                clearInterval(this.__auto);
+                this.__auto = null;
+                togo();
+            };
+        };
+        //自动移动的定时器
+        Run.prototype.__auto =  null;
+    </script>
+</head>
+<body>
+
+<div class="inputcon" style=" ">
+    <p>
+        水平移动距离: <input type="text" value="10" class="inp" id="inp_gx">
+        竖直移动距离: <input type="text" value="10" class="inp" id="inp_gy">
+        运动间隔t: <input type="text" value="20" class="inp" id="inp_t">
+    </p>
+    <p>
+        运动方向:
+        <select style="width: 120px;" id="sel_dir">
+            <option value="left">left</option>
+            <option value="right">right</option>
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+            <option value="leftBottom">lefBottom</option>
+            <option value="rightBottom">rightBottom</option>
+            <option value="leftTop">leftTop</option>
+            <option value="rightTop">rightTop</option>
+        </select>
+
+                <input type="button" id="btn" value="Play" />
+    </p>
+</div>
+<div class="container" id="container" style=" width:600px; height:400px;">
+    <div class="sprite" style="width:80px; height:80px; left:200px; top:200px;" id="sprite"> </div>
+</div>
+
+
+
+<script type="text/javascript">
+    /*
+     ** 实例化调用
+     */
+    var demo;
+    window.onload = function(){
+            var btn = document.getElementById("btn"),
+                sprite = document.getElementById("sprite"),
+                inp_gx = document.getElementById("inp_gx"),
+                inp_gy = document.getElementById("inp_gy"),
+                inp_t = document.getElementById("inp_t"),
+                sel_dir = document.getElementById("sel_dir"),
+                con = document.getElementById("container"),
+                w = parseInt(con.style.width), h = parseInt(con.style.height),
+                sw = parseInt(sprite.style.width), sh = parseInt(sprite.style.height);
+        sel_dir.onchange = function(){
+            demo.pause();
+            demo.dir = this.value;
+            var gx = parseInt(inp_gx.value), gy = parseInt(inp_gy.value), t = parseInt(inp_t.value);
+            //demo.play(w, h, sw, sh, gx, gy, sprite, t);
+            btn.value = "Play"
+        };
+        demo = new Run(sel_dir.value);
+        btn.onclick = function(){
+            var val = this.value.toLowerCase();
+            if(val === "play"){
+                this.value = "Pause";
+                var gx = parseInt(inp_gx.value), gy = parseInt(inp_gy.value), t = parseInt(inp_t.value);
+                if(isNaN(gx) || isNaN(gy) || isNaN(t)){
+                    alert("请填写数字");
+                }else{
+                    demo.play(w, h, sw, sh, gx, gy, sprite, t);
+                };
+
+
+            }else if(val === "pause"){
+                this.value = "Play";
+                demo.pause();
+
+            }
+        };
+
+    };
+</script>
+</body>
+</html>
+</body>
+</html>

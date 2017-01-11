@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>红包争霸战</title>
+    <link rel="stylesheet" href="/static/style/m20161111/index.css">
+    <link rel="stylesheet" href="/static/style/m20161111/pk.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="bg">
+        <div class="pk-wrap">
+            <div v-if="step == 1" class="step1">
+                <div class="header">
+                    <a v-if="!isApp" @click="goIndex" href="javascript:;" class="go-home">主会场</a>
+                    <a @click="showLotteryList" href="javascript:;" class="my-packet">我的红包</a>
+                </div>
+                <div class="floor floor3">
+                    <div class="title-wrap"><h2 class="title">红包争霸战<span>（11月7日-11月11日）</span></h2></div>
+                    <p class="info">每日可战5次，胜1场奖1元红包</p>
+                    <div class="floor-pic"><img src="/static/images/m20161111/pic3.png" alt=""></div>
+                    <a @click="goStep2" href="javascript:;" class="btn">参与抢夺</a>
+                    <div v-if="isStart && !isEnd" class="user-num">今日可战次数:
+                        <span v-if="isLogin" class="high-light">{{lotteryNumber}}次</span>
+                        <a v-else @click="goLogin" class="high-light" href="javascript:;">登录查看</a>
+                    </div>
+                </div>
+            </div>
+            <template v-else>
+                <div v-if="step == 2" class="step2">
+                    <div class="floor floor3">
+                        <h3 class="tit">选择1位你要PK的对手</h3>
+                        <ul class="player-list">
+                            <li v-for="item in choicePlayer">
+                                <div @click="rival($index)" class="player-item">
+                                    <img :src="item.thumb" alt="" class="player-pic">
+                                    <div class="name">{{item.firstName}}{{item.lastName}}</div>
+                                    <a href="javascript:;" class="chose-btn">就他了</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <a @click="exchangePlayer" href="javascript:;" class="luck-btn">放过他们，换一批</a>
+                    </div>
+                </div>
+                <div v-else class="step3">
+                    <div class="floor floor3">
+                        <div class="flag"><img src="/static/images/m20161111/pk/pk-text.png" alt="pk"></div>
+                        <div class="pk-content">
+                            <div class="pk-item">
+                                <div class="player-status">
+                                    <template v-if="pkResult">
+                                        <img v-if="resultStatus === 'win'" src="/static/images/m20161111/pk/win.png" alt="赢">
+                                        <img v-else src="/static/images/m20161111/pk/lose.png" alt="输">
+                                    </template>
+                                </div>
+                                <div class="pk-pic"><img src="/static/images/m20161111/pk/player-pic7.png" alt=""></div>
+                                <div class="pk-name">我</div>
+                            </div>
+                            <div class="pk-item">
+                                <div class="player-status"></div>
+                                <div class="pk-pic"><img :src="pkPlayer.thumb" alt=""></div>
+                                <div class="pk-name">{{pkPlayer.firstName}}{{pkPlayer.lastName}}</div>
+                            </div>
+                            <div class="animate1"></div>
+                            <div class="animate2"><div class="inner"></div></div>
+                            <div class="animate3"></div>
+                        </div>
+                        <div class="arena">
+                            <template v-if="pkResult">
+                                <div class="pk-status">{{resultDoc}}</div>
+                                <div class="pk-sub">今日还可战次数：{{lotteryNumber}}次</div>
+                                <div class="pk-btns">
+                                    <a @click="showLotteryList" href="javascript:;" class="pk-btn">查看战绩</a>
+                                    <a v-if="lotteryNumber > 0" @click="goStep1" href="javascript:;" class="pk-btn">再战一次</a>
+                                    <a v-else @click="share" href="javascript:;" class="pk-btn">邀好友一起玩</a>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <div class="footer">
+                <p class="center">本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+            </div>
+        </div>
+    </div>
+</article>
+<section v-show="showAwardMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="title">我的红包</div>
+        <div class="content-wrap">
+            <ul v-if="awardList.length > 0" class="award-list">
+                <li v-for="list in awardList">
+                    <div class="award-name">红包争霸战</div>
+                    <div class="award-time">{{list.addTime | date}}</div>
+                    <div class="award-packet">{{list.point}}元</div>
+                </li>
+            </ul>
+            <div v-else class="empty-list">暂无红包</div>
+        </div>
+        <a @click="hideAwardMask" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<section v-show="showAlertMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="alert-pic">
+            <img src="/static/images/m20161111/alertStatus.png" alt="迷之微笑">
+        </div>
+        <div class="alert-content">{{alertMsg}}</div>
+        <a @click="hideAlert" href="javascript:;" class="alert-btn">好的呢</a>
+        <a @click="hideAlert" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<div @click="hideShareMask" id="shareMask" v-show="shareMask"></div>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161111/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    window.global = {
+        playerImgs: [
+            '/static/images/m20161111/pk/player-pic1.png',
+            '/static/images/m20161111/pk/player-pic2.png',
+            '/static/images/m20161111/pk/player-pic3.png',
+            '/static/images/m20161111/pk/player-pic4.png',
+            '/static/images/m20161111/pk/player-pic5.png',
+            '/static/images/m20161111/pk/player-pic6.png'
+        ],
+        pkImgs: [
+            '/static/images/m20161111/pk/pk-anim1.png',
+            '/static/images/m20161111/pk/pk-anim2.png',
+            '/static/images/m20161111/pk/pk-anim3.png',
+            '/static/images/m20161111/pk/pk-text.png',
+            '/static/images/m20161111/pk/flag.png',
+            '/static/images/m20161111/pk/win.png',
+            '/static/images/m20161111/pk/lose.png',
+            '/static/images/m20161111/pk/arena-bg.png',
+            '/static/images/m20161111/pk/player-pic7.png'
+        ]
+    };
+    seajs.use('/static/script/m20161111/pk/index.js');
+</script>
+</body>
+</html>

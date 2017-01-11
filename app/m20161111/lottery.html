@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>最嗨的11日</title>
+    <link rel="stylesheet" href="/static/style/m20161111/index.css">
+    <link rel="stylesheet" href="/static/style/m20161111/lottery.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<article class="viewport">
+    <div class="lottery-bg">
+        <div class="lottery-inner">
+            <div class="header">
+                <a v-if="!isApp" @click="goIndex" href="javascript:;" class="go-home">主会场</a>
+                <a @click="showLotteryList" href="javascript:;" class="my-packet">我的奖品</a>
+            </div>
+            <div class="stage">
+                <!--<div class="title">{{titleText}}</div>-->
+                <div class="opp-num">还可翻<span class="high-light">{{lotteryNum}}</span>次</div>
+                <div class="info">单笔投资28天及以上产品的金额满1万元<br>可再翻牌1次，投资最多可翻5次。</div>
+                <!--<div v-if="!isLogin" class="un-login">-->
+                    <!--<p class="login-info">成功与失败<br>往往只差一步登录</p>-->
+                    <!--<a @click="goLogin" href="javascript:;" class="btn">立即登录</a>-->
+                <!--</div>-->
+                <ul class="lottery-list">
+                    <li v-for="n in 6" @click="open(n)" :class="{ 'open': lotteryList[n].open }">
+                        <div class="lottery-item" @transitionend="transitionEnd">
+                            <div class="lottery-negative"></div>
+                            <div class="lottery-positive">
+                                <p>{{{lotteryList[n].prize}}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p class="center">本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</p>
+            </div>
+        </div>
+    </div>
+</article>
+<section v-show="showAwardMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="title">我的奖品</div>
+        <div class="content-wrap">
+            <ul v-if="awardList.length > 0" class="award-list">
+                <li v-for="list in awardList">
+                    <div class="award-name">最嗨的11日</div>
+                    <div class="award-time">{{list.addTime | date}}</div>
+                    <div class="award-packet">{{list.type | formatPrize}}</div>
+                </li>
+            </ul>
+            <div v-else class="empty-list">暂无红包</div>
+        </div>
+        <a @click="hideAwardMask" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<section v-show="showAlertMask" class="pop-rule pop-rule2">
+    <div class="pop-rule-content">
+        <div class="alert-pic">
+            <img :src="alertPic" alt="">
+        </div>
+        <div class="alert-content">{{{alertMsg}}}</div>
+        <a @click="hideAlert" href="javascript:;" class="alert-btn">好的呢</a>
+        <a @click="hideAlert" class="pop-rule-close2"><i class="iconfont icon-close"></i></a>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<input type="hidden" id="sharePic" value="/static/images/m20161111/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    window.globalAlert = {
+        'red_1': {
+            thumb: '/static/images/m20161111/lottery/red1.png',
+            say: '棒棒哒，翻到1元现金红包<br>（已发到个人账户）',
+            prize: '1元<br>现金红包'
+        },
+        'red_5': {
+            thumb: '/static/images/m20161111/lottery/red5.png',
+            say: '棒棒哒，翻到5元现金红包<br>（已发到个人账户）',
+            prize: '5元<br>现金红包'
+        },
+        'red_10': {
+            thumb: '/static/images/m20161111/lottery/red10.png',
+            say: '棒棒哒，翻到10元现金红包<br>（已发到个人账户）',
+            prize: '10元<br>现金红包'
+        },
+        'red_30': {
+            thumb: '/static/images/m20161111/lottery/red30.png',
+            say: '棒棒哒，翻到30元抵扣红包<br>（已发到个人账户）',
+            prize: '30元<br>抵扣红包'
+        },
+        'red_111': {
+            thumb: '/static/images/m20161111/lottery/red111.png',
+            say: '棒棒哒，翻到111元抵扣红包<br>（已发到个人账户）',
+            prize: '111元<br>抵扣红包'
+        },
+        'coupon_0.5': {
+            thumb: '/static/images/m20161111/lottery/cp05.png',
+            say: '棒棒哒，翻到0.5%加息劵<br>（已发到个人账户）',
+            prize: '0.5%<br>加息劵'
+        },
+        'coupon_1': {
+            thumb: '/static/images/m20161111/lottery/cp1.png',
+            say: '棒棒哒，翻到1.0%加息劵<br>（已发到个人账户）',
+            prize: '1.0%<br>加息劵'
+        },
+        'girl': [
+            {
+                thumb: '/static/images/m20161111/lottery/esq1.png',
+                say: '(*^__^*) 嘻嘻……<br>想不到你会翻出我吧'
+            },{
+                thumb: '/static/images/m20161111/lottery/esq2.png',
+                say: '掐指一算，你的红包就在前方了'
+            },{
+                thumb: '/static/images/m20161111/lottery/esq3.png',
+                say: '您是想要红包么，我来帮您召唤它吧'
+            },{
+                thumb: '/static/images/m20161111/lottery/esq4.png',
+                say: '我只告诉你秘诀哦，请大声喊“红包快来”'
+            },{
+                thumb: '/static/images/m20161111/lottery/esq5.png',
+                say: '听说颜值高的下轮都会有红包哈'
+            },{
+                thumb: '/static/images/m20161111/lottery/esq6.png',
+                say: '很高兴遇见你，祝你下次好运哦'
+            }
+        ],
+        'remind': {
+            thumb: '/static/images/m20161111/lottery/remind.png',
+            say: [
+                '机会用完啦<br>单笔投资满1万元可再翻1次',
+                '机会用完啦<br>看看其他环节吧~',
+                '今天已领过5个啦<br>把机会留给其他小伙伴吧~'
+            ]
+        },
+        'smile': {
+            thumb: '/static/images/m20161111/alertStatus.png',
+            say: [
+                '亲，时间还没到哦~',
+                '亲，活动结束了哦~'
+            ]
+        }
+    };
+    seajs.use('/static/script/m20161111/lottery/index.js');
+</script>
+</body>
+</html>

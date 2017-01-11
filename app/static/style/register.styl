@@ -1,0 +1,85 @@
+$input-radius = .06rem;
+$input-height = .8rem;
+$btn-color = #f35c3f;
+$input-font-size = .28rem;
+
+input::-webkit-input-placeholder {
+  color: #cfcfcf;
+}
+input, textarea, button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+}
+.banner img {
+  display block;
+  width 100%;
+}
+.main{
+  padding:0 .3rem;
+  .from-friend{
+    font-size .24rem;
+    color #666;
+    line-height .97rem;
+  }
+  .row{
+    margin-bottom .3rem;
+    input[type="text"],
+    input[type="password"]{
+      box-sizing border-box;
+      height $input-height;
+      border-radius $input-radius;
+      padding 0 .23rem;
+      border .02rem solid #ccc;
+      font-size $input-font-size;
+    }
+    .btn{
+      box-sizing border-box;
+      display block;
+      height $input-height;
+      border-radius $input-radius;
+      border none;
+      text-align center;
+      line-height $input-height;
+      background-color $btn-color;
+      font-size $input-font-size;
+      color #fff;
+    }
+  }
+  .verify{
+    input{
+      width 2.75rem;
+    }
+    .btn{
+      float right;
+    }
+  }
+  .agreement{
+    font-size $input-font-size;
+    color #999;
+    a{
+      color #77adf3
+    }
+  }
+  .phone,
+  .password{
+    input{
+      width 100%;
+    }
+  }
+  .input-error{
+    margin-top .1rem;
+    font-size .2rem;
+    color #f00;
+  }
+  .submit-error {
+    width: 100%;
+    margin: .3rem auto .1rem;
+    background-color: #fee3ce;
+    color: #ff5938;
+    font-size: .25rem;
+    line-height: .6rem;
+    text-align: center;
+  }
+}

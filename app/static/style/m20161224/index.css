@@ -1,0 +1,479 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, simsun, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+ins,
+a {
+  text-decoration: none;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+html {
+  font-size: 100px;
+}
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 0.14rem;
+  line-height: 1.2;
+}
+.page,
+.page>.viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+#loadPage {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/loading.gif") no-repeat center center;
+  background-size: 0.78rem auto;
+  background-color: #fff;
+}
+@font-face {
+  font-family: iconfont;
+  src: url("iconfont/iconfont.eot");
+  src: url("iconfont/iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff") format('woff'), url("iconfont/iconfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-group:before {
+  content: "\e644";
+}
+.icon-coin:before {
+  content: "\e645";
+}
+.icon-download:before {
+  content: "\e643";
+}
+.icon-close:before {
+  content: "\e604";
+}
+.viewport {
+  background: #1ba086;
+  padding-bottom: 0.5rem;
+}
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+.main {
+  width: 6rem;
+  position: relative;
+  margin: 0 auto;
+}
+.main:before {
+  content: '';
+  background: url("../../images/m20161224/index/line1.jpg") repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.24rem;
+  background-size: 100%;
+  height: 100%;
+}
+.main:after {
+  content: '';
+  background: url("../../images/m20161224/index/line1.jpg") repeat;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0.24rem;
+  background-size: 100%;
+  height: 100%;
+}
+.main .shop {
+  padding-top: 0.49rem;
+  position: relative;
+}
+.main .shop .shop {
+  margin: 0.49rem auto 0;
+}
+.main .shop .title {
+  background: url("../../images/m20161224/index/title1.png") no-repeat 0 0;
+  width: 4.8rem;
+  margin: 0 auto;
+  height: 0.91rem;
+  text-align: center;
+  background-size: 100%;
+  line-height: 0.8rem;
+  font-size: 0.3rem;
+  color: #fff;
+}
+.main .shop .title1 {
+  background: url("../../images/m20161224/index/title2.png") no-repeat 0 0;
+  background-size: 100%;
+  color: #ffda10;
+}
+.main .shop .official {
+  color: #fff;
+  font-size: 0.26rem;
+  line-height: 0.4rem;
+  padding-top: 0.4rem;
+  margin: 0 auto;
+  width: 5.2rem;
+}
+.main .shop .official p {
+  text-align: center;
+}
+.main .shop .share {
+  width: 2.93rem;
+  height: 0.72rem;
+  background: #ffda10;
+  text-align: center;
+  line-height: 0.72rem;
+  color: #df2b46;
+  font-size: 0.34rem;
+  border-radius: 0.35rem;
+  margin: 0.4rem auto 0;
+}
+.main .shop .share1 {
+  margin: 0.4rem auto 0.6rem;
+}
+.main .shop .share3 {
+  background: #a6a6a6;
+  color: #dedede;
+  font-size: 0.24rem;
+}
+.main .shop .share3 p:nth-child(1) {
+  padding-top: 0.1rem;
+}
+.main .shop .share3 p {
+  line-height: 0.3rem;
+}
+.main .shop .share4 {
+  background: #a6a6a6;
+  color: #dedede;
+}
+.main .shop .share2 {
+  font-size: 0.24rem;
+  color: #dedede;
+  background: #a6a6a6;
+}
+.main .shop .share2 p:nth-child(1) {
+  padding-top: 0.1rem;
+}
+.main .shop .share2 p {
+  line-height: 0.3rem;
+}
+.main .shop .proportion {
+  color: #ffda10;
+  font-size: 0.22rem;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+.main .shop .snow {
+  width: 5.11rem;
+  height: 0.33rem;
+  background: url("../../images/m20161224/index/decoration1.png") no-repeat 0 0;
+  margin: 0.59rem auto 0;
+  background-size: 100%;
+}
+.main .shop span {
+  font-size: 0.36rem;
+  color: #613998;
+  font-weight: bold;
+}
+.main .shop .decoration5 {
+  width: 0.381rem;
+  height: 0.63rem;
+  position: absolute;
+  right: 0.7rem;
+  top: 1.9rem;
+}
+.main .shop .decoration2 {
+  width: 0.61rem;
+  height: 1.97rem;
+  position: absolute;
+  left: 0.7rem;
+  top: 1.4rem;
+}
+.main .shop .decoration3 {
+  width: 0.28rem;
+  height: 0.42rem;
+  position: absolute;
+  left: 0.5rem;
+  bottom: 1.2rem;
+}
+.main .shop .decoration4 {
+  width: 0.96rem;
+  height: 1.25rem;
+  position: absolute;
+  right: 0.4rem;
+  bottom: 1.2rem;
+}
+.main .line-bom {
+  background: url("../../images/m20161224/index/line2.jpg") repeat;
+  width: 5.4rem;
+  background-size: auto 100%;
+  margin: 0 auto;
+  height: 0.24rem;
+}
+.bottom {
+  width: 5.8rem;
+  margin: 0 auto;
+}
+.bottom h2 {
+  font-size: 0.24rem;
+  color: #fff;
+  padding: 0.38rem 0 0.17rem 0;
+}
+.bottom ol li {
+  color: #fff;
+  font-size: 0.24rem;
+  line-height: 0.3rem;
+  padding-bottom: 0.2rem;
+}
+.mask {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+.mask .pop {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: url("../../images/m20161224/index/line12.png") repeat;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 4.2rem;
+  border-radius: 0.3rem;
+}
+.mask .pop .titles {
+  padding-top: 1.08rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: #000;
+  width: 3.17rem;
+  margin: 0 auto;
+}
+.mask .pop .titles1 {
+  padding-top: 0.4rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: #2f0101;
+}
+.mask .pop .content {
+  width: 3.5rem;
+  margin: 0 auto;
+}
+.mask .pop .content .shopImg {
+  width: 100%;
+  padding-top: 0.4rem;
+}
+.mask .pop .content .red {
+  width: 2.5rem;
+  height: 1.3rem;
+  background: url("../../images/m20161224/index/redbom1.png") no-repeat 0 0;
+  background-size: 100%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.3rem;
+  margin-top: 0.47rem;
+}
+.mask .pop .content .red p {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 0.58rem;
+  color: #fff;
+  line-height: 1.2rem;
+}
+.mask .pop .content .red p span {
+  font-size: 0.26rem;
+  color: #fff;
+}
+.mask .pop .content .send {
+  color: #999;
+  font-size: 0.22rem;
+  text-align: center;
+  padding-top: 0.3rem;
+  margin: 0 auto;
+}
+.mask .pop .btn {
+  width: 1.88rem;
+  height: 0.53rem;
+  border-radius: 0.35rem;
+  border: 2px solid #f73234;
+  text-align: center;
+  line-height: 0.53rem;
+  display: block;
+  margin: 0.82rem auto;
+  color: #f73234;
+  font-size: 0.3rem;
+}
+.mask .pop .btn1 {
+  margin: 0.65rem auto 0;
+}
+.mask .pop-cen {
+  background: #f5f5f5;
+  width: 3.98rem;
+  background: #fff;
+  border-radius: 0.3rem;
+  margin: 0.12rem auto 0.12rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+.mask .pop-cen .happyday {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.1rem;
+  width: 3.16rem;
+  height: 2.05rem;
+}
+.mask .pop-cen .snow1 {
+  width: 0.36rem;
+  height: 0.42rem;
+  position: absolute;
+  left: -0.8rem;
+  top: 0.8rem;
+}
+.mask .pop-cen .snow2 {
+  width: 0.63rem;
+  height: 0.72rem;
+  position: absolute;
+  right: -0.8rem;
+  top: -0.8rem;
+}
+.mask .pop-cen .round {
+  width: 0.15rem;
+  height: 0.15rem;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  right: -0.6rem;
+  top: 1rem;
+}
+.mask .pop-cen1 {
+  padding-bottom: 0.4rem;
+  background: #f5f5f5;
+}
+.poker {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+.poker img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3.32rem;
+  height: 2.79rem;
+}

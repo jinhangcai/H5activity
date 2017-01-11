@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>周年嗨翻天</title>
+    <link rel="stylesheet" href="/static/style/m20160618/rock.css">
+    <script src="/static/script/modules/html-font-size.js"></script>
+</head>
+<body>
+<section class="page">
+    <article class="viewport">
+        <div class="header">
+            <div class="no-text">
+                <h2>周年前奏礼</h2>
+                <small>6月18日</small>
+            </div>
+            <a class="back-btn" v-show="linkhide" href="javascript:;" @click="linkHome">主会场</a>
+            <a class="rule-btn" href="javascript:;" @click="showRulePop">活动说明</a>
+        </div>
+        <div class="main">
+            <div class="box">
+                <div class="tit">周年好礼·测人品</div>
+                <div class="cont">
+                    <template v-if="isStart && isLogin && !isEnd">
+                        <p>可砸<span>{{investment}}</span>次</p>
+                    </template>
+                    <template v-else>
+                        <p>可砸<span>0</span>次</p>
+                    </template>
+                    <template v-if="isStart && isLogin">
+                        <p ><span @click="showdatasalse">中奖记录</span></p>
+                        <!--<p v-show="nosals"><span @click="shownosalse">中奖记录</span></p>-->
+                    </template>
+                </div>
+                <div class="activity-eggs"  @click="eggclick">
+                    <img id="hammer" @transitionEnd="hammer" @webkitTransitionEnd="hammer" src="/static/images/m20160618/rock-hammer.png" alt=""/>
+                    <div class="eggs-bg"></div>
+                    <div class="eggs" >
+                        <div class="easter-egg" @click="eggsonclick(n)" v-for="n in 3"><div class="egg"></div></div>
+                    </div>
+                </div>
+                <h4 class="rule">活动规则</h4>
+                <ol class="share-title">
+                    <li>1、6月30日首次成功分享活动可砸1次。<a href="javascript:;" @click="showShareMask">立即分享</a><br></li>
+                    <li>2、6月30日每投资满5000元可砸1次，最多可砸4次。<a href="javascript:;" @click="gotoProductList">立即投资</a><br>
+                      2-88元红包、话费券等你抢，100%中奖！<a href="javascript:;" @click="showReceivePop">(如何领取话费券?)</a></li>
+                </ol>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·拼资本</div>
+                <div class="cont">
+                    <div class="row "><span class="welfare">6月30日当天标识带有“2周年福利”的产品全部加息哦~</span>6月30日当天，投资不同期限的理财产品能获得相<br>
+                        应的2周年纪念币，相应的纪念币可兑换下面的奖<br>品；<span class="redtitlespan">当日新增投资金额≥88万用户额外赠送神秘好<br>礼一份。<a href="javascript:;" @click="gotoProductList">立即投资</a></span></div>
+                    <div class="row" v-show="isStart">
+                        <template v-if="isLogin">
+                        您的周年纪念币：<span>{{money}}</span>
+                        </template>
+                        <template v-else>
+                            <span @click="Loginclick">登录查看您的周年纪念币</span>
+                        </template>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li>
+                                <div class="pic">
+                                   <div class="pic-img"><img src="/static/images/m20160618/rock-chair.png" alt=""></div>
+                                    <div class="pic-title">康瑞星智能按摩椅</div>
+                                </div>
+
+                                <p>周年纪念币≥240万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-teeree.png" alt=""></div>
+                                    <div class="pic-title">乐视43英寸电视机</div>
+                                </div>
+                                <p>190万≤周年纪念币<240万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-selfie.png" alt=""></div>
+                                    <div class="pic-title">司马航模800万航拍</div>
+                                </div>
+                                <p>140万≤周年纪念币<190万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-jd.png" alt=""></div>
+                                    <div class="pic-title">京东E卡1000元</div>
+                                </div>
+                                <p>100万≤周年纪念币<140万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-tie.png" alt=""></div>
+                                    <div class="pic-title">美的空调扇或青瓷茶具</div>
+                                </div>
+                                <p>55万≤周年纪念币<100万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-cooker.png" alt=""></div>
+                                    <div class="pic-title">九阳电饭煲</div>
+                                </div>
+                                <p>18万≤周年纪念币<55万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rook-scale.png" alt=""></div>
+                                    <div class="pic-title">香山电子称</div>
+                                </div>
+                                <p>6万≤周年纪念币<18万</p>
+                            </li>
+                            <li>
+                                <div class="pic">
+                                    <div class="pic-img"><img src="/static/images/m20160618/rock-pillow.png" alt=""></div>
+                                    <div class="pic-title">空调被抱枕</div>
+                                </div>
+                                <p>3万≤周年纪念币<6万</p>
+                            </li>
+                        </ul>
+                        <h3 class="cfp-title">理财产品对应周年纪念币</h3>
+                        <ul class="coin">
+                            <li>理财期限</li>
+                            <li>周年纪念币</li>
+                            <li>天数<28天</li>
+                            <li>1元=0.2周年纪念币</li>
+                            <li>28天≤天数≤59天</li>
+                            <li>1元=1周年纪念币</li>
+                            <li>60天≤天数≤89天</li>
+                            <li>1元=2周年纪念币</li>
+                            <li>90天≤天数≤180天</li>
+                            <li>1元=3周年纪念币</li>
+                            <li>天数≥181天</li>
+                            <li>1元=4周年纪念币</li>
+                        </ul>
+                    </div>
+                    <!--<div class="row">请获得礼品的用户去APP个人中心完善收货地址。</div>-->
+                </div>
+            </div>
+            <div class="box">
+                <div class="tit">周年好礼·看直播</div>
+                <div class="row">
+                    6月30日9:00开始，钱庄网将在映客直播平台首
+                    秀，邀请大家参与互动，更有神秘主播为您倾情解
+                    答。期间每个整点我们将选出若干名幸运观众赠送
+                    精美好礼。
+                </div>
+                <!--<p class="anh">映客号：<span>125287962</span></p>-->
+                <!--@click="telecast"-->
+                <p class="starppss" >映客号：<span href="javascript:;" class="btn" >125287962</span></p>
+                <!--<template v-if="isStartday">-->
+                    <!--<p class="starppss"  @click="telecast"><a href="javascript:;" class="btn" >映客号：125287962</a></p>-->
+                <!--</template>-->
+                <!--<template v-else>-->
+                    <!--<p class="starpps"><a  href="javascript:;" class="btnin">映客号：125287962</a></p>-->
+                <!--</template>-->
+                <p class="anhin">（登录映客APP，点击左上角搜索映客号）</p>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="rulePop" class="pop-box" v-show="rulePop" style="display: none;">
+    <div class="main">
+        <div class="tit">活动说明</div>
+        <div class="cont">
+            <ol>
+                <li>1、用户投资后请主动去APP个人中心完善收货地址，如有问题欢迎致电400-0455-360或联系客服QQ群236613404；</li>
+                <li>2、所有红包发放时间详见各活动环节，实物奖品将统一在6月30日活动结束后的7个工作日内发放，请注意查收；</li>
+                <li>3、部分活动限定28天以上理财产品，活动使用规则详见“我的红包使用说明”；</li>
+                <li>4、本次活动最终解释权归杭州乾庄互联网金融服务有限公司所有。</li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideRulePop">关闭</a>
+    </div>
+</section>
+<section id="receivePop" class="pop-box" v-show="receivePop" style="display: none;">
+    <div class="main">
+        <div class="tit">如何领取话费</div>
+        <div class="cont">
+            <ol>
+                <li>1、活动结束后，获奖用户请添加钱庄小编微信号：zhenqoanxun，发送文字“手机号+领话费”获取兑换码。</li>
+                <li>2、收到兑换码后，关注白领聚乐部微信：bailingclub，点击“获得积分”—“话费充值”，输入兑换码即可（需先注册）；</li>
+                <li>
+                    3、遇到充值高峰期或月初到账时间会略有延迟，请耐心等待。话费到账一般都有短信提醒，部分省份充值不会有短信提醒或延迟，若未收到短信，用户也可自行通过运营商网上营业厅、手机营业厅或拨打运营商客服电话查询。
+                </li>
+            </ol>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hideReceivePop">关闭</a>
+    </div>
+</section>
+<section id="nosals" class="pop-box" v-show="nosals" style="display: none;">
+    <div class="main">
+        <div class="tit">中奖记录</div>
+        <div class="cont">
+            <a href="javascript:;" class="btn" >空空如也</a>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hidesalse">关闭</a>
+    </div>
+</section>
+<section id="datasals" class="pop-box" v-show="datasals" style="display: none;">
+    <div class="main">
+        <div class="tit">中奖记录</div>
+        <div class="cont">
+           <ul>
+               <li>奖品</li>
+               <li>中奖时间</li>
+               <template v-for="item in lists">
+                   <li>{{ item.prize }}</li>
+                   <li>{{ item.time }}</li>
+               </template>
+               <!--<li v-for="list in lists">{{list}}</li>-->
+           </ul>
+        </div>
+        <a href="javascript:;" class="btn-close no-text" @click="hidesalse">关闭</a>
+    </div>
+</section>
+<section id="redsals" class="pop-box" v-show="redsals" style="display: none;">
+    <div class="main">
+        <div class="cont">
+            <!--判断是否中奖，中奖情况下判断中奖类型,不中奖显示不中奖理由-->
+            <template v-if="whether">
+                <template v-if="parseInt(type) == 1">
+                    <div class="redbom"><p><span>{{group}}</span>元</p></div>
+                    <div class="redbom"><p><span>{{grouptwo}}</span>元</p></div>
+                    <a href="javascript:;" class="btn btntopin"  @click="hidesalse">恭喜您砸中{{assembly}}</a>
+                </template>
+                <template v-if="parseInt(type) == 2">
+                    <div class="charge"></div>
+                    <a href="javascript:;" class="btn btnin btnon"  @click="hidesalse">恭喜您砸中10元话费</a>
+                </template>
+                <template v-if="parseInt(type) == 3">
+                    <div class="redcenter"> <div class="redbom"><p><span>{{grouptwo}}</span>元</p></div></div>
+                    <a href="javascript:;" class="btnin btnon"  @click="hidesalse">恭喜您砸中{{group}}</a>
+                </template>
+            </template>
+            <template v-else>
+                <div class="tit tits">{{title}}</div>
+            </template>
+            <a href="javascript:;" class="btn-remove" @click="hidesalse">好的</a>
+            <a href="javascript:;" class="btn-close no-text" @click="hidesalse">关闭</a>
+        </div>
+    </div>
+</section>
+<section id="loadPage" v-show="pageLoading"></section>
+<section id="poker" class="pop-box" v-show="poker"  style="display: none;">
+        <div class="min" @click="pokeron"><img src="/static/images/m20160618/poker.png" /></div>
+</section>
+<input type="hidden" id="sharePic" value="/static/images/m20160618/share.jpg">
+<script src="/static/script/modules/sea.js"></script>
+<script src="/static/script/modules/seajs-config.js"></script>
+<script>
+    seajs.use('/static/script/m20160618/rock.js');
+</script>
+</body>
+</html>
