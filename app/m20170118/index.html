@@ -16,17 +16,143 @@
         <div class="main">
             <div class="title"><img src="/static/images/m20170118/number1.png"></div>
             <div class="handline">
-                月16-1月18日，用户点击“我要升金”，随机进入一支队伍，并可领取一份金子。每日队伍pk，还可获得额外金子。
+                1月16日-1月18日，用户点击“我要升金”，随机进入一支队伍，并可领取一份金子。每日队伍pk，还可获得额外金子。
             </div>
-            <a href="javascript:;" class="gotologin"><img src="/static/images/m20170118/go.png"></a>
-            <p class="rules"><a>活动规则</a></p>
+            <template v-if="join">
+                <template v-if="isEnd">
+                    <div class='team' v-if="outdate == 'gg'">来晚了，活动已结束</div>
+                    <div class="team" v-else>您已加入“{{team}}”队 </div>
+                </template>
+                <template v-else>
+                    <div class="team"  v-if="outdate != 'gg'">您已加入“{{team}}”队 </div>
+                    <div class="pk">
+                        <div class="bg bg1">
+                            <img src="/static/images/m20170118/hz.png" class="titleimg">
+                            <div class="hz winning">
+                                <div class="hztop top"></div>
+                                <div class="hzcen cen returnbg">
+                                    <div class="hzcen-main cen-main">
+                                        <p class="investment">总累计投资(元)</p>
+                                        <p class="money">{{oneSum | toWrap}}</p>
+                                        <template v-if="hzmoney">
+                                            <h3>累计投资前三名</h3>
+                                            <template v-for="i in oneList">
+                                                <div class="ranking">
+                                                    <p><span>{{ $index+1 }}</span>{{i.phone | sum}}</p>
+                                                    <p>{{i.tenderSum | toWrap}}元</p>
+                                                </div>
+                                            </template>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="hzbottom bottom"></div>
+                            </div>
+                        </div>
+                        <div class="bg">
+                            <img src="/static/images/m20170118/cf.png" class="titleimg">
+                            <div class="cf winning">
+                                <div class="cftop top"></div>
+                                <div class="cfcen cen returnbg">
+                                    <div class="cfcen-main cen-main">
+                                        <p class="investment">总累计投资(元)</p>
+                                        <p class="money">{{twoSum | toWrap}}</p>
+                                        <template v-if="cfmoney">
+                                            <h3>累计投资前三名</h3>
+                                            <template v-for="i in twoList">
+                                                <div class="ranking">
+                                                    <p><span>{{ $index+1 }}</span>{{i.phone | sum}}</p>
+                                                    <p>{{i.tenderSum | toWrap}}元</p>
+                                                </div>
+                                            </template>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="cfbottom bottom"></div>
+                                <div class="fighting">
+                                    <p>1月{{day}}日</p>
+                                    <p v-if="day == 16">第一战</p>
+                                    <p v-if="day == 17">第二战</p>
+                                    <p v-if="day >= 18">第三战</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/static/images/m20170118/refresh.png" class="refresh" @click="refresh">
+                    </div>
+                </template>
+                <div class="record" v-if="noday"><a href="javascript:;" v-if="day16" @click="days(16)">16日战绩</a><a href="javascript:;" v-if="day17" @click="days(17)">17日战绩</a><a href="javascript:;" v-if="day18" @click="days(18)">18日战绩</a></div>
+            </template>
+            <template v-else>
+                <a href="javascript:;" class="gotologin" @click="rules('sj')" ><img src="/static/images/m20170118/go.png"></a>
+                <!--<a href="javascript:;" class="gotologin" v-else  @click="gotologin"><img src="/static/images/m20170118/go.png"></a>-->
+                <template v-if="isTime && !isEnd">
+                    <div class="pk">
+                        <div class="bg bg1">
+                            <img src="/static/images/m20170118/hz.png" class="titleimg">
+                            <div class="hz winning">
+                                <div class="hztop top"></div>
+                                <div class="hzcen cen returnbg">
+                                    <div class="hzcen-main cen-main">
+                                        <p class="investment">总累计投资(元)</p>
+                                        <p class="money">{{oneSum | toWrap}}</p>
+                                        <template v-if="hzmoney">
+                                            <h3>累计投资前三名</h3>
+                                            <template v-for="i in oneList">
+                                                <div class="ranking">
+                                                    <p><span>{{ $index+1 }}</span>{{i.phone | sum}}</p>
+                                                    <p>{{i.tenderSum | toWrap}}元</p>
+                                                </div>
+                                            </template>
+
+                                        </template>
+
+                                    </div>
+                                </div>
+                                <div class="hzbottom bottom"></div>
+                            </div>
+                        </div>
+                        <div class="bg">
+                            <img src="/static/images/m20170118/cf.png" class="titleimg">
+                            <div class="cf winning">
+                                <div class="cftop top"></div>
+                                <div class="cfcen cen returnbg">
+                                    <div class="cfcen-main cen-main">
+                                        <p class="investment">总累计投资(元)</p>
+                                        <p class="money">{{twoSum | toWrap}}</p>
+                                        <template v-if="cfmoney">
+                                            <h3>累计投资前三名</h3>
+                                            <template v-for="i in twoList">
+                                                <div class="ranking">
+                                                    <p><span>{{ $index+1 }}</span>{{i.phone | sum}}</p>
+                                                    <p>{{i.tenderSum | toWrap}}元</p>
+                                                </div>
+                                            </template>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="cfbottom bottom"></div>
+                                <div class="fighting">
+                                    <p>1月{{day}}日</p>
+                                    <p v-if="day == 16">第一战</p>
+                                    <p v-if="day == 17">第二战</p>
+                                    <p v-if="day >= 18">第三战</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/static/images/m20170118/refresh.png" class="refresh" @click="refresh">
+                    </div>
+                </template>
+                <template v-if="day >= 17">
+                    <div class="record" v-if="noday"><a href="javascript:;" v-if="day16" @click="days(16)">16日战绩</a><a href="javascript:;" v-if="day17" @click="days(17)">17日战绩</a><a href="javascript:;" v-if="day18" @click="days(18)">18日战绩</a></div>
+                </template>
+            </template>
+            <p class="rules"><a @click="rules('gz')">活动规则</a></p>
             <div class="title titletwo"><img src="/static/images/m20170118/number2.png"></div>
             <div class="handline">
-                月18日当天，用户投资28天及以上理财产品，累计投资金额满足下列条件，奖励现金红包和京东礼卡。
+                1月18日当天，用户投资28天及以上理财产品，累计投资金额满足下列条件，奖励现金红包和京东礼卡。
             </div>
-            <template v-if="isTime">
+            <template v-if="isTimes">
                 <div class="login" v-if="isLogin">1月18日您累计投资额：<span>{{money}}</span>元</div>
-                <div class="login" v-else>登录可查看您的累计投资额   <span class="login-dr" @click="gotologin">立即登录</span></div>
+                <div class="login" v-else>登录后可查看您的累计投资额   <span class="login-dr" @click="gotologin">立即登录</span></div>
             </template>
             <ul class="shop">
                 <li>
@@ -85,12 +211,111 @@
         </div>
     </article>
 </section>
+<section class="mask" v-if="mask">
+    <div class="pop">
+        <div class="pop-top"></div>
+        <div class="cen">
+            <div class="cen-main">
+                <template v-if="popload">
+                    <h2>活动规则</h2>
+                    <p>1月16日-1月18日，用户点击“我要升金”，随机进入一支队伍（富贵皇族/财富天下），并可领取一份金子；</p>
+                    <p>活动期间，每天将进行1轮PK，当天累计投资总额高的队伍为胜（若两队金额相同，则先达到的获胜）；  </p>
+                    <p>每轮获胜方的队员（仅限当天完成投资用户）每人奖励8元现金红包，每轮胜负两方个人累计投资额前3名成员额外奖励38~188元现金红包。  每轮奖励将于第二天发放。</p>
+                </template>
+                <template v-if="popnoat">
+                    <h2>1月16日才开始哦~</h2>
+                    <img src="/static/images/m20170118/blessing.png" class="blessing">
+                </template>
+                <template v-if="popred">
+                    <div class="img-main">
+                        <div class="img img1" v-if="fghz"></div>
+                        <div class="img img2" v-if="cftx"></div>
+                    </div>
+                </template>
+                <a href="javascript:;" class="cen-btn" @click="down"></a>
+            </div>
+        </div>
+        <div class="pop-bottom"></div>
+    </div>
+</section>
+<section class="mask win" v-if="win">
+    <div class="pops">
+        <p class="win-title">{{month}}月{{day1}}日获胜队</p>
+        <div class="img-main">
+            <div class="img img1" v-if="winhz"></div>
+            <div class="img img2" v-if="wincf"></div>
+        </div>
+        <p class="redbom" v-if="redbom">恭喜您所在的队伍获胜</p>
+        <div class="pk">
+            <div class="bg bg1">
+                <img src="/static/images/m20170118/hz.png" class="titleimg">
+                <div class="hz winning">
+                    <div class="hztop top"></div>
+                    <div class="hzcen cen">
+                        <div class="hzcen-main cen-main">
+                            <p class="investment">总累计投资(元)</p>
+                            <p class="money">{{listone | toWrap}}</p>
+                            <template v-if="hzmoney1">
+                                <h3>累计投资前三名</h3>
+                                <template v-for="i in oneList1">
+                                    <div class="ranking">
+                                        <div class="ranking-reward"><p><span>{{$index+1}}</span>{{i.phone | sum}}</p><p class="reward">奖励</p></div>
+                                        <div class="ranking-moeny">
+                                            <p>{{i.tenderSum | toWrap}}元</p>
+                                            <!--<p class="rewardmoney">{{38+(3-$index)*50}}元</p>-->
+                                            <p class="rewardmoney" v-if="jiage == 'cf'">{{38+(3-$index-1)*50}}元</p>
+                                            <p class="rewardmoney" v-if="jiage == 'hz'">{{38+(3-$index)*50}}元</p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="hzbottom bottom"></div>
+                </div>
+            </div>
+            <div class="bg">
+                <img src="/static/images/m20170118/cf.png" class="titleimg">
+                <div class="cf winning">
+                    <div class="cftop top"></div>
+                    <div class="cfcen cen">
+                        <div class="cfcen-main cen-main">
+                            <p class="investment">总累计投资(元)</p>
+                            <p class="money">{{listtwo | toWrap}}</p>
+                            <template v-if="cfmoney1">
+                                <h3>累计投资前三名</h3>
+                                <template v-for="i in twoList1">
+                                    <div class="ranking">
+                                        <div class="ranking-reward"><p><span>{{$index+1}}</span>{{i.phone | sum}}</p><p class="reward">奖励</p></div>
+                                        <div class="ranking-moeny">
+                                            <p>{{i.tenderSum | toWrap}}元</p>
+                                            <p class="rewardmoney" v-if="jiage == 'cf'">{{38+(3-$index)*50}}元</p>
+                                            <p class="rewardmoney" v-if="jiage == 'hz'">{{38+(3-$index-1)*50}}元</p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="cfbottom bottom"></div>
+                    <div class="fighting">
+                        <p>1月{{day1}}日</p>
+                        <p v-if="day1 == 16">第一战</p>
+                        <p v-if="day1 == 17">第二战</p>
+                        <p v-if="day1 >= 18">第三战</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:;" class="cen-btn win-btn" @click="closewin"></a>
+    </div>
+</section>
 <section id="loadPage" v-show="pageLoading"></section>
 <input type="hidden" id="sharePic" value="/static/images/m20170118/share.jpg">
 <script src="/static/script/modules/sea.js"></script>
 <script src="/static/script/modules/seajs-config.js"></script>
 <script>
-    seajs.use('/static/script/m20170118/index.js');
+    seajs.use('/static/script/m20170118/project.js');
 </script>
 </body>
 </html>

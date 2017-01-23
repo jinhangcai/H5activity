@@ -44,6 +44,7 @@
 
     //页面级用户调用的方法
     var hybridProtocol = function (obj) {
+        //obj就是传过来的参数,是一个对象
         if(typeof obj =='object' && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length){
             this._params=obj;
             this._getHybridUrl();
@@ -52,8 +53,9 @@
         }
         this._bridgePostMessage();
     };
-
+    
     hybridProtocol.VERSION='1.7';
+    
     hybridProtocol.prototype._bridgePostMessage = function () {
         var self=this,
             ifr = document.createElement("iframe");
@@ -62,6 +64,8 @@
         document.getElementsByTagName("body")[0].appendChild(ifr);
         ifr.parentNode.removeChild(ifr);
     };
+
+//创建一个iframe，改变iframe的url值(用于让webview(webview能监听到框架的url发生的变化)监听到url的改变以做出相应的交互操作)
 
     //生成协议url
     hybridProtocol.prototype._getHybridUrl = function () {

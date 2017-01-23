@@ -599,7 +599,14 @@ define(function (require) {
         resultData:{
             flag:0.2,    //falg ==empty 未领取      falg !=empty 已领取(返回具体金额)
             availableTimes: 3,
-            usedTimes: 3
+            usedTimes: 3,
+            receivedTimes: 1,
+            isReceived: 0,
+            isShared: false,
+            "103":"28.0",
+            "102":"18.0",
+            "101":"8.0",
+            "investSum":138888
         }
     });
     //#投资彩蛋领取礼品接口
@@ -620,6 +627,14 @@ define(function (require) {
             amount: 200
         },
         "resultMsg":""
+    });
+    //20170125点灯
+    Mock.mock(pageUrl.apiUrl.url + '/activity/monthlyActivity/receiveGift.html', {
+        resultCode:1,
+        resultData:{
+            result: '18元抵扣红包'
+        },
+        errorCode:'TENDER_NOT_ENOUGH'
     });
     return pageUrl;
 });

@@ -20,7 +20,6 @@ define(function (require) {
             activityData = base.activityData(activityCode),
             sysTime = activityData.systemTime,      //系统时间
             startTime = activityData.startDate;     //开始时间
-    console.log(sysTime,startTime)
          function timeshowaddress(){
              //活动已开始
              if(sysTime > startTime){
